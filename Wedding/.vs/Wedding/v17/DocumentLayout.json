@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{64CC671B-6FF0-49F8-A16D-332012EC447E}|Wedding.API\\Wedding.API.csproj|d:\\fpt\\semester 7\\swd392\\backup\\backend\\wedding\\wedding.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CC671B-6FF0-49F8-A16D-332012EC447E}|Wedding.API\\Wedding.API.csproj|solutionrelative:wedding.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AD49F82-64B7-495F-A0D7-D20D353998BC}|Wedding.Service\\Wedding.Service.csproj|d:\\fpt\\semester 7\\swd392\\backup\\backend\\wedding\\wedding.service\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AD49F82-64B7-495F-A0D7-D20D353998BC}|Wedding.Service\\Wedding.Service.csproj|solutionrelative:wedding.service\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CC671B-6FF0-49F8-A16D-332012EC447E}|Wedding.API\\Wedding.API.csproj|d:\\fpt\\semester 7\\swd392\\backup\\backend\\wedding\\wedding.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{64CC671B-6FF0-49F8-A16D-332012EC447E}|Wedding.API\\Wedding.API.csproj|solutionrelative:wedding.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CC671B-6FF0-49F8-A16D-332012EC447E}|Wedding.API\\Wedding.API.csproj|d:\\fpt\\semester 7\\swd392\\backup\\backend\\wedding\\wedding.api\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CC671B-6FF0-49F8-A16D-332012EC447E}|Wedding.API\\Wedding.API.csproj|solutionrelative:wedding.api\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AD49F82-64B7-495F-A0D7-D20D353998BC}|Wedding.Service\\Wedding.Service.csproj|d:\\fpt\\semester 7\\swd392\\backup\\backend\\wedding\\wedding.service\\service\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AD49F82-64B7-495F-A0D7-D20D353998BC}|Wedding.Service\\Wedding.Service.csproj|solutionrelative:wedding.service\\service\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AD49F82-64B7-495F-A0D7-D20D353998BC}|Wedding.Service\\Wedding.Service.csproj|d:\\fpt\\semester 7\\swd392\\backup\\backend\\wedding\\wedding.service\\service\\orderstatusservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AD49F82-64B7-495F-A0D7-D20D353998BC}|Wedding.Service\\Wedding.Service.csproj|solutionrelative:wedding.service\\service\\orderstatusservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.API\\Program.cs",
+              "RelativeDocumentMoniker": "Wedding.API\\Program.cs",
+              "ToolTip": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.API\\Program.cs",
+              "RelativeToolTip": "Wedding.API\\Program.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAHkAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-02T01:47:38.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Service\\Service\\AuthService.cs",
+              "RelativeDocumentMoniker": "Wedding.Service\\Service\\AuthService.cs",
+              "ToolTip": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Service\\Service\\AuthService.cs",
+              "RelativeToolTip": "Wedding.Service\\Service\\AuthService.cs",
+              "ViewState": "AgIAAOACAAAAAAAAAAAAABYDAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-27T05:37:42.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.API\\appsettings.json",
+              "RelativeDocumentMoniker": "Wedding.API\\appsettings.json",
+              "ToolTip": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.API\\appsettings.json",
+              "RelativeToolTip": "Wedding.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-27T02:26:17.517Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderStatusService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Service\\Service\\OrderStatusService.cs",
+              "RelativeDocumentMoniker": "Wedding.Service\\Service\\OrderStatusService.cs",
+              "ToolTip": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Service\\Service\\OrderStatusService.cs",
+              "RelativeToolTip": "Wedding.Service\\Service\\OrderStatusService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T03:32:49.235Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Service\\Service\\OrderService.cs",
+              "RelativeDocumentMoniker": "Wedding.Service\\Service\\OrderService.cs",
+              "ToolTip": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Service\\Service\\OrderService.cs",
+              "RelativeToolTip": "Wedding.Service\\Service\\OrderService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T03:32:37.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.API\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Wedding.API\\Controllers\\OrderController.cs",
+              "ToolTip": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.API\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Wedding.API\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAIwFAAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T03:32:23.525Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

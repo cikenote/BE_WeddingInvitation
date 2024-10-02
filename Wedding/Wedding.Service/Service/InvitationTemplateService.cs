@@ -1,0 +1,330 @@
+using System.Net;
+using System.Net.Mail;
+using System.Security.Claims;
+using AutoMapper;
+using Wedding.Model.Domain;
+using Wedding.Model.DTO;
+using Wedding.Service.IService;
+using Microsoft.Extensions.Configuration;
+using Wedding.DataAccess.IRepository;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Identity;
+
+namespace Wedding.Service.Service;
+
+public class InvitationTemplateService : IInvitationTemplateService
+{
+    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly IUnitOfWork _unitOfWork;
+    
+    public InvitationTemplateService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager)
+    {
+        _userManager = userManager;
+        _unitOfWork = unitOfWork;
+    }
+    public async Task<ResponseDTO> GetAll(ClaimsPrincipal User, string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
+        int pageNumber, int pageSize)
+    {
+        #region MyRegion
+
+        try
+        {
+            List<InvitationTemplate> invitationTemplates = new List<InvitationTemplate>();
+            
+            // Filter Query
+            if (!string.IsNullOrEmpty(filterOn) && !string.IsNullOrEmpty(filterQuery))
+            {
+                switch (filterOn.Trim().ToLower())
+                {
+                    case "templatename":
+                    {
+                        invitationTemplates = _unitOfWork.InvitationTemplateRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                            .GetAwaiter().GetResult().Where(x => 
+                                x.TemplateName.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                        break;
+                    }
+                    case "textcolor":
+                    {
+                        invitationTemplates = _unitOfWork.InvitationTemplateRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                            .GetAwaiter().GetResult().Where(x => 
+                                x.TextColor.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                        break;
+                    }
+                    case "textfont":
+                    {
+                        invitationTemplates = _unitOfWork.InvitationTemplateRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                            .GetAwaiter().GetResult().Where(x => 
+                                x.TextFont.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                invitationTemplates = _unitOfWork.InvitationTemplateRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                    .GetAwaiter().GetResult().ToList();
+            }
+            
+            // Sort Query
+            if (!string.IsNullOrEmpty(sortBy))
+            {
+                switch (sortBy.Trim().ToLower())
+                {
+                    case "templatename":
+                    {
+                        invitationTemplates = isAscending ==true
+                            ? invitationTemplates.OrderBy(x => x.TemplateName).ToList()
+                            : invitationTemplates.OrderByDescending(x => x.TemplateName).ToList();
+                        break;
+                    }
+                    case "textcolor":
+                    {
+                        invitationTemplates = isAscending ==true
+                            ? invitationTemplates.OrderBy(x => x.TextColor).ToList()
+                            : invitationTemplates.OrderByDescending(x => x.TextColor).ToList();
+                        break;
+                    }
+                    case "textfont":
+                    {
+                        invitationTemplates = isAscending ==true
+                            ? invitationTemplates.OrderBy(x => x.TextFont).ToList()
+                            : invitationTemplates.OrderByDescending(x => x.TextFont).ToList();
+                        break;
+                    }
+                    default:
+                    {
+                        break;
+                    }
+                }
+            }
+            
+            // Pagination
+            if (pageNumber > 0 && pageSize > 0)
+            {
+                var skipResult = (pageNumber - 1) * pageSize;
+                invitationTemplates = invitationTemplates.Skip(skipResult).Take(pageSize).ToList();
+            }
+            
+            #endregion Query Parameters
+
+            if (invitationTemplates == null || !invitationTemplates.Any())
+            {
+                return new ResponseDTO()
+                {
+                    Message = "No invitations template found",
+                    IsSuccess = false,
+                    StatusCode = 404,
+                    Result = null
+                };
+            }
+            
+            var invitationTemplateDtoList = new List<InvitationTemplateDTO>();
+
+            foreach (var invitationTemplate in invitationTemplates)
+            {
+                var invitationTemplateDTO = new InvitationTemplateDTO
+                {
+                    TemplateId = invitationTemplate.TemplateId,
+                    TemplateName = invitationTemplate.TemplateName,
+                    BackgroundImageUrl = invitationTemplate.BackgroundImageUrl,
+                    TextColor = invitationTemplate.TextColor,
+                    TextFont = invitationTemplate.TextFont,
+                    Description = invitationTemplate.Description,
+                    CreatedBy = invitationTemplate.CreatedBy,
+                };
+
+                invitationTemplateDtoList.Add(invitationTemplateDTO);
+            }
+
+            return new ResponseDTO()
+            {
+                Message = "Get all invitations template successfully",
+                Result = invitationTemplateDtoList,
+                IsSuccess = true,
+                StatusCode = 200
+            };
+        }
+        catch (Exception e)
+        {
+            return new ResponseDTO()
+            {
+                Message = e.Message,
+                Result = null,
+                IsSuccess = false,
+                StatusCode = 500
+            };
+        }
+    }
+
+    public async Task<ResponseDTO> GetById(Guid id)
+    {
+        {
+            try
+            {
+                var invitationTemplate = await _unitOfWork.InvitationTemplateRepository.GetById(id);
+                if (invitationTemplate is null)
+                {
+                    return new ResponseDTO()
+                    {
+                        Message = "Invitation template was not found",
+                        IsSuccess = false,
+                        StatusCode = 404,
+                        Result = null
+                    };
+                }
+
+                InvitationTemplateDTO invitationTemplateDto = new InvitationTemplateDTO()
+                {
+                    TemplateId = invitationTemplate.TemplateId,
+                    TemplateName = invitationTemplate.TemplateName,
+                    BackgroundImageUrl = invitationTemplate.BackgroundImageUrl,
+                    TextColor = invitationTemplate.TextColor,
+                    TextFont = invitationTemplate.TextFont,
+                    Description = invitationTemplate.Description,
+                    CreatedBy = invitationTemplate.CreatedBy
+                };
+
+                return new ResponseDTO()
+                {
+                    Message = "Get invitation template successfully ",
+                    IsSuccess = false,
+                    StatusCode = 200,
+                    Result = invitationTemplateDto
+                };
+            }
+            catch (Exception e)
+            {
+                return new ResponseDTO()
+                {
+                    Message = e.Message,
+                    IsSuccess = false,
+                    StatusCode = 500,
+                    Result = null
+                };
+            }
+        }
+    }
+
+    public async Task<ResponseDTO> UpdateById(UpdateInvitationTemplateDTO updateInvitationTemplateDTO)
+    {
+        try
+        {
+            var invitationTemplateToUpdate = await _unitOfWork.InvitationTemplateRepository.GetById(updateInvitationTemplateDTO.TemplateId);
+            if (invitationTemplateToUpdate is null)
+            {
+                return new ResponseDTO()
+                {
+                    Message = "Invitation template was not found",
+                    IsSuccess = false,
+                    StatusCode = 404,
+                    Result = null
+                };
+            }
+            
+            invitationTemplateToUpdate.TemplateName = updateInvitationTemplateDTO.TemplateName;
+            invitationTemplateToUpdate.BackgroundImageUrl = updateInvitationTemplateDTO.BackgroundImageUrl;
+            invitationTemplateToUpdate.TextColor = updateInvitationTemplateDTO.TextColor;
+            invitationTemplateToUpdate.TextFont = updateInvitationTemplateDTO.TextFont;
+            invitationTemplateToUpdate.Description = updateInvitationTemplateDTO.Description;
+            invitationTemplateToUpdate.CreatedBy = updateInvitationTemplateDTO.CreatedBy;
+            
+            _unitOfWork.InvitationTemplateRepository.Update(invitationTemplateToUpdate);
+            await _unitOfWork.SaveAsync();
+            
+            return new ResponseDTO()
+            {
+                Message = "Invitation template updated successfully",
+                IsSuccess = true,
+                StatusCode = 200,
+                Result = null
+            };
+        }
+        catch (Exception e)
+        {
+            return new ResponseDTO()
+            {
+                Message = e.Message,
+                IsSuccess = false,
+                StatusCode = 500,
+                Result = null
+            };
+        }
+    }
+
+    public async Task<ResponseDTO> DeleteById(Guid id)
+    {
+        try
+        {
+            var invitationTemplate = await _unitOfWork.InvitationTemplateRepository.GetById(id);
+            if (invitationTemplate is null)
+            {
+                return new ResponseDTO()
+                {
+                    Message = "Invitation template was not found",
+                    IsSuccess = false,
+                    StatusCode = 404,
+                    Result = null
+                };
+            }
+
+            _unitOfWork.InvitationTemplateRepository.Remove(invitationTemplate);
+            await _unitOfWork.SaveAsync();
+
+            return new ResponseDTO()
+            {
+                Message = "Invitation template deleted successfully",
+                IsSuccess = true,
+                StatusCode = 200,
+                Result = null
+            };
+        }
+        catch (Exception e)
+        {
+            return new ResponseDTO()
+            {
+                Message = e.Message,
+                IsSuccess = false,
+                StatusCode = 500,
+                Result = null
+            };
+        }
+    }
+
+    public async Task<ResponseDTO> CreateById(CreateInvitationTemplateDTO createInvitationTemplateDTO)
+    {
+        try
+        {
+            var invitationTemplate = new InvitationTemplate()
+            {
+                TemplateId = Guid.NewGuid(),
+                TemplateName = createInvitationTemplateDTO.TemplateName,
+                BackgroundImageUrl = createInvitationTemplateDTO.BackgroundImageUrl,
+                TextColor = createInvitationTemplateDTO.TextColor,
+                TextFont = createInvitationTemplateDTO.TextFont,
+                Description = createInvitationTemplateDTO.Description,
+                CreatedBy = createInvitationTemplateDTO.CreatedBy
+            };
+
+            await _unitOfWork.InvitationTemplateRepository.AddAsync(invitationTemplate);
+            await _unitOfWork.SaveAsync();
+
+            return new ResponseDTO()
+            {
+                Message = "Invitation template created successfully",
+                IsSuccess = true,
+                StatusCode = 201,
+                Result = invitationTemplate
+            };
+        }
+        catch (Exception e)
+        {
+            return new ResponseDTO()
+            {
+                Message = e.Message,
+                IsSuccess = false,
+                StatusCode = 500,
+                Result = null
+            };
+        }
+    }
+}
