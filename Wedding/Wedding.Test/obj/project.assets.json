@@ -15780,11 +15780,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Test\\Wedding.Test.csproj",
+      "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Test\\Wedding.Test.csproj",
       "projectName": "Wedding.Test",
-      "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Test\\Wedding.Test.csproj",
+      "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Test\\Wedding.Test.csproj",
       "packagesPath": "C:\\Users\\Son\\.nuget\\packages\\",
-      "outputPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Test\\obj\\",
+      "outputPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Son\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -15802,20 +15802,20 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.API\\Wedding.API.csproj": {
-              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.API\\Wedding.API.csproj"
+            "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.API\\Wedding.API.csproj": {
+              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.API\\Wedding.API.csproj"
             },
-            "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj": {
-              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj"
+            "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj": {
+              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj"
             },
-            "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Model\\Wedding.Model.csproj": {
-              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Model\\Wedding.Model.csproj"
+            "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Wedding.Model.csproj": {
+              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Wedding.Model.csproj"
             },
-            "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Service\\Wedding.Service.csproj": {
-              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Service\\Wedding.Service.csproj"
+            "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\Wedding.Service.csproj": {
+              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\Wedding.Service.csproj"
             },
-            "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {
-              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj"
+            "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {
+              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj"
             }
           }
         }

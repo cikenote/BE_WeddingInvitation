@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Wedding.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/event-photo")]
     [ApiController]
     [Authorize(Roles = StaticUserRoles.Customer)]
     public class EventPhotoController : ControllerBase

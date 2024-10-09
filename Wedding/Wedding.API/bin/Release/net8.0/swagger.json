@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Activity": {
+    "/api/activities": {
       "get": {
         "tags": [
           "Activity"
@@ -93,7 +93,7 @@
         }
       }
     },
-    "/api/Activity/{id}": {
+    "/api/activities/{id}": {
       "get": {
         "tags": [
           "Activity"
@@ -188,7 +188,7 @@
         }
       }
     },
-    "/api/Auth/customer/sign-up": {
+    "/api/auth/customer/sign-up": {
       "post": {
         "tags": [
           "Auth"
@@ -222,7 +222,7 @@
         }
       }
     },
-    "/api/Auth/user/avatar": {
+    "/api/auth/user/avatar": {
       "post": {
         "tags": [
           "Auth"
@@ -263,7 +263,7 @@
         }
       }
     },
-    "/api/Auth/user/avatar/display/{userId}": {
+    "/api/auth/user/avatar/display/{userId}": {
       "get": {
         "tags": [
           "Auth"
@@ -283,7 +283,7 @@
         }
       }
     },
-    "/api/Auth/forgot-password": {
+    "/api/auth/forgot-password": {
       "post": {
         "tags": [
           "Auth"
@@ -317,7 +317,7 @@
         }
       }
     },
-    "/api/Auth/reset-password": {
+    "/api/auth/reset-password": {
       "post": {
         "tags": [
           "Auth"
@@ -351,7 +351,7 @@
         }
       }
     },
-    "/api/Auth/send-verify-email": {
+    "/api/auth/send-verify-email": {
       "post": {
         "tags": [
           "Auth"
@@ -385,7 +385,7 @@
         }
       }
     },
-    "/api/Auth/verify-email": {
+    "/api/auth/verify-email": {
       "post": {
         "tags": [
           "Auth"
@@ -417,7 +417,7 @@
         }
       }
     },
-    "/api/Auth/change-password": {
+    "/api/auth/change-password": {
       "post": {
         "tags": [
           "Auth"
@@ -451,7 +451,7 @@
         }
       }
     },
-    "/api/Auth/sign-in": {
+    "/api/auth/sign-in": {
       "post": {
         "tags": [
           "Auth"
@@ -485,7 +485,7 @@
         }
       }
     },
-    "/api/Auth/refresh": {
+    "/api/auth/refresh": {
       "post": {
         "tags": [
           "Auth"
@@ -519,7 +519,7 @@
         }
       }
     },
-    "/api/Auth/check-email-exist": {
+    "/api/auth/check-email-exist": {
       "post": {
         "tags": [
           "Auth"
@@ -553,7 +553,7 @@
         }
       }
     },
-    "/api/Auth/check-phone-number-exist": {
+    "/api/auth/check-phone-number-exist": {
       "post": {
         "tags": [
           "Auth"
@@ -587,7 +587,7 @@
         }
       }
     },
-    "/api/Auth/customer/profile": {
+    "/api/auth/customer/profile": {
       "post": {
         "tags": [
           "Auth"
@@ -653,7 +653,7 @@
         }
       }
     },
-    "/api/Auth/google/sign-in": {
+    "/api/auth/google/sign-in": {
       "post": {
         "tags": [
           "Auth"
@@ -687,7 +687,7 @@
         }
       }
     },
-    "/api/Auth/user/info": {
+    "/api/auth/user/info": {
       "get": {
         "tags": [
           "Auth"
@@ -707,7 +707,7 @@
         }
       }
     },
-    "/api/Auth/lock": {
+    "/api/auth/lock": {
       "post": {
         "tags": [
           "Auth"
@@ -741,7 +741,7 @@
         }
       }
     },
-    "/api/Auth/unlock": {
+    "/api/auth/unlock": {
       "post": {
         "tags": [
           "Auth"
@@ -775,7 +775,7 @@
         }
       }
     },
-    "/api/CardManagement": {
+    "/api/card-management": {
       "get": {
         "tags": [
           "CardManagement"
@@ -863,7 +863,7 @@
         }
       }
     },
-    "/api/CardManagement/{id}": {
+    "/api/card-management/{id}": {
       "get": {
         "tags": [
           "CardManagement"
@@ -958,7 +958,7 @@
         }
       }
     },
-    "/api/Cart": {
+    "/api/cart": {
       "get": {
         "tags": [
           "Cart"
@@ -978,7 +978,7 @@
         }
       }
     },
-    "/api/Cart/details": {
+    "/api/cart/details": {
       "post": {
         "tags": [
           "Cart"
@@ -1012,7 +1012,7 @@
         }
       }
     },
-    "/api/Cart/details/{detailsId}": {
+    "/api/cart/details/{detailsId}": {
       "delete": {
         "tags": [
           "Cart"
@@ -1047,7 +1047,7 @@
         }
       }
     },
-    "/api/Customer": {
+    "/api/customer": {
       "get": {
         "tags": [
           "Customer"
@@ -1135,7 +1135,7 @@
         }
       }
     },
-    "/api/Customer/{customerId}": {
+    "/api/customer/{customerId}": {
       "get": {
         "tags": [
           "Customer"
@@ -1164,7 +1164,7 @@
         }
       }
     },
-    "/api/Customer/activate/{customerId}": {
+    "/api/customer/activate/{customerId}": {
       "post": {
         "tags": [
           "Customer"
@@ -1193,7 +1193,7 @@
         }
       }
     },
-    "/api/Customer/deactivate/{customerId}": {
+    "/api/customer/deactivate/{customerId}": {
       "post": {
         "tags": [
           "Customer"
@@ -1222,7 +1222,7 @@
         }
       }
     },
-    "/api/Customer/export/{month}/{year}": {
+    "/api/customer/export/{month}/{year}": {
       "post": {
         "tags": [
           "Customer"
@@ -1258,7 +1258,7 @@
         }
       }
     },
-    "/api/Customer/download/{fileName}": {
+    "/api/customer/download/{fileName}": {
       "get": {
         "tags": [
           "Customer"
@@ -1278,7 +1278,7 @@
         }
       }
     },
-    "/api/EmailTemplate": {
+    "/api/email-template": {
       "get": {
         "tags": [
           "EmailTemplate"
@@ -1366,7 +1366,7 @@
         }
       }
     },
-    "/api/EmailTemplate/{id}": {
+    "/api/email-template/{id}": {
       "get": {
         "tags": [
           "EmailTemplate"
@@ -1461,7 +1461,7 @@
         }
       }
     },
-    "/api/Event": {
+    "/api/event": {
       "get": {
         "tags": [
           "Event"
@@ -1549,7 +1549,7 @@
         }
       }
     },
-    "/api/Event/{id}": {
+    "/api/event/{id}": {
       "get": {
         "tags": [
           "Event"
@@ -1644,7 +1644,7 @@
         }
       }
     },
-    "/api/EventPhoto": {
+    "/api/event-photo": {
       "get": {
         "tags": [
           "EventPhoto"
@@ -1732,7 +1732,7 @@
         }
       }
     },
-    "/api/EventPhoto/{id}": {
+    "/api/event-photo/{id}": {
       "get": {
         "tags": [
           "EventPhoto"
@@ -1827,190 +1827,7 @@
         }
       }
     },
-    "/api/Guest": {
-      "get": {
-        "tags": [
-          "Guest"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "filterOn",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "filterQuery",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "sortBy",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "isAscending",
-            "type": "boolean"
-          },
-          {
-            "in": "query",
-            "name": "pageNumber",
-            "type": "integer",
-            "format": "int32",
-            "default": 1
-          },
-          {
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer",
-            "format": "int32",
-            "default": 10
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/ResponseDTO"
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Guest"
-        ],
-        "consumes": [
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/CreateGuestDTO"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/ResponseDTO"
-            }
-          }
-        }
-      }
-    },
-    "/api/Guest/{id}": {
-      "get": {
-        "tags": [
-          "Guest"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/ResponseDTO"
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Guest"
-        ],
-        "consumes": [
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/UpdateGuestDTO"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/ResponseDTO"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Guest"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/ResponseDTO"
-            }
-          }
-        }
-      }
-    },
-    "/api/GuestList": {
+    "/api/guest-list": {
       "get": {
         "tags": [
           "GuestList"
@@ -2098,7 +1915,7 @@
         }
       }
     },
-    "/api/GuestList/{id}": {
+    "/api/guest-list/{id}": {
       "get": {
         "tags": [
           "GuestList"
@@ -2193,7 +2010,190 @@
         }
       }
     },
-    "/api/Invitation": {
+    "/api/guests": {
+      "get": {
+        "tags": [
+          "Guests"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filterOn",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "filterQuery",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "sortBy",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "isAscending",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "pageNumber",
+            "type": "integer",
+            "format": "int32",
+            "default": 1
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer",
+            "format": "int32",
+            "default": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseDTO"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Guests"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateGuestDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseDTO"
+            }
+          }
+        }
+      }
+    },
+    "/api/guests/{id}": {
+      "get": {
+        "tags": [
+          "Guests"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseDTO"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Guests"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateGuestDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseDTO"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Guests"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseDTO"
+            }
+          }
+        }
+      }
+    },
+    "/api/invitation": {
       "get": {
         "tags": [
           "Invitation"
@@ -2281,7 +2281,7 @@
         }
       }
     },
-    "/api/Invitation/{id}": {
+    "/api/invitation/{id}": {
       "get": {
         "tags": [
           "Invitation"
@@ -2376,7 +2376,7 @@
         }
       }
     },
-    "/api/InvitationTemplate": {
+    "/api/invitation-template": {
       "get": {
         "tags": [
           "InvitationTemplate"
@@ -2464,7 +2464,7 @@
         }
       }
     },
-    "/api/InvitationTemplate/{id}": {
+    "/api/invitation-template/{id}": {
       "get": {
         "tags": [
           "InvitationTemplate"
@@ -2559,7 +2559,7 @@
         }
       }
     },
-    "/api/Order": {
+    "/api/order": {
       "post": {
         "tags": [
           "Order"
@@ -2639,7 +2639,7 @@
         }
       }
     },
-    "/api/Order/{orderHeaderId}": {
+    "/api/order/{orderHeaderId}": {
       "get": {
         "tags": [
           "Order"
@@ -2668,7 +2668,7 @@
         }
       }
     },
-    "/api/Order/status/{orderHeaderId}": {
+    "/api/order/status/{orderHeaderId}": {
       "get": {
         "tags": [
           "Order"
@@ -2697,7 +2697,7 @@
         }
       }
     },
-    "/api/Order/stripe/checkout": {
+    "/api/order/stripe/checkout": {
       "post": {
         "tags": [
           "Order"
@@ -2731,7 +2731,7 @@
         }
       }
     },
-    "/api/Order/stripe/validate": {
+    "/api/order/stripe/validate": {
       "post": {
         "tags": [
           "Order"
@@ -2765,7 +2765,7 @@
         }
       }
     },
-    "/api/Order/confirm/{orderHeaderId}": {
+    "/api/order/confirm/{orderHeaderId}": {
       "put": {
         "tags": [
           "Order"
@@ -2794,7 +2794,7 @@
         }
       }
     },
-    "/api/Payment/system/balance": {
+    "/api/payment/system/balance": {
       "get": {
         "tags": [
           "Payment"
@@ -2814,7 +2814,7 @@
         }
       }
     },
-    "/api/Payment/customer/balance": {
+    "/api/payment/customer/balance": {
       "get": {
         "tags": [
           "Payment"
@@ -2841,7 +2841,7 @@
         }
       }
     },
-    "/api/Payment/transaction": {
+    "/api/payment/transaction": {
       "get": {
         "tags": [
           "Payment"
@@ -2902,7 +2902,7 @@
         }
       }
     },
-    "/api/Payment/stripe/account": {
+    "/api/payment/stripe/account": {
       "post": {
         "tags": [
           "Payment"
@@ -2936,7 +2936,7 @@
         }
       }
     },
-    "/api/Payment/stripe/transfer": {
+    "/api/payment/stripe/transfer": {
       "post": {
         "tags": [
           "Payment"
@@ -2970,7 +2970,7 @@
         }
       }
     },
-    "/api/Payment/stripe/payout": {
+    "/api/payment/stripe/payout": {
       "post": {
         "tags": [
           "Payment"
@@ -3004,7 +3004,7 @@
         }
       }
     },
-    "/api/Payment/stripe/card": {
+    "/api/payment/stripe/card": {
       "post": {
         "tags": [
           "Payment"
@@ -3038,7 +3038,7 @@
         }
       }
     },
-    "/api/Website/company": {
+    "/api/website/company": {
       "get": {
         "tags": [
           "Website"
@@ -3090,7 +3090,7 @@
         }
       }
     },
-    "/api/Website/privacy": {
+    "/api/website/privacy": {
       "get": {
         "tags": [
           "Website"
@@ -3174,7 +3174,7 @@
         }
       }
     },
-    "/api/Website/privacy/{id}": {
+    "/api/website/privacy/{id}": {
       "get": {
         "tags": [
           "Website"
@@ -3230,7 +3230,7 @@
         }
       }
     },
-    "/api/Website/term-of-use": {
+    "/api/website/term-of-use": {
       "get": {
         "tags": [
           "Website"
@@ -3314,7 +3314,7 @@
         }
       }
     },
-    "/api/Website/term-of-use/{id}": {
+    "/api/website/term-of-use/{id}": {
       "get": {
         "tags": [
           "Website"
@@ -3370,7 +3370,7 @@
         }
       }
     },
-    "/api/Wedding": {
+    "/api/wedding": {
       "get": {
         "tags": [
           "Wedding"
@@ -3458,7 +3458,7 @@
         }
       }
     },
-    "/api/Wedding/{id}": {
+    "/api/wedding/{id}": {
       "get": {
         "tags": [
           "Wedding"
@@ -3558,10 +3558,10 @@
     "AddStripeCardDTO": {
       "type": "object",
       "properties": {
-        "connectedAccountId": {
+        "connected-account-id": {
           "type": "string"
         },
-        "cardToken": {
+        "card-token": {
           "type": "string"
         }
       },
@@ -3569,11 +3569,11 @@
     },
     "AddToCartDTO": {
       "required": [
-        "cardId"
+        "card-id"
       ],
       "type": "object",
       "properties": {
-        "cardId": {
+        "card-id": {
           "format": "uuid",
           "type": "string"
         }
@@ -3582,25 +3582,25 @@
     },
     "ChangePasswordDTO": {
       "required": [
-        "confirmNewPassword",
-        "newPassword",
-        "oldPassword"
+        "confirm-new-password",
+        "new-password",
+        "old-password"
       ],
       "type": "object",
       "properties": {
-        "oldPassword": {
+        "old-password": {
           "format": "password",
           "maxLength": 100,
           "minLength": 8,
           "type": "string"
         },
-        "newPassword": {
+        "new-password": {
           "format": "password",
           "maxLength": 100,
           "minLength": 8,
           "type": "string"
         },
-        "confirmNewPassword": {
+        "confirm-new-password": {
           "format": "password",
           "maxLength": 100,
           "minLength": 8,
@@ -3612,13 +3612,13 @@
     "CompleteCustomerProfileDTO": {
       "required": [
         "address",
-        "birthDate",
-        "cardName",
-        "cardNumber",
-        "cardProvider",
+        "birth-date",
+        "card-name",
+        "card-number",
+        "card-provider",
         "country",
         "gender",
-        "phoneNumber"
+        "phone-number"
       ],
       "type": "object",
       "properties": {
@@ -3626,7 +3626,7 @@
           "minLength": 1,
           "type": "string"
         },
-        "phoneNumber": {
+        "phone-number": {
           "format": "tel",
           "minLength": 1,
           "type": "string"
@@ -3635,7 +3635,7 @@
           "minLength": 1,
           "type": "string"
         },
-        "birthDate": {
+        "birth-date": {
           "format": "date",
           "type": "string"
         },
@@ -3643,15 +3643,15 @@
           "minLength": 1,
           "type": "string"
         },
-        "cardNumber": {
+        "card-number": {
           "minLength": 1,
           "type": "string"
         },
-        "cardProvider": {
+        "card-provider": {
           "minLength": 1,
           "type": "string"
         },
-        "cardName": {
+        "card-name": {
           "minLength": 1,
           "type": "string"
         }
@@ -3661,11 +3661,11 @@
     "CreateActivityLogDTO": {
       "type": "object",
       "properties": {
-        "logId": {
+        "log-id": {
           "format": "uuid",
           "type": "string"
         },
-        "userId": {
+        "user-id": {
           "type": "string"
         },
         "action": {
@@ -3674,7 +3674,7 @@
         "entity": {
           "type": "string"
         },
-        "timeStamp": {
+        "time-stamp": {
           "type": "string"
         }
       },
@@ -3683,21 +3683,21 @@
     "CreateCardManagementDTO": {
       "type": "object",
       "properties": {
-        "cardId": {
+        "card-id": {
           "format": "uuid",
           "type": "string"
         },
-        "userId": {
+        "user-id": {
           "type": "string"
         },
-        "invitationId": {
+        "invitation-id": {
           "format": "uuid",
           "type": "string"
         },
-        "attendStatus": {
+        "attend-status": {
           "type": "string"
         },
-        "createdTime": {
+        "created-time": {
           "format": "date-time",
           "type": "string"
         }
@@ -3707,40 +3707,40 @@
     "CreateEmailTemplateDTO": {
       "type": "object",
       "properties": {
-        "templateName": {
+        "template-name": {
           "type": "string"
         },
-        "senderName": {
+        "sender-name": {
           "type": "string"
         },
-        "senderEmail": {
+        "sender-email": {
           "type": "string"
         },
         "category": {
           "type": "string"
         },
-        "subjectLine": {
+        "subject-line": {
           "type": "string"
         },
-        "preHeaderText": {
+        "pre-header-text": {
           "type": "string"
         },
-        "personalizationTags": {
+        "personalization-tags": {
           "type": "string"
         },
-        "bodyContent": {
+        "body-content": {
           "type": "string"
         },
-        "footerContent": {
+        "footer-content": {
           "type": "string"
         },
-        "callToAction": {
+        "call-to-action": {
           "type": "string"
         },
         "language": {
           "type": "string"
         },
-        "recipientType": {
+        "recipient-type": {
           "type": "string"
         }
       },
@@ -3749,31 +3749,31 @@
     "CreateEventDTO": {
       "type": "object",
       "properties": {
-        "eventId": {
+        "event-id": {
           "format": "uuid",
           "type": "string"
         },
-        "weddingId": {
+        "wedding-id": {
           "format": "uuid",
           "type": "string"
         },
-        "brideName": {
+        "bride-name": {
           "type": "string"
         },
-        "groomName": {
+        "groom-name": {
           "type": "string"
         },
-        "eventDate": {
+        "event-date": {
           "format": "date-time",
           "type": "string"
         },
-        "eventLocation": {
+        "event-location": {
           "type": "string"
         },
-        "eventPhotoUrl": {
+        "event-photo-url": {
           "type": "string"
         },
-        "createdDate": {
+        "created-date": {
           "format": "date-time",
           "type": "string"
         }
@@ -3783,21 +3783,21 @@
     "CreateEventPhotoDTO": {
       "type": "object",
       "properties": {
-        "eventPhotoId": {
+        "event-photo-id": {
           "format": "uuid",
           "type": "string"
         },
-        "eventId": {
+        "event-id": {
           "format": "uuid",
           "type": "string"
         },
-        "photoUrl": {
+        "photo-url": {
           "type": "string"
         },
-        "photoType": {
+        "photo-type": {
           "type": "string"
         },
-        "uploadedDate": {
+        "uploaded-date": {
           "format": "date-time",
           "type": "string"
         }
@@ -3807,11 +3807,11 @@
     "CreateGuestDTO": {
       "type": "object",
       "properties": {
-        "guestId": {
+        "guest-id": {
           "format": "uuid",
           "type": "string"
         },
-        "eventId": {
+        "log-id": {
           "format": "uuid",
           "type": "string"
         },
@@ -3830,25 +3830,25 @@
     "CreateGuestListDTO": {
       "type": "object",
       "properties": {
-        "guestId": {
+        "guest-id": {
           "format": "uuid",
           "type": "string"
         },
-        "eventId": {
+        "event-id": {
           "format": "uuid",
           "type": "string"
         },
-        "guestName": {
+        "guest-name": {
           "type": "string"
         },
-        "attendStatus": {
+        "attend-status": {
           "type": "string"
         },
-        "checkinTime": {
+        "checkin-time": {
           "format": "date-time",
           "type": "string"
         },
-        "guestGift": {
+        "guest-gift": {
           "type": "string"
         }
       },
@@ -3857,28 +3857,28 @@
     "CreateInvitationDTO": {
       "type": "object",
       "properties": {
-        "invitationId": {
+        "invitation-id": {
           "format": "uuid",
           "type": "string"
         },
-        "weddingId": {
+        "wedding-id": {
           "format": "uuid",
           "type": "string"
         },
-        "templateId": {
+        "template-id": {
           "format": "uuid",
           "type": "string"
         },
-        "customerMessage": {
+        "customer-message": {
           "type": "string"
         },
-        "customerTextColor": {
+        "customer-text-color": {
           "type": "string"
         },
-        "shareableLink": {
+        "shareable-link": {
           "type": "string"
         },
-        "createdTime": {
+        "created-time": {
           "format": "date-time",
           "type": "string"
         }
@@ -3888,26 +3888,26 @@
     "CreateInvitationTemplateDTO": {
       "type": "object",
       "properties": {
-        "templateId": {
+        "template-id": {
           "format": "uuid",
           "type": "string"
         },
-        "templateName": {
+        "template-name": {
           "type": "string"
         },
-        "backgroundImageUrl": {
+        "background-image-url": {
           "type": "string"
         },
-        "textColor": {
+        "text-color": {
           "type": "string"
         },
-        "textFont": {
+        "text-font": {
           "type": "string"
         },
         "description": {
           "type": "string"
         },
-        "createdBy": {
+        "created-by": {
           "format": "date-time",
           "type": "string"
         }
@@ -3923,7 +3923,7 @@
         "content": {
           "type": "string"
         },
-        "isActive": {
+        "is-active": {
           "type": "boolean"
         }
       },
@@ -3932,10 +3932,10 @@
     "CreateStripeConnectedAccountDTO": {
       "type": "object",
       "properties": {
-        "refreshUrl": {
+        "refresh-url": {
           "type": "string"
         },
-        "returnUrl": {
+        "return-url": {
           "type": "string"
         }
       },
@@ -3957,7 +3957,7 @@
     "CreateStripeTransferDTO": {
       "type": "object",
       "properties": {
-        "userId": {
+        "user-id": {
           "type": "string"
         },
         "amount": {
@@ -3979,7 +3979,7 @@
         "content": {
           "type": "string"
         },
-        "isActive": {
+        "is-active": {
           "type": "boolean"
         }
       },
@@ -3988,30 +3988,30 @@
     "CreateWeddingDTO": {
       "type": "object",
       "properties": {
-        "weddingId": {
+        "wedding-id": {
           "format": "uuid",
           "type": "string"
         },
-        "userId": {
+        "user-id": {
           "type": "string"
         },
-        "brideName": {
+        "bride-name": {
           "type": "string"
         },
-        "groomName": {
+        "groom-name": {
           "type": "string"
         },
-        "weddingDate": {
+        "wedding-date": {
           "format": "date-time",
           "type": "string"
         },
-        "weddingLocation": {
+        "wedding-location": {
           "type": "string"
         },
-        "weddingPhotoUrl": {
+        "wedding-photo-url": {
           "type": "string"
         },
-        "createdDate": {
+        "created-date": {
           "format": "date-time",
           "type": "string"
         }
@@ -4020,11 +4020,11 @@
     },
     "ForgotPasswordDTO": {
       "required": [
-        "emailOrPhone"
+        "email-or-phone"
       ],
       "type": "object",
       "properties": {
-        "emailOrPhone": {
+        "email-or-phone": {
           "minLength": 1,
           "type": "string"
         }
@@ -4034,10 +4034,10 @@
     "JwtTokenDTO": {
       "type": "object",
       "properties": {
-        "accessToken": {
+        "access-token": {
           "type": "string"
         },
-        "refreshToken": {
+        "refresh-token": {
           "type": "string"
         }
       },
@@ -4046,7 +4046,7 @@
     "LockUserDTO": {
       "type": "object",
       "properties": {
-        "userId": {
+        "user-id": {
           "type": "string"
         }
       },
@@ -4055,13 +4055,13 @@
     "PayWithStripeDTO": {
       "type": "object",
       "properties": {
-        "approvedUrl": {
+        "approve-url": {
           "type": "string"
         },
-        "cancelUrl": {
+        "cancel-url": {
           "type": "string"
         },
-        "orderHeaderId": {
+        "order-header-id": {
           "format": "uuid",
           "type": "string"
         }
@@ -4071,14 +4071,14 @@
     "RegisterCustomerDTO": {
       "required": [
         "address",
-        "birthDate",
-        "confirmPassword",
+        "birth-date",
+        "confirm-password",
         "country",
         "email",
-        "fullName",
+        "full-name",
         "gender",
         "password",
-        "phoneNumber"
+        "phone-number"
       ],
       "type": "object",
       "properties": {
@@ -4093,12 +4093,12 @@
           "pattern": "^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?\"{}|<>])(?=.*\\d).{6,}$",
           "type": "string"
         },
-        "confirmPassword": {
+        "confirm-password": {
           "format": "password",
           "minLength": 1,
           "type": "string"
         },
-        "fullName": {
+        "full-name": {
           "minLength": 1,
           "type": "string"
         },
@@ -4114,11 +4114,11 @@
           "minLength": 1,
           "type": "string"
         },
-        "birthDate": {
+        "birth-date": {
           "format": "date",
           "type": "string"
         },
-        "phoneNumber": {
+        "phone-number": {
           "format": "tel",
           "minLength": 1,
           "type": "string"
@@ -4145,10 +4145,10 @@
       "type": "object",
       "properties": {
         "result": { },
-        "isSuccess": {
+        "is-success": {
           "type": "boolean"
         },
-        "statusCode": {
+        "status-code": {
           "format": "int32",
           "type": "integer"
         },
@@ -4198,7 +4198,7 @@
     "UpdateActivityLogDTO": {
       "type": "object",
       "properties": {
-        "logId": {
+        "log-id": {
           "format": "uuid",
           "type": "string"
         },
@@ -4208,7 +4208,7 @@
         "entity": {
           "type": "string"
         },
-        "timeStamp": {
+        "time-stamp": {
           "type": "string"
         }
       },
@@ -4217,18 +4217,18 @@
     "UpdateCardManagementDTO": {
       "type": "object",
       "properties": {
-        "cardId": {
+        "card-id": {
           "format": "uuid",
           "type": "string"
         },
-        "invitationId": {
+        "invitation-id": {
           "format": "uuid",
           "type": "string"
         },
-        "attendStatus": {
+        "attend-status": {
           "type": "string"
         },
-        "createdTime": {
+        "created-time": {
           "format": "date-time",
           "type": "string"
         }
@@ -4257,7 +4257,7 @@
         "country": {
           "type": "string"
         },
-        "postalCode": {
+        "postal-code": {
           "type": "string"
         },
         "phone": {
@@ -4269,11 +4269,11 @@
         "website": {
           "type": "string"
         },
-        "foundedDate": {
+        "founded-date": {
           "format": "date-time",
           "type": "string"
         },
-        "logoUrl": {
+        "logo-url": {
           "type": "string"
         },
         "description": {
@@ -4285,15 +4285,15 @@
     "UpdateCustomerDTO": {
       "required": [
         "address",
-        "birthDate",
+        "birth-date",
         "country",
-        "customerId",
-        "fullName",
+        "customer-id",
+        "full-name",
         "gender"
       ],
       "type": "object",
       "properties": {
-        "customerId": {
+        "customer-id": {
           "format": "uuid",
           "type": "string"
         },
@@ -4301,11 +4301,11 @@
           "minLength": 1,
           "type": "string"
         },
-        "fullName": {
+        "full-name": {
           "minLength": 1,
           "type": "string"
         },
-        "birthDate": {
+        "birth-date": {
           "format": "date-time",
           "type": "string"
         },
@@ -4323,12 +4323,12 @@
     "UpdateCustomerProfileDTO": {
       "required": [
         "address",
-        "birthDate",
-        "cardName",
-        "cardNumber",
-        "cardProvider",
+        "birth-date",
+        "card-name",
+        "card-number",
+        "card-provider",
         "country",
-        "fullName",
+        "full-name",
         "gender"
       ],
       "type": "object",
@@ -4337,11 +4337,11 @@
           "minLength": 1,
           "type": "string"
         },
-        "fullName": {
+        "full-name": {
           "minLength": 1,
           "type": "string"
         },
-        "birthDate": {
+        "birth-date": {
           "format": "date-time",
           "type": "string"
         },
@@ -4353,15 +4353,15 @@
           "minLength": 1,
           "type": "string"
         },
-        "cardNumber": {
+        "card-number": {
           "minLength": 1,
           "type": "string"
         },
-        "cardName": {
+        "card-name": {
           "minLength": 1,
           "type": "string"
         },
-        "cardProvider": {
+        "card-provider": {
           "minLength": 1,
           "type": "string"
         }
@@ -4371,40 +4371,40 @@
     "UpdateEmailTemplateDTO": {
       "type": "object",
       "properties": {
-        "templateName": {
+        "template-name": {
           "type": "string"
         },
-        "senderName": {
+        "sender-name": {
           "type": "string"
         },
-        "senderEmail": {
+        "sender-email": {
           "type": "string"
         },
         "category": {
           "type": "string"
         },
-        "subjectLine": {
+        "subject-line": {
           "type": "string"
         },
-        "preHeaderText": {
+        "pre-header-text": {
           "type": "string"
         },
-        "personalizationTags": {
+        "personalization-tags": {
           "type": "string"
         },
-        "bodyContent": {
+        "body-content": {
           "type": "string"
         },
-        "footerContent": {
+        "footer-content": {
           "type": "string"
         },
-        "callToAction": {
+        "call-to-action": {
           "type": "string"
         },
         "language": {
           "type": "string"
         },
-        "recipientType": {
+        "recipient-type": {
           "type": "string"
         }
       },
@@ -4413,31 +4413,31 @@
     "UpdateEventDTO": {
       "type": "object",
       "properties": {
-        "eventId": {
+        "event-id": {
           "format": "uuid",
           "type": "string"
         },
-        "weddingId": {
+        "wedding-id": {
           "format": "uuid",
           "type": "string"
         },
-        "brideName": {
+        "bride-name": {
           "type": "string"
         },
-        "groomName": {
+        "groom-name": {
           "type": "string"
         },
-        "eventDate": {
+        "event-date": {
           "format": "date-time",
           "type": "string"
         },
-        "eventLocation": {
+        "event-location": {
           "type": "string"
         },
-        "eventPhotoUrl": {
+        "event-photo-url": {
           "type": "string"
         },
-        "createdDate": {
+        "created-date": {
           "format": "date-time",
           "type": "string"
         }
@@ -4447,21 +4447,21 @@
     "UpdateEventPhotoDTO": {
       "type": "object",
       "properties": {
-        "eventPhotoId": {
+        "event-photo-id": {
           "format": "uuid",
           "type": "string"
         },
-        "eventId": {
+        "event-id": {
           "format": "uuid",
           "type": "string"
         },
-        "photoUrl": {
+        "photo-url": {
           "type": "string"
         },
-        "photoType": {
+        "photo-type": {
           "type": "string"
         },
-        "uploadedDate": {
+        "uploaded-date": {
           "format": "date-time",
           "type": "string"
         }
@@ -4471,11 +4471,11 @@
     "UpdateGuestDTO": {
       "type": "object",
       "properties": {
-        "guestId": {
+        "guest-id": {
           "format": "uuid",
           "type": "string"
         },
-        "eventId": {
+        "event-id": {
           "format": "uuid",
           "type": "string"
         },
@@ -4494,25 +4494,25 @@
     "UpdateGuestListDTO": {
       "type": "object",
       "properties": {
-        "guestId": {
+        "guest-id": {
           "format": "uuid",
           "type": "string"
         },
-        "eventId": {
+        "event-id": {
           "format": "uuid",
           "type": "string"
         },
-        "guestName": {
+        "guest-name": {
           "type": "string"
         },
-        "attendStatus": {
+        "attend-status": {
           "type": "string"
         },
-        "checkinTime": {
+        "checkin-time": {
           "format": "date-time",
           "type": "string"
         },
-        "guestGift": {
+        "guest-gift": {
           "type": "string"
         }
       },
@@ -4521,27 +4521,27 @@
     "UpdateInvitationDTO": {
       "type": "object",
       "properties": {
-        "invitationId": {
+        "invitation-id": {
           "format": "uuid",
           "type": "string"
         },
-        "weddingId": {
+        "wedding-id": {
           "format": "uuid",
           "type": "string"
         },
-        "templateId": {
+        "template-id": {
           "type": "string"
         },
-        "customerMessage": {
+        "customer-message": {
           "type": "string"
         },
-        "customerTextColor": {
+        "customer-text-color": {
           "type": "string"
         },
-        "shareableLink": {
+        "shareable-link": {
           "type": "string"
         },
-        "createdTime": {
+        "created-time": {
           "format": "date-time",
           "type": "string"
         }
@@ -4551,26 +4551,26 @@
     "UpdateInvitationTemplateDTO": {
       "type": "object",
       "properties": {
-        "templateId": {
+        "template-id": {
           "format": "uuid",
           "type": "string"
         },
-        "templateName": {
+        "template-name": {
           "type": "string"
         },
-        "backgroundImageUrl": {
+        "background-image-url": {
           "type": "string"
         },
-        "textColor": {
+        "text-color": {
           "type": "string"
         },
-        "textFont": {
+        "text-font": {
           "type": "string"
         },
         "description": {
           "type": "string"
         },
-        "createdBy": {
+        "created-by": {
           "format": "date-time",
           "type": "string"
         }
@@ -4590,7 +4590,7 @@
         "content": {
           "type": "string"
         },
-        "isActive": {
+        "is-active": {
           "type": "boolean"
         }
       },
@@ -4618,30 +4618,30 @@
     "UpdateWeddingDTO": {
       "type": "object",
       "properties": {
-        "weddingId": {
+        "wedding-id": {
           "format": "uuid",
           "type": "string"
         },
-        "userId": {
+        "user-id": {
           "type": "string"
         },
-        "brideName": {
+        "bride-name": {
           "type": "string"
         },
-        "groomName": {
+        "groom-name": {
           "type": "string"
         },
-        "weddingDate": {
+        "wedding-date": {
           "format": "date-time",
           "type": "string"
         },
-        "weddingLocation": {
+        "wedding-location": {
           "type": "string"
         },
-        "weddingPhotoUrl": {
+        "wedding-photo-url": {
           "type": "string"
         },
-        "createdDate": {
+        "created-date": {
           "format": "date-time",
           "type": "string"
         }
@@ -4651,7 +4651,7 @@
     "ValidateWithStripeDTO": {
       "type": "object",
       "properties": {
-        "orderHeaderId": {
+        "order-header-id": {
           "format": "uuid",
           "type": "string"
         }

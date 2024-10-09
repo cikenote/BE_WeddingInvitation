@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Wedding.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/payment")]
     [ApiController]
     public class PaymentController : ControllerBase
     {

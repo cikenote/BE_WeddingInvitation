@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Wedding.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/guests")]
     [ApiController]
     [Authorize(Roles = StaticUserRoles.Customer)]
-    public class GuestController : ControllerBase
+    public class GuestsController : ControllerBase
     {
         private readonly IGuestService _GuestService;
 
-        public GuestController(IGuestService GuestService)
+        public GuestsController(IGuestService GuestService)
         {
             _GuestService = GuestService;
         }

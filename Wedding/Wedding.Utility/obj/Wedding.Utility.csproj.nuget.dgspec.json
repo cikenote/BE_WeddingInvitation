@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {}
+    "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {}
   },
   "projects": {
-    "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {
+    "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj",
+        "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj",
         "projectName": "Wedding.Utility",
-        "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj",
+        "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj",
         "packagesPath": "C:\\Users\\Son\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Utility\\obj\\",
+        "outputPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Son\\AppData\\Roaming\\NuGet\\NuGet.Config",

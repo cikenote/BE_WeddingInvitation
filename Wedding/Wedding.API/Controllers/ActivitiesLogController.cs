@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Wedding.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/activities")]
     [ApiController]
     [Authorize(Roles = StaticUserRoles.Customer)]
     public class ActivityController : ControllerBase

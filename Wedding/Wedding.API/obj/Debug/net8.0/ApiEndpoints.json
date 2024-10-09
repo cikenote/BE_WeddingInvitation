@@ -2,7 +2,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.ActivityController",
     "Method": "GetAllActivityLogs",
-    "RelativePath": "api/Activity",
+    "RelativePath": "api/activities",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -53,7 +53,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.ActivityController",
     "Method": "CreateEmailTemplate",
-    "RelativePath": "api/Activity",
+    "RelativePath": "api/activities",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -79,7 +79,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.ActivityController",
     "Method": "GetActivityLogById",
-    "RelativePath": "api/Activity/{id}",
+    "RelativePath": "api/activities/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -105,7 +105,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.ActivityController",
     "Method": "UpdateActivityLog",
-    "RelativePath": "api/Activity/{id}",
+    "RelativePath": "api/activities/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -136,7 +136,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.ActivityController",
     "Method": "DeleteActivityLog",
-    "RelativePath": "api/Activity/{id}",
+    "RelativePath": "api/activities/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -162,7 +162,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "ChangePassword",
-    "RelativePath": "api/Auth/change-password",
+    "RelativePath": "api/auth/change-password",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -188,7 +188,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "CheckEmailExist",
-    "RelativePath": "api/Auth/check-email-exist",
+    "RelativePath": "api/auth/check-email-exist",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -214,7 +214,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "CheckPhoneNumberExist",
-    "RelativePath": "api/Auth/check-phone-number-exist",
+    "RelativePath": "api/auth/check-phone-number-exist",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -240,7 +240,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "CompleteCustomerProfile",
-    "RelativePath": "api/Auth/customer/profile",
+    "RelativePath": "api/auth/customer/profile",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -266,7 +266,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "UpdateCustomer",
-    "RelativePath": "api/Auth/customer/profile",
+    "RelativePath": "api/auth/customer/profile",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -292,7 +292,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "SignUpCustomer",
-    "RelativePath": "api/Auth/customer/sign-up",
+    "RelativePath": "api/auth/customer/sign-up",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -318,7 +318,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "ForgotPassword",
-    "RelativePath": "api/Auth/forgot-password",
+    "RelativePath": "api/auth/forgot-password",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -344,7 +344,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "SignInByGoogle",
-    "RelativePath": "api/Auth/google/sign-in",
+    "RelativePath": "api/auth/google/sign-in",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -370,7 +370,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "LockUser",
-    "RelativePath": "api/Auth/lock",
+    "RelativePath": "api/auth/lock",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -396,7 +396,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "Refresh",
-    "RelativePath": "api/Auth/refresh",
+    "RelativePath": "api/auth/refresh",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -422,7 +422,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "ResetPassword",
-    "RelativePath": "api/Auth/reset-password",
+    "RelativePath": "api/auth/reset-password",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -448,7 +448,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "SendVerifyEmail",
-    "RelativePath": "api/Auth/send-verify-email",
+    "RelativePath": "api/auth/send-verify-email",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -474,7 +474,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "SignIn",
-    "RelativePath": "api/Auth/sign-in",
+    "RelativePath": "api/auth/sign-in",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -500,7 +500,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "UnlockUser",
-    "RelativePath": "api/Auth/unlock",
+    "RelativePath": "api/auth/unlock",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -526,7 +526,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "UploadUserAvatar",
-    "RelativePath": "api/Auth/user/avatar",
+    "RelativePath": "api/auth/user/avatar",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -552,7 +552,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "GetUserAvatar",
-    "RelativePath": "api/Auth/user/avatar",
+    "RelativePath": "api/auth/user/avatar",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -562,7 +562,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "DisplayUserAvatar",
-    "RelativePath": "api/Auth/user/avatar/display/{userId}",
+    "RelativePath": "api/auth/user/avatar/display/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -578,7 +578,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "GetUserInfo",
-    "RelativePath": "api/Auth/user/info",
+    "RelativePath": "api/auth/user/info",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -598,7 +598,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.AuthController",
     "Method": "VerifyEmail",
-    "RelativePath": "api/Auth/verify-email",
+    "RelativePath": "api/auth/verify-email",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -629,7 +629,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.CardManagementController",
     "Method": "GetAllCardManagements",
-    "RelativePath": "api/CardManagement",
+    "RelativePath": "api/card-management",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -680,7 +680,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.CardManagementController",
     "Method": "CreateCardManagement",
-    "RelativePath": "api/CardManagement",
+    "RelativePath": "api/card-management",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -706,7 +706,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.CardManagementController",
     "Method": "GetCardManagementById",
-    "RelativePath": "api/CardManagement/{id}",
+    "RelativePath": "api/card-management/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -732,7 +732,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.CardManagementController",
     "Method": "UpdateCardManagement",
-    "RelativePath": "api/CardManagement/{id}",
+    "RelativePath": "api/card-management/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -763,7 +763,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.CardManagementController",
     "Method": "DeleteCardManagement",
-    "RelativePath": "api/CardManagement/{id}",
+    "RelativePath": "api/card-management/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -789,7 +789,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.CartController",
     "Method": "GetCart",
-    "RelativePath": "api/Cart",
+    "RelativePath": "api/cart",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -809,7 +809,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.CartController",
     "Method": "AddToCart",
-    "RelativePath": "api/Cart/details",
+    "RelativePath": "api/cart/details",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -835,7 +835,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.CartController",
     "Method": "RemoveFromCart",
-    "RelativePath": "api/Cart/details/{detailsId}",
+    "RelativePath": "api/cart/details/{detailsId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -866,7 +866,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.CustomerController",
     "Method": "GetAllCustomer",
-    "RelativePath": "api/Customer",
+    "RelativePath": "api/customer",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -917,7 +917,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.CustomerController",
     "Method": "UpdateStudent",
-    "RelativePath": "api/Customer",
+    "RelativePath": "api/customer",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -943,7 +943,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.CustomerController",
     "Method": "GetCustomerById",
-    "RelativePath": "api/Customer/{customerId}",
+    "RelativePath": "api/customer/{customerId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -969,7 +969,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.CustomerController",
     "Method": "ActivateCustomer",
-    "RelativePath": "api/Customer/activate/{customerId}",
+    "RelativePath": "api/customer/activate/{customerId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -995,7 +995,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.CustomerController",
     "Method": "DeactiveCustomer",
-    "RelativePath": "api/Customer/deactivate/{customerId}",
+    "RelativePath": "api/customer/deactivate/{customerId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -1021,7 +1021,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.CustomerController",
     "Method": "DownloadCustomerExport",
-    "RelativePath": "api/Customer/download/{fileName}",
+    "RelativePath": "api/customer/download/{fileName}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1037,7 +1037,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.CustomerController",
     "Method": "ExportCustomer",
-    "RelativePath": "api/Customer/export/{month}/{year}",
+    "RelativePath": "api/customer/export/{month}/{year}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -1068,7 +1068,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.EmailTemplateController",
     "Method": "GetAllEmailTemplates",
-    "RelativePath": "api/EmailTemplate",
+    "RelativePath": "api/email-template",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1119,7 +1119,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.EmailTemplateController",
     "Method": "CreateEmailTemplate",
-    "RelativePath": "api/EmailTemplate",
+    "RelativePath": "api/email-template",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -1145,7 +1145,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.EmailTemplateController",
     "Method": "GetEmailTemplateById",
-    "RelativePath": "api/EmailTemplate/{id}",
+    "RelativePath": "api/email-template/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1171,7 +1171,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.EmailTemplateController",
     "Method": "UpdateEmailTemplate",
-    "RelativePath": "api/EmailTemplate/{id}",
+    "RelativePath": "api/email-template/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -1202,7 +1202,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.EmailTemplateController",
     "Method": "DeleteEmailTemplate",
-    "RelativePath": "api/EmailTemplate/{id}",
+    "RelativePath": "api/email-template/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -1228,7 +1228,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.EventController",
     "Method": "GetAllEvents",
-    "RelativePath": "api/Event",
+    "RelativePath": "api/event",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1279,7 +1279,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.EventController",
     "Method": "CreateEmailTemplate",
-    "RelativePath": "api/Event",
+    "RelativePath": "api/event",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -1303,92 +1303,9 @@
     ]
   },
   {
-    "ContainingType": "Wedding.API.Controllers.EventController",
-    "Method": "GetEventById",
-    "RelativePath": "api/Event/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Wedding.Model.DTO.ResponseDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Wedding.API.Controllers.EventController",
-    "Method": "UpdateEvent",
-    "RelativePath": "api/Event/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "updateEventDTO",
-        "Type": "Wedding.Model.DTO.UpdateEventDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Wedding.Model.DTO.ResponseDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Wedding.API.Controllers.EventController",
-    "Method": "DeleteEvent",
-    "RelativePath": "api/Event/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Wedding.Model.DTO.ResponseDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
     "ContainingType": "Wedding.API.Controllers.EventPhotoController",
     "Method": "GetAllEventPhotos",
-    "RelativePath": "api/EventPhoto",
+    "RelativePath": "api/event-photo",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1439,7 +1356,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.EventPhotoController",
     "Method": "CreateEmailTemplate",
-    "RelativePath": "api/EventPhoto",
+    "RelativePath": "api/event-photo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -1465,7 +1382,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.EventPhotoController",
     "Method": "GetEventPhotoById",
-    "RelativePath": "api/EventPhoto/{id}",
+    "RelativePath": "api/event-photo/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1491,7 +1408,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.EventPhotoController",
     "Method": "UpdateEventPhoto",
-    "RelativePath": "api/EventPhoto/{id}",
+    "RelativePath": "api/event-photo/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -1522,7 +1439,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.EventPhotoController",
     "Method": "DeleteEventPhoto",
-    "RelativePath": "api/EventPhoto/{id}",
+    "RelativePath": "api/event-photo/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -1546,86 +1463,9 @@
     ]
   },
   {
-    "ContainingType": "Wedding.API.Controllers.GuestController",
-    "Method": "GetAllGuests",
-    "RelativePath": "api/Guest",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "filterOn",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "filterQuery",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "sortBy",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "isAscending",
-        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Wedding.Model.DTO.ResponseDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Wedding.API.Controllers.GuestController",
-    "Method": "CreateEmailTemplate",
-    "RelativePath": "api/Guest",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "createGuestDTO",
-        "Type": "Wedding.Model.DTO.CreateGuestDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Wedding.Model.DTO.ResponseDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Wedding.API.Controllers.GuestController",
-    "Method": "GetGuestById",
-    "RelativePath": "api/Guest/{id}",
+    "ContainingType": "Wedding.API.Controllers.EventController",
+    "Method": "GetEventById",
+    "RelativePath": "api/event/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1649,9 +1489,9 @@
     ]
   },
   {
-    "ContainingType": "Wedding.API.Controllers.GuestController",
-    "Method": "UpdateGuest",
-    "RelativePath": "api/Guest/{id}",
+    "ContainingType": "Wedding.API.Controllers.EventController",
+    "Method": "UpdateEvent",
+    "RelativePath": "api/event/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -1662,8 +1502,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateGuestDTO",
-        "Type": "Wedding.Model.DTO.UpdateGuestDTO",
+        "Name": "updateEventDTO",
+        "Type": "Wedding.Model.DTO.UpdateEventDTO",
         "IsRequired": true
       }
     ],
@@ -1680,9 +1520,9 @@
     ]
   },
   {
-    "ContainingType": "Wedding.API.Controllers.GuestController",
-    "Method": "DeleteGuest",
-    "RelativePath": "api/Guest/{id}",
+    "ContainingType": "Wedding.API.Controllers.EventController",
+    "Method": "DeleteEvent",
+    "RelativePath": "api/event/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -1708,7 +1548,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.GuestListController",
     "Method": "GetAllGuestLists",
-    "RelativePath": "api/GuestList",
+    "RelativePath": "api/guest-list",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1759,7 +1599,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.GuestListController",
     "Method": "CreateEmailTemplate",
-    "RelativePath": "api/GuestList",
+    "RelativePath": "api/guest-list",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -1785,7 +1625,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.GuestListController",
     "Method": "GetGuestListById",
-    "RelativePath": "api/GuestList/{id}",
+    "RelativePath": "api/guest-list/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1811,7 +1651,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.GuestListController",
     "Method": "UpdateGuestList",
-    "RelativePath": "api/GuestList/{id}",
+    "RelativePath": "api/guest-list/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -1842,7 +1682,167 @@
   {
     "ContainingType": "Wedding.API.Controllers.GuestListController",
     "Method": "DeleteGuestList",
-    "RelativePath": "api/GuestList/{id}",
+    "RelativePath": "api/guest-list/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Wedding.Model.DTO.ResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Wedding.API.Controllers.GuestsController",
+    "Method": "GetAllGuests",
+    "RelativePath": "api/guests",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filterOn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "filterQuery",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "isAscending",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Wedding.Model.DTO.ResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Wedding.API.Controllers.GuestsController",
+    "Method": "CreateEmailTemplate",
+    "RelativePath": "api/guests",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createGuestDTO",
+        "Type": "Wedding.Model.DTO.CreateGuestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Wedding.Model.DTO.ResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Wedding.API.Controllers.GuestsController",
+    "Method": "GetGuestById",
+    "RelativePath": "api/guests/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Wedding.Model.DTO.ResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Wedding.API.Controllers.GuestsController",
+    "Method": "UpdateGuest",
+    "RelativePath": "api/guests/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateGuestDTO",
+        "Type": "Wedding.Model.DTO.UpdateGuestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Wedding.Model.DTO.ResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Wedding.API.Controllers.GuestsController",
+    "Method": "DeleteGuest",
+    "RelativePath": "api/guests/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -1868,7 +1868,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.InvitationController",
     "Method": "GetAllInvitations",
-    "RelativePath": "api/Invitation",
+    "RelativePath": "api/invitation",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1919,7 +1919,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.InvitationController",
     "Method": "CreateInvitation",
-    "RelativePath": "api/Invitation",
+    "RelativePath": "api/invitation",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -1943,92 +1943,9 @@
     ]
   },
   {
-    "ContainingType": "Wedding.API.Controllers.InvitationController",
-    "Method": "GetInvitationById",
-    "RelativePath": "api/Invitation/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Wedding.Model.DTO.ResponseDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Wedding.API.Controllers.InvitationController",
-    "Method": "UpdateInvitation",
-    "RelativePath": "api/Invitation/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "updateInvitationDTO",
-        "Type": "Wedding.Model.DTO.UpdateInvitationDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Wedding.Model.DTO.ResponseDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Wedding.API.Controllers.InvitationController",
-    "Method": "DeleteInvitation",
-    "RelativePath": "api/Invitation/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Wedding.Model.DTO.ResponseDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
     "ContainingType": "Wedding.API.Controllers.InvitationTemplateController",
     "Method": "GetAllActivityLogs",
-    "RelativePath": "api/InvitationTemplate",
+    "RelativePath": "api/invitation-template",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2079,7 +1996,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.InvitationTemplateController",
     "Method": "CreateInvitationTemplate",
-    "RelativePath": "api/InvitationTemplate",
+    "RelativePath": "api/invitation-template",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -2105,7 +2022,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.InvitationTemplateController",
     "Method": "GetInvitationTemplateById",
-    "RelativePath": "api/InvitationTemplate/{id}",
+    "RelativePath": "api/invitation-template/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2131,7 +2048,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.InvitationTemplateController",
     "Method": "UpdateInvitationTemplate",
-    "RelativePath": "api/InvitationTemplate/{id}",
+    "RelativePath": "api/invitation-template/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -2162,7 +2079,90 @@
   {
     "ContainingType": "Wedding.API.Controllers.InvitationTemplateController",
     "Method": "DeleteInvitationTemplate",
-    "RelativePath": "api/InvitationTemplate/{id}",
+    "RelativePath": "api/invitation-template/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Wedding.Model.DTO.ResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Wedding.API.Controllers.InvitationController",
+    "Method": "GetInvitationById",
+    "RelativePath": "api/invitation/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Wedding.Model.DTO.ResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Wedding.API.Controllers.InvitationController",
+    "Method": "UpdateInvitation",
+    "RelativePath": "api/invitation/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateInvitationDTO",
+        "Type": "Wedding.Model.DTO.UpdateInvitationDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Wedding.Model.DTO.ResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Wedding.API.Controllers.InvitationController",
+    "Method": "DeleteInvitation",
+    "RelativePath": "api/invitation/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -2188,7 +2188,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.OrderController",
     "Method": "CreateOrder",
-    "RelativePath": "api/Order",
+    "RelativePath": "api/order",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -2208,7 +2208,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.OrderController",
     "Method": "GetOrders",
-    "RelativePath": "api/Order",
+    "RelativePath": "api/order",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2264,7 +2264,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.OrderController",
     "Method": "GetOrder",
-    "RelativePath": "api/Order/{orderHeaderId}",
+    "RelativePath": "api/order/{orderHeaderId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2290,7 +2290,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.OrderController",
     "Method": "ConfirmOrder",
-    "RelativePath": "api/Order/confirm/{orderHeaderId}",
+    "RelativePath": "api/order/confirm/{orderHeaderId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -2316,7 +2316,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.OrderController",
     "Method": "GetOrderStatus",
-    "RelativePath": "api/Order/status/{orderHeaderId}",
+    "RelativePath": "api/order/status/{orderHeaderId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2342,7 +2342,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.OrderController",
     "Method": "PayWithStripe",
-    "RelativePath": "api/Order/stripe/checkout",
+    "RelativePath": "api/order/stripe/checkout",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -2368,7 +2368,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.OrderController",
     "Method": "ValidateWithStripe",
-    "RelativePath": "api/Order/stripe/validate",
+    "RelativePath": "api/order/stripe/validate",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -2394,7 +2394,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.PaymentController",
     "Method": "GetCustomerBalance",
-    "RelativePath": "api/Payment/customer/balance",
+    "RelativePath": "api/payment/customer/balance",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2420,7 +2420,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.PaymentController",
     "Method": "CreateStripeConnectedAccount",
-    "RelativePath": "api/Payment/stripe/account",
+    "RelativePath": "api/payment/stripe/account",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -2446,7 +2446,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.PaymentController",
     "Method": "AddStripeCard",
-    "RelativePath": "api/Payment/stripe/card",
+    "RelativePath": "api/payment/stripe/card",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -2472,7 +2472,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.PaymentController",
     "Method": "CreateStripePayout",
-    "RelativePath": "api/Payment/stripe/payout",
+    "RelativePath": "api/payment/stripe/payout",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -2498,7 +2498,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.PaymentController",
     "Method": "CreateStripeTransfer",
-    "RelativePath": "api/Payment/stripe/transfer",
+    "RelativePath": "api/payment/stripe/transfer",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -2524,7 +2524,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.PaymentController",
     "Method": "GetSystemBalance",
-    "RelativePath": "api/Payment/system/balance",
+    "RelativePath": "api/payment/system/balance",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2544,7 +2544,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.PaymentController",
     "Method": "GetTransactionHistory",
-    "RelativePath": "api/Payment/transaction",
+    "RelativePath": "api/payment/transaction",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2600,7 +2600,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WebsiteController",
     "Method": "GetCompany",
-    "RelativePath": "api/Website/company",
+    "RelativePath": "api/website/company",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2620,7 +2620,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WebsiteController",
     "Method": "UpdateCompany",
-    "RelativePath": "api/Website/company",
+    "RelativePath": "api/website/company",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -2646,7 +2646,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WebsiteController",
     "Method": "GetPrivacies",
-    "RelativePath": "api/Website/privacy",
+    "RelativePath": "api/website/privacy",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2666,7 +2666,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WebsiteController",
     "Method": "CreatePrivacy",
-    "RelativePath": "api/Website/privacy",
+    "RelativePath": "api/website/privacy",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -2692,7 +2692,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WebsiteController",
     "Method": "UpdatePrivacy",
-    "RelativePath": "api/Website/privacy",
+    "RelativePath": "api/website/privacy",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -2718,7 +2718,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WebsiteController",
     "Method": "GetPrivacy",
-    "RelativePath": "api/Website/privacy/{id}",
+    "RelativePath": "api/website/privacy/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2744,7 +2744,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WebsiteController",
     "Method": "DeletePrivacy",
-    "RelativePath": "api/Website/privacy/{id}",
+    "RelativePath": "api/website/privacy/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -2770,7 +2770,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WebsiteController",
     "Method": "GetTermOfUses",
-    "RelativePath": "api/Website/term-of-use",
+    "RelativePath": "api/website/term-of-use",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2790,7 +2790,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WebsiteController",
     "Method": "CreateTermOfUse",
-    "RelativePath": "api/Website/term-of-use",
+    "RelativePath": "api/website/term-of-use",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -2816,7 +2816,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WebsiteController",
     "Method": "UpdateTermOfUse",
-    "RelativePath": "api/Website/term-of-use",
+    "RelativePath": "api/website/term-of-use",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -2842,7 +2842,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WebsiteController",
     "Method": "GetTermOfUse",
-    "RelativePath": "api/Website/term-of-use/{id}",
+    "RelativePath": "api/website/term-of-use/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2868,7 +2868,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WebsiteController",
     "Method": "DeleteTermOfUse",
-    "RelativePath": "api/Website/term-of-use/{id}",
+    "RelativePath": "api/website/term-of-use/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -2894,7 +2894,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WeddingController",
     "Method": "GetAllWeddings",
-    "RelativePath": "api/Wedding",
+    "RelativePath": "api/wedding",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2945,7 +2945,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WeddingController",
     "Method": "CreateEmailTemplate",
-    "RelativePath": "api/Wedding",
+    "RelativePath": "api/wedding",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -2971,7 +2971,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WeddingController",
     "Method": "GetActivityLogById",
-    "RelativePath": "api/Wedding/{id}",
+    "RelativePath": "api/wedding/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2997,7 +2997,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WeddingController",
     "Method": "UpdateActivityLog",
-    "RelativePath": "api/Wedding/{id}",
+    "RelativePath": "api/wedding/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -3028,7 +3028,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WeddingController",
     "Method": "DeleteActivityLog",
-    "RelativePath": "api/Wedding/{id}",
+    "RelativePath": "api/wedding/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

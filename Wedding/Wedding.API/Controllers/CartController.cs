@@ -6,7 +6,7 @@ using Wedding.Utility.Constants;
 
 namespace Wedding.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/cart")]
     [ApiController]
     [Authorize(Roles = StaticUserRoles.Customer)]
     public class CartController : ControllerBase

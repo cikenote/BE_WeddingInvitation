@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Service\\Wedding.Service.csproj": {}
+    "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\Wedding.Service.csproj": {}
   },
   "projects": {
-    "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj": {
+    "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj",
+        "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj",
         "projectName": "Wedding.DataAccess",
-        "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj",
+        "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj",
         "packagesPath": "C:\\Users\\Son\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.DataAccess\\obj\\",
+        "outputPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Son\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,8 +29,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Model\\Wedding.Model.csproj": {
-                "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Model\\Wedding.Model.csproj"
+              "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Wedding.Model.csproj": {
+                "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Wedding.Model.csproj"
               }
             }
           }
@@ -93,14 +93,14 @@
         }
       }
     },
-    "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Model\\Wedding.Model.csproj": {
+    "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Wedding.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Model\\Wedding.Model.csproj",
+        "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Wedding.Model.csproj",
         "projectName": "Wedding.Model",
-        "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Model\\Wedding.Model.csproj",
+        "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Wedding.Model.csproj",
         "packagesPath": "C:\\Users\\Son\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Model\\obj\\",
+        "outputPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Son\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -118,8 +118,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {
-                "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj"
+              "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {
+                "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj"
               }
             }
           }
@@ -168,14 +168,14 @@
         }
       }
     },
-    "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Service\\Wedding.Service.csproj": {
+    "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\Wedding.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Service\\Wedding.Service.csproj",
+        "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\Wedding.Service.csproj",
         "projectName": "Wedding.Service",
-        "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Service\\Wedding.Service.csproj",
+        "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\Wedding.Service.csproj",
         "packagesPath": "C:\\Users\\Son\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Service\\obj\\",
+        "outputPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Son\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -193,14 +193,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj": {
-                "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj"
+              "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj": {
+                "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj"
               },
-              "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Model\\Wedding.Model.csproj": {
-                "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Model\\Wedding.Model.csproj"
+              "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Wedding.Model.csproj": {
+                "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Wedding.Model.csproj"
               },
-              "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {
-                "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj"
+              "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {
+                "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj"
               }
             }
           }
@@ -321,14 +321,14 @@
         }
       }
     },
-    "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {
+    "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj",
+        "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj",
         "projectName": "Wedding.Utility",
-        "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj",
+        "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj",
         "packagesPath": "C:\\Users\\Son\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT\\Semester 7\\SWD392\\Backup\\backend\\Wedding\\Wedding.Utility\\obj\\",
+        "outputPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Son\\AppData\\Roaming\\NuGet\\NuGet.Config",
