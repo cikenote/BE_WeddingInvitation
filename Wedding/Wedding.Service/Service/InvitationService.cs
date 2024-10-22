@@ -22,7 +22,7 @@ public class InvitationService : IInvitationService
         _userManager = userManager;
         _unitOfWork = unitOfWork;
     }
-    public async Task<ResponseDTO> GetAll(ClaimsPrincipal User, string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
+    public async Task<ResponseDTO> GetAll(string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
         int pageNumber, int pageSize)
     {
         #region MyRegion
@@ -38,14 +38,14 @@ public class InvitationService : IInvitationService
                 {
                     case "customermessage":
                     {
-                        invitations = _unitOfWork.InvitationRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                        invitations = _unitOfWork.InvitationRepository.GetAllAsync()
                             .GetAwaiter().GetResult().Where(x => 
                                 x.CustomerMessage.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
                         break;
                     }
                     case "customertextcolor":
                     {
-                        invitations = _unitOfWork.InvitationRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                        invitations = _unitOfWork.InvitationRepository.GetAllAsync()
                             .GetAwaiter().GetResult().Where(x => 
                                 x.CustomerTextColor.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
                         break;
@@ -54,7 +54,7 @@ public class InvitationService : IInvitationService
             }
             else
             {
-                invitations = _unitOfWork.InvitationRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                invitations = _unitOfWork.InvitationRepository.GetAllAsync()
                     .GetAwaiter().GetResult().ToList();
             }
             

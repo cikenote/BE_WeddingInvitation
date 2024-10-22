@@ -4,10 +4,7 @@ namespace Wedding.Model.DTO;
 
 public class CreateTermOfUseDTO
 {
-    [JsonPropertyName("title")]
     public string Title { get; set; }
-    [JsonPropertyName("content")]
     public string Content { get; set; }
-    [JsonPropertyName("is-active")]
     public bool IsActive { get; set; }
 }

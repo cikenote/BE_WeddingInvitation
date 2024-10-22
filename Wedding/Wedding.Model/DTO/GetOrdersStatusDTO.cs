@@ -4,15 +4,10 @@ namespace Wedding.Model.DTO;
 
 public class GetOrdersStatusDTO
 {
-    [JsonPropertyName("id")]
     public Guid Id { get; set; }
-    [JsonPropertyName("status")]
     public int Status { get; set; }
-    [JsonPropertyName("created-time")]
     public DateTime CreatedTime { get; set; } = DateTime.UtcNow;
-    [JsonPropertyName("created-by")]
     public string? CreatedBy { get; set; }
-    [JsonPropertyName("status-description")]
     public string StatusDescription
     {
         get

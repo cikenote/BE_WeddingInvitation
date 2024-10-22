@@ -10,6 +10,5 @@ public class AvatarUploadDTO
     [Required]
     [MaxFileSize(1)]
     [AllowedExtensions(new string[] { ".jpg", ".jpeg", ".png" })]
-    [JsonPropertyName("file")]
     public IFormFile File { get; set; }
 }

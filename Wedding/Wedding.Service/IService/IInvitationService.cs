@@ -8,7 +8,6 @@ public interface IInvitationService
 {
     Task<ResponseDTO> GetAll
     (
-        ClaimsPrincipal User,
         string? filterOn,
         string? filterQuery,
         string? sortBy,

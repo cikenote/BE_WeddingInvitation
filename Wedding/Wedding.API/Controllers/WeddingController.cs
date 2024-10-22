@@ -9,7 +9,7 @@ namespace Wedding.API.Controllers
 {
     [Route("api/wedding")]
     [ApiController]
-    [Authorize(Roles = StaticUserRoles.Customer)]
+    [Authorize(Roles = StaticUserRoles.Admin + "," + StaticUserRoles.Customer)]
     public class WeddingController : ControllerBase
     {
         private readonly IWeddingService _weddingService;

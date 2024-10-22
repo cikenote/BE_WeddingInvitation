@@ -8,9 +8,11 @@ public class Invitation
     [Key]
     public Guid InvitationId { get; set; }
     public Guid WeddingId { get; set; }
-    [ForeignKey("WeddingId")] public virtual Wedding Wedding { get; set; }
-    public Guid TemplateId { get; set; }
-    [ForeignKey("TemplateId")] public virtual ICollection<InvitationTemplate> InvitationTemplates { get; set; }
+    [ForeignKey("WeddingId")]
+    public virtual Wedding Wedding { get; set; }
+    public Guid? TemplateId { get; set; }
+    [ForeignKey("TemplateId")] 
+    public virtual InvitationTemplate? InvitationTemplate { get; set; }
     public string CustomerMessage { get; set; }
     public string CustomerTextColor { get; set; }
     public string ShareableLink { get; set; }

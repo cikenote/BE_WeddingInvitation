@@ -9,7 +9,7 @@ namespace Wedding.API.Controllers
 {
     [Route("api/invitation")]
     [ApiController]
-    [Authorize(Roles = StaticUserRoles.Customer)]
+    [Authorize(Roles = StaticUserRoles.Admin + "," + StaticUserRoles.Customer)]
     public class InvitationController : ControllerBase
     {
         private readonly IInvitationService _invitationService;
@@ -28,7 +28,7 @@ namespace Wedding.API.Controllers
             [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 10)
         {
-            var responseDto = await _invitationService.GetAll(User, filterOn, filterQuery, sortBy, isAscending, pageNumber, pageSize);
+            var responseDto = await _invitationService.GetAll(filterOn, filterQuery, sortBy, isAscending, pageNumber, pageSize);
             return StatusCode(responseDto.StatusCode, responseDto);
         }
         

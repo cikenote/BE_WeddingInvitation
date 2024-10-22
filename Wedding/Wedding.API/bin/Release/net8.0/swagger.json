@@ -3558,10 +3558,10 @@
     "AddStripeCardDTO": {
       "type": "object",
       "properties": {
-        "connected-account-id": {
+        "connectedAccountId": {
           "type": "string"
         },
-        "card-token": {
+        "cardToken": {
           "type": "string"
         }
       },
@@ -3569,11 +3569,11 @@
     },
     "AddToCartDTO": {
       "required": [
-        "card-id"
+        "cardId"
       ],
       "type": "object",
       "properties": {
-        "card-id": {
+        "cardId": {
           "format": "uuid",
           "type": "string"
         }
@@ -3582,25 +3582,25 @@
     },
     "ChangePasswordDTO": {
       "required": [
-        "confirm-new-password",
-        "new-password",
-        "old-password"
+        "confirmNewPassword",
+        "newPassword",
+        "oldPassword"
       ],
       "type": "object",
       "properties": {
-        "old-password": {
+        "oldPassword": {
           "format": "password",
           "maxLength": 100,
           "minLength": 8,
           "type": "string"
         },
-        "new-password": {
+        "newPassword": {
           "format": "password",
           "maxLength": 100,
           "minLength": 8,
           "type": "string"
         },
-        "confirm-new-password": {
+        "confirmNewPassword": {
           "format": "password",
           "maxLength": 100,
           "minLength": 8,
@@ -3612,13 +3612,13 @@
     "CompleteCustomerProfileDTO": {
       "required": [
         "address",
-        "birth-date",
-        "card-name",
-        "card-number",
-        "card-provider",
+        "birthDate",
+        "cardName",
+        "cardNumber",
+        "cardProvider",
         "country",
         "gender",
-        "phone-number"
+        "phoneNumber"
       ],
       "type": "object",
       "properties": {
@@ -3626,7 +3626,7 @@
           "minLength": 1,
           "type": "string"
         },
-        "phone-number": {
+        "phoneNumber": {
           "format": "tel",
           "minLength": 1,
           "type": "string"
@@ -3635,7 +3635,7 @@
           "minLength": 1,
           "type": "string"
         },
-        "birth-date": {
+        "birthDate": {
           "format": "date",
           "type": "string"
         },
@@ -3643,15 +3643,15 @@
           "minLength": 1,
           "type": "string"
         },
-        "card-number": {
+        "cardNumber": {
           "minLength": 1,
           "type": "string"
         },
-        "card-provider": {
+        "cardProvider": {
           "minLength": 1,
           "type": "string"
         },
-        "card-name": {
+        "cardName": {
           "minLength": 1,
           "type": "string"
         }
@@ -3661,11 +3661,11 @@
     "CreateActivityLogDTO": {
       "type": "object",
       "properties": {
-        "log-id": {
+        "logId": {
           "format": "uuid",
           "type": "string"
         },
-        "user-id": {
+        "userId": {
           "type": "string"
         },
         "action": {
@@ -3674,7 +3674,7 @@
         "entity": {
           "type": "string"
         },
-        "time-stamp": {
+        "timeStamp": {
           "type": "string"
         }
       },
@@ -3683,21 +3683,21 @@
     "CreateCardManagementDTO": {
       "type": "object",
       "properties": {
-        "card-id": {
+        "cardId": {
           "format": "uuid",
           "type": "string"
         },
-        "user-id": {
+        "userId": {
           "type": "string"
         },
-        "invitation-id": {
+        "invitationId": {
           "format": "uuid",
           "type": "string"
         },
-        "attend-status": {
+        "attendStatus": {
           "type": "string"
         },
-        "created-time": {
+        "createdTime": {
           "format": "date-time",
           "type": "string"
         }
@@ -3707,40 +3707,40 @@
     "CreateEmailTemplateDTO": {
       "type": "object",
       "properties": {
-        "template-name": {
+        "templateName": {
           "type": "string"
         },
-        "sender-name": {
+        "senderName": {
           "type": "string"
         },
-        "sender-email": {
+        "senderEmail": {
           "type": "string"
         },
         "category": {
           "type": "string"
         },
-        "subject-line": {
+        "subjectLine": {
           "type": "string"
         },
-        "pre-header-text": {
+        "preHeaderText": {
           "type": "string"
         },
-        "personalization-tags": {
+        "personalizationTags": {
           "type": "string"
         },
-        "body-content": {
+        "bodyContent": {
           "type": "string"
         },
-        "footer-content": {
+        "footerContent": {
           "type": "string"
         },
-        "call-to-action": {
+        "callToAction": {
           "type": "string"
         },
         "language": {
           "type": "string"
         },
-        "recipient-type": {
+        "recipientType": {
           "type": "string"
         }
       },
@@ -3749,31 +3749,31 @@
     "CreateEventDTO": {
       "type": "object",
       "properties": {
-        "event-id": {
+        "eventId": {
           "format": "uuid",
           "type": "string"
         },
-        "wedding-id": {
+        "weddingId": {
           "format": "uuid",
           "type": "string"
         },
-        "bride-name": {
+        "brideName": {
           "type": "string"
         },
-        "groom-name": {
+        "groomName": {
           "type": "string"
         },
-        "event-date": {
+        "eventDate": {
           "format": "date-time",
           "type": "string"
         },
-        "event-location": {
+        "eventLocation": {
           "type": "string"
         },
-        "event-photo-url": {
+        "eventPhotoUrl": {
           "type": "string"
         },
-        "created-date": {
+        "createdDate": {
           "format": "date-time",
           "type": "string"
         }
@@ -3783,21 +3783,21 @@
     "CreateEventPhotoDTO": {
       "type": "object",
       "properties": {
-        "event-photo-id": {
+        "eventPhotoId": {
           "format": "uuid",
           "type": "string"
         },
-        "event-id": {
+        "eventId": {
           "format": "uuid",
           "type": "string"
         },
-        "photo-url": {
+        "photoUrl": {
           "type": "string"
         },
-        "photo-type": {
+        "photoType": {
           "type": "string"
         },
-        "uploaded-date": {
+        "uploadedDate": {
           "format": "date-time",
           "type": "string"
         }
@@ -3807,11 +3807,11 @@
     "CreateGuestDTO": {
       "type": "object",
       "properties": {
-        "guest-id": {
+        "guestId": {
           "format": "uuid",
           "type": "string"
         },
-        "log-id": {
+        "eventId": {
           "format": "uuid",
           "type": "string"
         },
@@ -3830,25 +3830,25 @@
     "CreateGuestListDTO": {
       "type": "object",
       "properties": {
-        "guest-id": {
+        "guestId": {
           "format": "uuid",
           "type": "string"
         },
-        "event-id": {
+        "eventId": {
           "format": "uuid",
           "type": "string"
         },
-        "guest-name": {
+        "guestName": {
           "type": "string"
         },
-        "attend-status": {
+        "attendStatus": {
           "type": "string"
         },
-        "checkin-time": {
+        "checkinTime": {
           "format": "date-time",
           "type": "string"
         },
-        "guest-gift": {
+        "guestGift": {
           "type": "string"
         }
       },
@@ -3857,28 +3857,28 @@
     "CreateInvitationDTO": {
       "type": "object",
       "properties": {
-        "invitation-id": {
+        "invitationId": {
           "format": "uuid",
           "type": "string"
         },
-        "wedding-id": {
+        "weddingId": {
           "format": "uuid",
           "type": "string"
         },
-        "template-id": {
+        "templateId": {
           "format": "uuid",
           "type": "string"
         },
-        "customer-message": {
+        "customerMessage": {
           "type": "string"
         },
-        "customer-text-color": {
+        "customerTextColor": {
           "type": "string"
         },
-        "shareable-link": {
+        "shareableLink": {
           "type": "string"
         },
-        "created-time": {
+        "createdTime": {
           "format": "date-time",
           "type": "string"
         }
@@ -3888,27 +3888,40 @@
     "CreateInvitationTemplateDTO": {
       "type": "object",
       "properties": {
-        "template-id": {
+        "templateId": {
           "format": "uuid",
           "type": "string"
         },
-        "template-name": {
+        "templateName": {
           "type": "string"
         },
-        "background-image-url": {
-          "type": "string"
+        "backgroundImageUrl": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
-        "text-color": {
-          "type": "string"
+        "textColor": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
-        "text-font": {
-          "type": "string"
+        "textFont": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "description": {
           "type": "string"
         },
-        "created-by": {
+        "createdBy": {
           "format": "date-time",
+          "type": "string"
+        },
+        "invitationId": {
+          "format": "uuid",
           "type": "string"
         }
       },
@@ -3923,7 +3936,7 @@
         "content": {
           "type": "string"
         },
-        "is-active": {
+        "isActive": {
           "type": "boolean"
         }
       },
@@ -3932,10 +3945,10 @@
     "CreateStripeConnectedAccountDTO": {
       "type": "object",
       "properties": {
-        "refresh-url": {
+        "refreshUrl": {
           "type": "string"
         },
-        "return-url": {
+        "returnUrl": {
           "type": "string"
         }
       },
@@ -3957,7 +3970,7 @@
     "CreateStripeTransferDTO": {
       "type": "object",
       "properties": {
-        "user-id": {
+        "userId": {
           "type": "string"
         },
         "amount": {
@@ -3979,7 +3992,7 @@
         "content": {
           "type": "string"
         },
-        "is-active": {
+        "isActive": {
           "type": "boolean"
         }
       },
@@ -3988,30 +4001,30 @@
     "CreateWeddingDTO": {
       "type": "object",
       "properties": {
-        "wedding-id": {
+        "weddingId": {
           "format": "uuid",
           "type": "string"
         },
-        "user-id": {
+        "userId": {
           "type": "string"
         },
-        "bride-name": {
+        "brideName": {
           "type": "string"
         },
-        "groom-name": {
+        "groomName": {
           "type": "string"
         },
-        "wedding-date": {
+        "weddingDate": {
           "format": "date-time",
           "type": "string"
         },
-        "wedding-location": {
+        "weddingLocation": {
           "type": "string"
         },
-        "wedding-photo-url": {
+        "weddingPhotoUrl": {
           "type": "string"
         },
-        "created-date": {
+        "createdDate": {
           "format": "date-time",
           "type": "string"
         }
@@ -4020,11 +4033,11 @@
     },
     "ForgotPasswordDTO": {
       "required": [
-        "email-or-phone"
+        "emailOrPhone"
       ],
       "type": "object",
       "properties": {
-        "email-or-phone": {
+        "emailOrPhone": {
           "minLength": 1,
           "type": "string"
         }
@@ -4034,10 +4047,10 @@
     "JwtTokenDTO": {
       "type": "object",
       "properties": {
-        "access-token": {
+        "accessToken": {
           "type": "string"
         },
-        "refresh-token": {
+        "refreshToken": {
           "type": "string"
         }
       },
@@ -4046,7 +4059,7 @@
     "LockUserDTO": {
       "type": "object",
       "properties": {
-        "user-id": {
+        "userId": {
           "type": "string"
         }
       },
@@ -4055,13 +4068,13 @@
     "PayWithStripeDTO": {
       "type": "object",
       "properties": {
-        "approve-url": {
+        "approvedUrl": {
           "type": "string"
         },
-        "cancel-url": {
+        "cancelUrl": {
           "type": "string"
         },
-        "order-header-id": {
+        "orderHeaderId": {
           "format": "uuid",
           "type": "string"
         }
@@ -4071,14 +4084,14 @@
     "RegisterCustomerDTO": {
       "required": [
         "address",
-        "birth-date",
-        "confirm-password",
+        "birthDate",
+        "confirmPassword",
         "country",
         "email",
-        "full-name",
+        "fullName",
         "gender",
         "password",
-        "phone-number"
+        "phoneNumber"
       ],
       "type": "object",
       "properties": {
@@ -4093,12 +4106,12 @@
           "pattern": "^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?\"{}|<>])(?=.*\\d).{6,}$",
           "type": "string"
         },
-        "confirm-password": {
+        "confirmPassword": {
           "format": "password",
           "minLength": 1,
           "type": "string"
         },
-        "full-name": {
+        "fullName": {
           "minLength": 1,
           "type": "string"
         },
@@ -4114,11 +4127,11 @@
           "minLength": 1,
           "type": "string"
         },
-        "birth-date": {
+        "birthDate": {
           "format": "date",
           "type": "string"
         },
-        "phone-number": {
+        "phoneNumber": {
           "format": "tel",
           "minLength": 1,
           "type": "string"
@@ -4145,10 +4158,10 @@
       "type": "object",
       "properties": {
         "result": { },
-        "is-success": {
+        "isSuccess": {
           "type": "boolean"
         },
-        "status-code": {
+        "statusCode": {
           "format": "int32",
           "type": "integer"
         },
@@ -4198,7 +4211,7 @@
     "UpdateActivityLogDTO": {
       "type": "object",
       "properties": {
-        "log-id": {
+        "logId": {
           "format": "uuid",
           "type": "string"
         },
@@ -4208,7 +4221,7 @@
         "entity": {
           "type": "string"
         },
-        "time-stamp": {
+        "timeStamp": {
           "type": "string"
         }
       },
@@ -4217,18 +4230,18 @@
     "UpdateCardManagementDTO": {
       "type": "object",
       "properties": {
-        "card-id": {
+        "cardId": {
           "format": "uuid",
           "type": "string"
         },
-        "invitation-id": {
+        "invitationId": {
           "format": "uuid",
           "type": "string"
         },
-        "attend-status": {
+        "attendStatus": {
           "type": "string"
         },
-        "created-time": {
+        "createdTime": {
           "format": "date-time",
           "type": "string"
         }
@@ -4257,7 +4270,7 @@
         "country": {
           "type": "string"
         },
-        "postal-code": {
+        "postalCode": {
           "type": "string"
         },
         "phone": {
@@ -4269,11 +4282,11 @@
         "website": {
           "type": "string"
         },
-        "founded-date": {
+        "foundedDate": {
           "format": "date-time",
           "type": "string"
         },
-        "logo-url": {
+        "logoUrl": {
           "type": "string"
         },
         "description": {
@@ -4285,15 +4298,15 @@
     "UpdateCustomerDTO": {
       "required": [
         "address",
-        "birth-date",
+        "birthDate",
         "country",
-        "customer-id",
-        "full-name",
+        "customerId",
+        "fullName",
         "gender"
       ],
       "type": "object",
       "properties": {
-        "customer-id": {
+        "customerId": {
           "format": "uuid",
           "type": "string"
         },
@@ -4301,11 +4314,11 @@
           "minLength": 1,
           "type": "string"
         },
-        "full-name": {
+        "fullName": {
           "minLength": 1,
           "type": "string"
         },
-        "birth-date": {
+        "birthDate": {
           "format": "date-time",
           "type": "string"
         },
@@ -4323,12 +4336,12 @@
     "UpdateCustomerProfileDTO": {
       "required": [
         "address",
-        "birth-date",
-        "card-name",
-        "card-number",
-        "card-provider",
+        "birthDate",
+        "cardName",
+        "cardNumber",
+        "cardProvider",
         "country",
-        "full-name",
+        "fullName",
         "gender"
       ],
       "type": "object",
@@ -4337,11 +4350,11 @@
           "minLength": 1,
           "type": "string"
         },
-        "full-name": {
+        "fullName": {
           "minLength": 1,
           "type": "string"
         },
-        "birth-date": {
+        "birthDate": {
           "format": "date-time",
           "type": "string"
         },
@@ -4353,15 +4366,15 @@
           "minLength": 1,
           "type": "string"
         },
-        "card-number": {
+        "cardNumber": {
           "minLength": 1,
           "type": "string"
         },
-        "card-name": {
+        "cardName": {
           "minLength": 1,
           "type": "string"
         },
-        "card-provider": {
+        "cardProvider": {
           "minLength": 1,
           "type": "string"
         }
@@ -4371,40 +4384,40 @@
     "UpdateEmailTemplateDTO": {
       "type": "object",
       "properties": {
-        "template-name": {
+        "templateName": {
           "type": "string"
         },
-        "sender-name": {
+        "senderName": {
           "type": "string"
         },
-        "sender-email": {
+        "senderEmail": {
           "type": "string"
         },
         "category": {
           "type": "string"
         },
-        "subject-line": {
+        "subjectLine": {
           "type": "string"
         },
-        "pre-header-text": {
+        "preHeaderText": {
           "type": "string"
         },
-        "personalization-tags": {
+        "personalizationTags": {
           "type": "string"
         },
-        "body-content": {
+        "bodyContent": {
           "type": "string"
         },
-        "footer-content": {
+        "footerContent": {
           "type": "string"
         },
-        "call-to-action": {
+        "callToAction": {
           "type": "string"
         },
         "language": {
           "type": "string"
         },
-        "recipient-type": {
+        "recipientType": {
           "type": "string"
         }
       },
@@ -4413,31 +4426,31 @@
     "UpdateEventDTO": {
       "type": "object",
       "properties": {
-        "event-id": {
+        "eventId": {
           "format": "uuid",
           "type": "string"
         },
-        "wedding-id": {
+        "weddingId": {
           "format": "uuid",
           "type": "string"
         },
-        "bride-name": {
+        "brideName": {
           "type": "string"
         },
-        "groom-name": {
+        "groomName": {
           "type": "string"
         },
-        "event-date": {
+        "eventDate": {
           "format": "date-time",
           "type": "string"
         },
-        "event-location": {
+        "eventLocation": {
           "type": "string"
         },
-        "event-photo-url": {
+        "eventPhotoUrl": {
           "type": "string"
         },
-        "created-date": {
+        "createdDate": {
           "format": "date-time",
           "type": "string"
         }
@@ -4447,21 +4460,21 @@
     "UpdateEventPhotoDTO": {
       "type": "object",
       "properties": {
-        "event-photo-id": {
+        "eventPhotoId": {
           "format": "uuid",
           "type": "string"
         },
-        "event-id": {
+        "eventId": {
           "format": "uuid",
           "type": "string"
         },
-        "photo-url": {
+        "photoUrl": {
           "type": "string"
         },
-        "photo-type": {
+        "photoType": {
           "type": "string"
         },
-        "uploaded-date": {
+        "uploadedDate": {
           "format": "date-time",
           "type": "string"
         }
@@ -4471,11 +4484,11 @@
     "UpdateGuestDTO": {
       "type": "object",
       "properties": {
-        "guest-id": {
+        "guestId": {
           "format": "uuid",
           "type": "string"
         },
-        "event-id": {
+        "eventId": {
           "format": "uuid",
           "type": "string"
         },
@@ -4494,25 +4507,25 @@
     "UpdateGuestListDTO": {
       "type": "object",
       "properties": {
-        "guest-id": {
+        "guestId": {
           "format": "uuid",
           "type": "string"
         },
-        "event-id": {
+        "eventId": {
           "format": "uuid",
           "type": "string"
         },
-        "guest-name": {
+        "guestName": {
           "type": "string"
         },
-        "attend-status": {
+        "attendStatus": {
           "type": "string"
         },
-        "checkin-time": {
+        "checkinTime": {
           "format": "date-time",
           "type": "string"
         },
-        "guest-gift": {
+        "guestGift": {
           "type": "string"
         }
       },
@@ -4521,27 +4534,27 @@
     "UpdateInvitationDTO": {
       "type": "object",
       "properties": {
-        "invitation-id": {
+        "invitationId": {
           "format": "uuid",
           "type": "string"
         },
-        "wedding-id": {
+        "weddingId": {
           "format": "uuid",
           "type": "string"
         },
-        "template-id": {
+        "templateId": {
           "type": "string"
         },
-        "customer-message": {
+        "customerMessage": {
           "type": "string"
         },
-        "customer-text-color": {
+        "customerTextColor": {
           "type": "string"
         },
-        "shareable-link": {
+        "shareableLink": {
           "type": "string"
         },
-        "created-time": {
+        "createdTime": {
           "format": "date-time",
           "type": "string"
         }
@@ -4551,27 +4564,40 @@
     "UpdateInvitationTemplateDTO": {
       "type": "object",
       "properties": {
-        "template-id": {
+        "templateId": {
           "format": "uuid",
           "type": "string"
         },
-        "template-name": {
+        "templateName": {
           "type": "string"
         },
-        "background-image-url": {
-          "type": "string"
+        "backgroundImageUrl": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
-        "text-color": {
-          "type": "string"
+        "textColor": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
-        "text-font": {
-          "type": "string"
+        "textFont": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "description": {
           "type": "string"
         },
-        "created-by": {
+        "createdBy": {
           "format": "date-time",
+          "type": "string"
+        },
+        "invitationId": {
+          "format": "uuid",
           "type": "string"
         }
       },
@@ -4590,7 +4616,7 @@
         "content": {
           "type": "string"
         },
-        "is-active": {
+        "isActive": {
           "type": "boolean"
         }
       },
@@ -4618,30 +4644,30 @@
     "UpdateWeddingDTO": {
       "type": "object",
       "properties": {
-        "wedding-id": {
+        "weddingId": {
           "format": "uuid",
           "type": "string"
         },
-        "user-id": {
+        "userId": {
           "type": "string"
         },
-        "bride-name": {
+        "brideName": {
           "type": "string"
         },
-        "groom-name": {
+        "groomName": {
           "type": "string"
         },
-        "wedding-date": {
+        "weddingDate": {
           "format": "date-time",
           "type": "string"
         },
-        "wedding-location": {
+        "weddingLocation": {
           "type": "string"
         },
-        "wedding-photo-url": {
+        "weddingPhotoUrl": {
           "type": "string"
         },
-        "created-date": {
+        "createdDate": {
           "format": "date-time",
           "type": "string"
         }
@@ -4651,7 +4677,7 @@
     "ValidateWithStripeDTO": {
       "type": "object",
       "properties": {
-        "order-header-id": {
+        "orderHeaderId": {
           "format": "uuid",
           "type": "string"
         }

@@ -12,8 +12,8 @@ using Wedding.DataAccess.Context;
 namespace Wedding.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240918053748_Add_New_Tables")]
-    partial class Add_New_Tables
+    [Migration("20241022151124_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -315,7 +315,7 @@ namespace Wedding.DataAccess.Migrations
                             Address = "123 Admin St",
                             AvatarUrl = "https://example.com/avatar.png",
                             BirthDate = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "f31e1354-b939-4842-81c6-1b873c9bd94d",
+                            ConcurrencyStamp = "d2e26024-f4e3-4d43-976b-052b9f2055b0",
                             Country = "Country",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
@@ -324,10 +324,10 @@ namespace Wedding.DataAccess.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAED3wtnDchYi0872N6dNk3nyrpDeGJ2ikKRjFsc4HmOcXOQxMQB0hDhPYx3+vCleEnA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIpa1kmk1XrzBoyCtcO6vs4BcgczS8CTlrQGKzS1ZKUe3S3Uun7TCNoGk/AUop6qwg==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "b82c398f-35bf-478c-9648-3f00ac1536a1",
+                            SecurityStamp = "4d478dc7-6583-4772-b974-de32f1c97ac1",
                             SendClearEmail = false,
                             TaxNumber = "123456789",
                             TwoFactorEnabled = false,
@@ -553,7 +553,7 @@ namespace Wedding.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7bf8a9cd-0ef8-4655-a09c-cbba1c3329b5"),
+                            Id = new Guid("ad616aae-c784-4df5-bbf7-5819b5840697"),
                             Address = "123 Main St",
                             City = "Hometown",
                             Country = "Country",
@@ -673,9 +673,9 @@ namespace Wedding.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a88639c5-e7d9-4d8f-ab01-fef69d2ec756"),
+                            Id = new Guid("c67a8998-072d-46aa-9925-b542f057e6a1"),
                             BodyContent = "Dear [UserFullName],<br><br>Welcome to Wedding! We are excited to have you join our learning community.",
-                            CallToAction = "<a href=\"https://cursuslms.xyz/user/sign-in\">Login</a>",
+                            CallToAction = "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>",
                             Category = "Welcome",
                             FooterContent = "<p>Contact us at cursusservicetts@gmail.com</p>",
                             Language = "English",
@@ -690,9 +690,9 @@ namespace Wedding.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0a772e60-084e-45c2-b796-3d4e743173d2"),
+                            Id = new Guid("e7a04c32-1d66-4f84-a612-cda83361481e"),
                             BodyContent = "Hi [UserFullName],<br><br>We received a request to reset your password. Click the link below to reset your password.",
-                            CallToAction = "https://cursuslms.xyz/sign-in/verify-email?userId=user.Id&token=Uri.EscapeDataString(token)",
+                            CallToAction = "https://weddinginvations.web.app/sign-in/verify-email?userId=user.Id&token=Uri.EscapeDataString(token)",
                             Category = "Security",
                             FooterContent = "If you did not request a password reset, please ignore this email.",
                             Language = "English",
@@ -707,7 +707,7 @@ namespace Wedding.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0c16ebb4-3092-453c-80b0-2cc276a24a9a"),
+                            Id = new Guid("a3c8fda0-5280-4fc3-8675-05e54de63c1f"),
                             BodyContent = "<p>Thank you for registering your Wedding account. Click here to go back the page</p>",
                             CallToAction = "<a href=\"{{Login}}\">Login now</a>",
                             Category = "Verify",
@@ -724,7 +724,7 @@ namespace Wedding.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("aef5f47b-9787-49cf-951b-a58c032bee41"),
+                            Id = new Guid("8ed13e66-e769-446d-9b86-e137bc060d96"),
                             BodyContent = "<p>Hello {FirstName},</p><p>Click <a href=\"{ResetLink}\">here</a> to reset your password.</p>",
                             CallToAction = "<a href=\"{{ResetLink}}\">Reset Password</a>",
                             Category = "Security",
@@ -741,9 +741,9 @@ namespace Wedding.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("efb9c656-d3a8-44b6-81cf-91fe0ac3b97f"),
+                            Id = new Guid("4eec4c64-5566-4afa-8b3e-1f9df5d96800"),
                             BodyContent = "Dear [UserFullName],<br><br>Your account will be deleted after 14 days.",
-                            CallToAction = "<a href=\"https://cursuslms.xyz/user/sign-in\">Login</a>",
+                            CallToAction = "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>",
                             Category = "Remind Account",
                             FooterContent = "<p>Contact us at cursusservicetts@gmail.com</p>",
                             Language = "English",
@@ -758,9 +758,9 @@ namespace Wedding.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("231dbb64-8103-4b87-bdd0-cfff34e0d106"),
+                            Id = new Guid("aa1849ab-0a08-4c12-bff9-9883cfe83a75"),
                             BodyContent = "Dear [UserFullName],<br><br>You have completed our course program, you can take new courses to increase your knowledge and skills.",
-                            CallToAction = "<a href=\"https://cursuslms.xyz/user/sign-in\">Login</a>",
+                            CallToAction = "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>",
                             Category = "Course completed",
                             FooterContent = "<p>Contact us at cursusservicetts@gmail.com</p>",
                             Language = "English",
@@ -775,9 +775,9 @@ namespace Wedding.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("62dce6af-0cf1-4de8-a7a5-588250506b1a"),
+                            Id = new Guid("d1980e1d-b403-4a20-b2de-a10229764210"),
                             BodyContent = "Dear [UserFullName],<br><br>Your account has been deleted.",
-                            CallToAction = "<a href=\"https://cursuslms.xyz/user/sign-in\">Login</a>",
+                            CallToAction = "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>",
                             Category = "Delete Account",
                             FooterContent = "<p>Contact us at cursusservicetts@gmail.com</p>",
                             Language = "English",
@@ -792,9 +792,9 @@ namespace Wedding.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("becfba1b-ac4f-4159-9d1e-b1accf0fb554"),
+                            Id = new Guid("fb4f5fa4-5fd8-41ec-a6f8-84ad41c12e3f"),
                             BodyContent = "Dear {FirstName} {LastName},<br><br>\r\n\r\n                    This email confirms that your payout request has been processed successfully.\r\n                    <br>\r\n                    <strong>Payout Details:</strong>\r\n                    <ul>\r\n                    <li>Amount: {PayoutAmount}</li>\r\n                    <li>Transaction Date: {TransactionDate}</li> \r\n                    </ul>\r\n                    <br>\r\n                    You can view your payout history in your customer dashboard. \r\n                    <br> \r\n                    Thank you for being a valued Wedding customer!\r\n                    <br>",
-                            CallToAction = "<a href=\"https://cursuslms.xyz/user/sign-in\">Login</a>",
+                            CallToAction = "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>",
                             Category = "Payout",
                             FooterContent = "<p>Contact us at cursusservicetts@gmail.com</p>",
                             Language = "English",
@@ -807,6 +807,126 @@ namespace Wedding.DataAccess.Migrations
                             SubjectLine = "Your Wedding Payout is Complete!",
                             TemplateName = "NotifyCustomerPaymentReceived"
                         });
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.Event", b =>
+                {
+                    b.Property<Guid>("EventId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("EventDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EventLocation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EventPhotoUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("GuestId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("WeddingId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("EventId");
+
+                    b.HasIndex("GuestId");
+
+                    b.HasIndex("WeddingId");
+
+                    b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.EventPhoto", b =>
+                {
+                    b.Property<Guid>("EventPhotoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("EventId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("PhotoType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhotoUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UploadedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("EventPhotoId");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("EventPhotos");
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.Guest", b =>
+                {
+                    b.Property<Guid>("GuestId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Attend")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("EventId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Gift")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("GuestId");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("Guests");
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.GuestList", b =>
+                {
+                    b.Property<Guid>("GuestId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AttendStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CheckinTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("EventId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("GuestGift")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GuestName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("GuestId");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("GuestLists");
                 });
 
             modelBuilder.Entity("Wedding.Model.Domain.Invitation", b =>
@@ -830,7 +950,7 @@ namespace Wedding.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("TemplateId")
+                    b.Property<Guid?>("TemplateId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("WeddingId")
@@ -838,7 +958,9 @@ namespace Wedding.DataAccess.Migrations
 
                     b.HasKey("InvitationId");
 
-                    b.HasIndex("TemplateId");
+                    b.HasIndex("TemplateId")
+                        .IsUnique()
+                        .HasFilter("[TemplateId] IS NOT NULL");
 
                     b.HasIndex("WeddingId");
 
@@ -862,6 +984,9 @@ namespace Wedding.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("InvitationId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("TemplateName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -875,6 +1000,8 @@ namespace Wedding.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TemplateId");
+
+                    b.HasIndex("InvitationId");
 
                     b.ToTable("InvitationTemplates");
                 });
@@ -996,10 +1123,10 @@ namespace Wedding.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7f3852d9-7bc8-444d-91b0-0084129caf9d"),
+                            Id = new Guid("8aa88e03-9184-4c26-80af-ba32b4263ec2"),
                             Content = "These are the privacy for our service.",
                             IsActive = true,
-                            LastUpdated = new DateTime(2024, 9, 18, 5, 37, 47, 572, DateTimeKind.Utc).AddTicks(6721),
+                            LastUpdated = new DateTime(2024, 10, 22, 15, 11, 23, 538, DateTimeKind.Utc).AddTicks(8518),
                             Title = "Privacy"
                         });
                 });
@@ -1031,10 +1158,10 @@ namespace Wedding.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("0b85ce85-1ef0-4d49-ac25-e08d1e90c3a2"),
+                            Id = new Guid("dc84cd16-cbfe-4c0b-ac66-55b7b1c88dea"),
                             Content = "These are the terms of use for our service.",
                             IsActive = true,
-                            LastUpdated = new DateTime(2024, 9, 18, 5, 37, 47, 572, DateTimeKind.Utc).AddTicks(6757),
+                            LastUpdated = new DateTime(2024, 10, 22, 15, 11, 23, 538, DateTimeKind.Utc).AddTicks(8614),
                             Title = "Terms of Use"
                         });
                 });
@@ -1079,6 +1206,9 @@ namespace Wedding.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("CardManagementCardId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -1102,6 +1232,8 @@ namespace Wedding.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("WeddingId");
+
+                    b.HasIndex("CardManagementCardId");
 
                     b.HasIndex("UserId");
 
@@ -1162,7 +1294,7 @@ namespace Wedding.DataAccess.Migrations
             modelBuilder.Entity("Wedding.Model.Domain.ActivityLog", b =>
                 {
                     b.HasOne("Wedding.Model.Domain.ApplicationUser", "ApplicationUser")
-                        .WithMany()
+                        .WithMany("ActivityLogs")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1242,16 +1374,68 @@ namespace Wedding.DataAccess.Migrations
                     b.Navigation("ApplicationUser");
                 });
 
-            modelBuilder.Entity("Wedding.Model.Domain.Invitation", b =>
+            modelBuilder.Entity("Wedding.Model.Domain.Event", b =>
                 {
-                    b.HasOne("Wedding.Model.Domain.InvitationTemplate", "InvitationTemplate")
-                        .WithMany()
-                        .HasForeignKey("TemplateId")
+                    b.HasOne("Wedding.Model.Domain.Guest", null)
+                        .WithMany("Events")
+                        .HasForeignKey("GuestId");
+
+                    b.HasOne("Wedding.Model.Domain.Wedding", "Wedding")
+                        .WithMany("Events")
+                        .HasForeignKey("WeddingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Wedding.Model.Domain.Wedding", "Wedding")
+                    b.Navigation("Wedding");
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.EventPhoto", b =>
+                {
+                    b.HasOne("Wedding.Model.Domain.Event", "Event")
+                        .WithMany("EventPhotos")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.Guest", b =>
+                {
+                    b.HasOne("Wedding.Model.Domain.Event", "Event")
                         .WithMany()
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Wedding.Model.Domain.GuestList", null)
+                        .WithMany("Guests")
+                        .HasForeignKey("GuestId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.GuestList", b =>
+                {
+                    b.HasOne("Wedding.Model.Domain.Event", "Event")
+                        .WithMany()
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.Invitation", b =>
+                {
+                    b.HasOne("Wedding.Model.Domain.InvitationTemplate", "InvitationTemplate")
+                        .WithOne()
+                        .HasForeignKey("Wedding.Model.Domain.Invitation", "TemplateId");
+
+                    b.HasOne("Wedding.Model.Domain.Wedding", "Wedding")
+                        .WithMany("Invitations")
                         .HasForeignKey("WeddingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1259,6 +1443,15 @@ namespace Wedding.DataAccess.Migrations
                     b.Navigation("InvitationTemplate");
 
                     b.Navigation("Wedding");
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.InvitationTemplate", b =>
+                {
+                    b.HasOne("Wedding.Model.Domain.Invitation", "Invitation")
+                        .WithMany()
+                        .HasForeignKey("InvitationId");
+
+                    b.Navigation("Invitation");
                 });
 
             modelBuilder.Entity("Wedding.Model.Domain.OrderDetails", b =>
@@ -1305,6 +1498,10 @@ namespace Wedding.DataAccess.Migrations
 
             modelBuilder.Entity("Wedding.Model.Domain.Wedding", b =>
                 {
+                    b.HasOne("Wedding.Model.Domain.CardManagement", null)
+                        .WithMany("Weddings")
+                        .HasForeignKey("CardManagementCardId");
+
                     b.HasOne("Wedding.Model.Domain.ApplicationUser", "ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -1312,6 +1509,38 @@ namespace Wedding.DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.ApplicationUser", b =>
+                {
+                    b.Navigation("ActivityLogs");
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.CardManagement", b =>
+                {
+                    b.Navigation("Weddings");
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.Event", b =>
+                {
+                    b.Navigation("EventPhotos");
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.Guest", b =>
+                {
+                    b.Navigation("Events");
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.GuestList", b =>
+                {
+                    b.Navigation("Guests");
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.Wedding", b =>
+                {
+                    b.Navigation("Events");
+
+                    b.Navigation("Invitations");
                 });
 #pragma warning restore 612, 618
         }

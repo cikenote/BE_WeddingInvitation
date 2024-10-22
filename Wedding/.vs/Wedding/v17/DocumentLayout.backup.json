@@ -1,7 +1,36 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{64CC671B-6FF0-49F8-A16D-332012EC447E}|Wedding.API\\Wedding.API.csproj|d:\\fpt\\semester 7\\swd392\\newprojectbackend\\wedding\\wedding.api\\controllers\\invitationtemplatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CC671B-6FF0-49F8-A16D-332012EC447E}|Wedding.API\\Wedding.API.csproj|solutionrelative:wedding.api\\controllers\\invitationtemplatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8048767C-2546-454C-A56A-08AE4792952C}|Wedding.Model\\Wedding.Model.csproj|d:\\fpt\\semester 7\\swd392\\newprojectbackend\\wedding\\wedding.model\\domain\\invitationtemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8048767C-2546-454C-A56A-08AE4792952C}|Wedding.Model\\Wedding.Model.csproj|solutionrelative:wedding.model\\domain\\invitationtemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8048767C-2546-454C-A56A-08AE4792952C}|Wedding.Model\\Wedding.Model.csproj|d:\\fpt\\semester 7\\swd392\\newprojectbackend\\wedding\\wedding.model\\domain\\invitation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8048767C-2546-454C-A56A-08AE4792952C}|Wedding.Model\\Wedding.Model.csproj|solutionrelative:wedding.model\\domain\\invitation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CC671B-6FF0-49F8-A16D-332012EC447E}|Wedding.API\\Wedding.API.csproj|d:\\fpt\\semester 7\\swd392\\newprojectbackend\\wedding\\wedding.api\\controllers\\invitationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CC671B-6FF0-49F8-A16D-332012EC447E}|Wedding.API\\Wedding.API.csproj|solutionrelative:wedding.api\\controllers\\invitationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AD49F82-64B7-495F-A0D7-D20D353998BC}|Wedding.Service\\Wedding.Service.csproj|d:\\fpt\\semester 7\\swd392\\newprojectbackend\\wedding\\wedding.service\\service\\invitationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AD49F82-64B7-495F-A0D7-D20D353998BC}|Wedding.Service\\Wedding.Service.csproj|solutionrelative:wedding.service\\service\\invitationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AD49F82-64B7-495F-A0D7-D20D353998BC}|Wedding.Service\\Wedding.Service.csproj|d:\\fpt\\semester 7\\swd392\\newprojectbackend\\wedding\\wedding.service\\iservice\\iinvitationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AD49F82-64B7-495F-A0D7-D20D353998BC}|Wedding.Service\\Wedding.Service.csproj|solutionrelative:wedding.service\\iservice\\iinvitationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AD49F82-64B7-495F-A0D7-D20D353998BC}|Wedding.Service\\Wedding.Service.csproj|d:\\fpt\\semester 7\\swd392\\newprojectbackend\\wedding\\wedding.service\\service\\invitationtemplateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AD49F82-64B7-495F-A0D7-D20D353998BC}|Wedding.Service\\Wedding.Service.csproj|solutionrelative:wedding.service\\service\\invitationtemplateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 18,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,6 +91,91 @@
             {
               "$type": "Bookmark",
               "Name": "ST:7:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InvitationTemplate.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Domain\\InvitationTemplate.cs",
+              "RelativeDocumentMoniker": "Wedding.Model\\Domain\\InvitationTemplate.cs",
+              "ToolTip": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Domain\\InvitationTemplate.cs",
+              "RelativeToolTip": "Wedding.Model\\Domain\\InvitationTemplate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T15:14:14.584Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Invitation.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Domain\\Invitation.cs",
+              "RelativeDocumentMoniker": "Wedding.Model\\Domain\\Invitation.cs",
+              "ToolTip": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Domain\\Invitation.cs",
+              "RelativeToolTip": "Wedding.Model\\Domain\\Invitation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T15:14:13.424Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "InvitationService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\Service\\InvitationService.cs",
+              "RelativeDocumentMoniker": "Wedding.Service\\Service\\InvitationService.cs",
+              "ToolTip": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\Service\\InvitationService.cs",
+              "RelativeToolTip": "Wedding.Service\\Service\\InvitationService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAGcAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:45:50.663Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IInvitationService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\IService\\IInvitationService.cs",
+              "RelativeDocumentMoniker": "Wedding.Service\\IService\\IInvitationService.cs",
+              "ToolTip": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\IService\\IInvitationService.cs",
+              "RelativeToolTip": "Wedding.Service\\IService\\IInvitationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:45:28.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InvitationController.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.API\\Controllers\\InvitationController.cs",
+              "RelativeDocumentMoniker": "Wedding.API\\Controllers\\InvitationController.cs",
+              "ToolTip": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.API\\Controllers\\InvitationController.cs",
+              "RelativeToolTip": "Wedding.API\\Controllers\\InvitationController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAApwBcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:44:01.952Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InvitationTemplateController.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.API\\Controllers\\InvitationTemplateController.cs",
+              "RelativeDocumentMoniker": "Wedding.API\\Controllers\\InvitationTemplateController.cs",
+              "ToolTip": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.API\\Controllers\\InvitationTemplateController.cs",
+              "RelativeToolTip": "Wedding.API\\Controllers\\InvitationTemplateController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:39:33.705Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "InvitationTemplateService.cs",
+              "DocumentMoniker": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\Service\\InvitationTemplateService.cs",
+              "RelativeDocumentMoniker": "Wedding.Service\\Service\\InvitationTemplateService.cs",
+              "ToolTip": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\Service\\InvitationTemplateService.cs",
+              "RelativeToolTip": "Wedding.Service\\Service\\InvitationTemplateService.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAowEEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:39:11.579Z"
             },
             {
               "$type": "Bookmark",

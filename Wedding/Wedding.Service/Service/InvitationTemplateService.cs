@@ -22,7 +22,7 @@ public class InvitationTemplateService : IInvitationTemplateService
         _userManager = userManager;
         _unitOfWork = unitOfWork;
     }
-    public async Task<ResponseDTO> GetAll(ClaimsPrincipal User, string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
+    public async Task<ResponseDTO> GetAll(string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
         int pageNumber, int pageSize)
     {
         #region MyRegion
@@ -38,30 +38,30 @@ public class InvitationTemplateService : IInvitationTemplateService
                 {
                     case "templatename":
                     {
-                        invitationTemplates = _unitOfWork.InvitationTemplateRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                        invitationTemplates = _unitOfWork.InvitationTemplateRepository.GetAllAsync()
                             .GetAwaiter().GetResult().Where(x => 
                                 x.TemplateName.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
                         break;
                     }
                     case "textcolor":
                     {
-                        invitationTemplates = _unitOfWork.InvitationTemplateRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                        invitationTemplates = _unitOfWork.InvitationTemplateRepository.GetAllAsync()
                             .GetAwaiter().GetResult().Where(x => 
-                                x.TextColor.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                                x.TextColor.Any(color => color.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase))).ToList();
                         break;
                     }
                     case "textfont":
                     {
-                        invitationTemplates = _unitOfWork.InvitationTemplateRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                        invitationTemplates = _unitOfWork.InvitationTemplateRepository.GetAllAsync()
                             .GetAwaiter().GetResult().Where(x => 
-                                x.TextFont.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                                x.TextFont.Any(font => font.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase))).ToList();
                         break;
                     }
                 }
             }
             else
             {
-                invitationTemplates = _unitOfWork.InvitationTemplateRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                invitationTemplates = _unitOfWork.InvitationTemplateRepository.GetAllAsync()
                     .GetAwaiter().GetResult().ToList();
             }
             
@@ -131,6 +131,7 @@ public class InvitationTemplateService : IInvitationTemplateService
                     TextFont = invitationTemplate.TextFont,
                     Description = invitationTemplate.Description,
                     CreatedBy = invitationTemplate.CreatedBy,
+                    InvitationId = invitationTemplate.InvitationId
                 };
 
                 invitationTemplateDtoList.Add(invitationTemplateDTO);
@@ -181,7 +182,8 @@ public class InvitationTemplateService : IInvitationTemplateService
                     TextColor = invitationTemplate.TextColor,
                     TextFont = invitationTemplate.TextFont,
                     Description = invitationTemplate.Description,
-                    CreatedBy = invitationTemplate.CreatedBy
+                    CreatedBy = invitationTemplate.CreatedBy,
+                    InvitationId = invitationTemplate.InvitationId
                 };
 
                 return new ResponseDTO()
@@ -227,6 +229,7 @@ public class InvitationTemplateService : IInvitationTemplateService
             invitationTemplateToUpdate.TextFont = updateInvitationTemplateDTO.TextFont;
             invitationTemplateToUpdate.Description = updateInvitationTemplateDTO.Description;
             invitationTemplateToUpdate.CreatedBy = updateInvitationTemplateDTO.CreatedBy;
+            invitationTemplateToUpdate.InvitationId = updateInvitationTemplateDTO.InvitationId;
             
             _unitOfWork.InvitationTemplateRepository.Update(invitationTemplateToUpdate);
             await _unitOfWork.SaveAsync();
@@ -302,7 +305,8 @@ public class InvitationTemplateService : IInvitationTemplateService
                 TextColor = createInvitationTemplateDTO.TextColor,
                 TextFont = createInvitationTemplateDTO.TextFont,
                 Description = createInvitationTemplateDTO.Description,
-                CreatedBy = createInvitationTemplateDTO.CreatedBy
+                CreatedBy = createInvitationTemplateDTO.CreatedBy,
+                InvitationId = createInvitationTemplateDTO.InvitationId
             };
 
             await _unitOfWork.InvitationTemplateRepository.AddAsync(invitationTemplate);
