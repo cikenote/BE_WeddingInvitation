@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Wedding.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c953a6685807e70169f50a455067cd77332d3eb3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd87c42172c299b814420cb58716f00a29791c42")]
 [assembly: System.Reflection.AssemblyProductAttribute("Wedding.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Wedding.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
