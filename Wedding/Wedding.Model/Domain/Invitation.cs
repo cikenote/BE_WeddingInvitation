@@ -7,7 +7,7 @@ public class Invitation
 {
     [Key]
     public Guid InvitationId { get; set; }
-    public Guid WeddingId { get; set; }
+    public Guid? WeddingId { get; set; }
     [ForeignKey("WeddingId")]
     public virtual Wedding Wedding { get; set; }
     public Guid? TemplateId { get; set; }

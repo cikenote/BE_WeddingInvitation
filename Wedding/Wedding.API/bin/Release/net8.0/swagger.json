@@ -4534,10 +4534,6 @@
     "UpdateInvitationDTO": {
       "type": "object",
       "properties": {
-        "invitationId": {
-          "format": "uuid",
-          "type": "string"
-        },
         "weddingId": {
           "format": "uuid",
           "type": "string"
@@ -4636,13 +4632,6 @@
     "UpdateWeddingDTO": {
       "type": "object",
       "properties": {
-        "weddingId": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "userId": {
-          "type": "string"
-        },
         "brideName": {
           "type": "string"
         },

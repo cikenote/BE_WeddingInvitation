@@ -200,11 +200,11 @@ public class WeddingService : IWeddingService
         }
     }
 
-    public async Task<ResponseDTO> UpdateById(UpdateWeddingDTO updateWeddingDTO)
+    public async Task<ResponseDTO> UpdateById(Guid id, UpdateWeddingDTO updateWeddingDTO)
     {
         try
         {
-            var weddingToUpdate = await _unitOfWork.WeddingRepository.GetById(updateWeddingDTO.WeddingId);
+            var weddingToUpdate = await _unitOfWork.WeddingRepository.GetById(id);
             if (weddingToUpdate is null)
             {
                 return new ResponseDTO()

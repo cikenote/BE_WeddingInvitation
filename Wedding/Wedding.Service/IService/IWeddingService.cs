@@ -18,7 +18,7 @@ public interface IWeddingService
     );
 
     Task<ResponseDTO> GetById(Guid id);
-    Task<ResponseDTO> UpdateById(UpdateWeddingDTO updateWeddingDTO);
+    Task<ResponseDTO> UpdateById(Guid id, UpdateWeddingDTO updateWeddingDTO);
     Task<ResponseDTO> DeleteById(Guid id);
     Task<ResponseDTO> CreateById(CreateWeddingDTO createWeddingDTO);
 }

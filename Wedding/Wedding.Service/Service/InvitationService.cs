@@ -191,11 +191,11 @@ public class InvitationService : IInvitationService
         }
     }
 
-    public async Task<ResponseDTO> UpdateById(UpdateInvitationDTO updateInvitationDTO)
+    public async Task<ResponseDTO> UpdateById(Guid id, UpdateInvitationDTO updateInvitationDTO)
     {
         try
         {
-            var invitationToUpdate = await _unitOfWork.InvitationRepository.GetById(updateInvitationDTO.InvitationId);
+            var invitationToUpdate = await _unitOfWork.InvitationRepository.GetById(id);
             if (invitationToUpdate is null)
             {
                 return new ResponseDTO()

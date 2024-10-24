@@ -17,7 +17,7 @@ public interface IInvitationService
     );
 
     Task<ResponseDTO> GetById(Guid id);
-    Task<ResponseDTO> UpdateById(UpdateInvitationDTO updateInvitationDTO);
+    Task<ResponseDTO> UpdateById(Guid id, UpdateInvitationDTO updateInvitationDTO);
     Task<ResponseDTO> DeleteById(Guid id);
     Task<ResponseDTO> CreateById(CreateInvitationDTO createInvitationDTO);
 }

@@ -4,8 +4,6 @@ namespace Wedding.Model.DTO;
 
 public class UpdateWeddingDTO
 {
-    public Guid WeddingId { get; set; }
-    public string UserId { get; set; }
     public string BrideName { get; set; }
     public string GroomName { get; set; }
     public DateTime WeddingDate { get; set; }
