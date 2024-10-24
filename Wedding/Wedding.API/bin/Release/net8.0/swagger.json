@@ -4564,10 +4564,6 @@
     "UpdateInvitationTemplateDTO": {
       "type": "object",
       "properties": {
-        "templateId": {
-          "format": "uuid",
-          "type": "string"
-        },
         "templateName": {
           "type": "string"
         },
@@ -4594,10 +4590,6 @@
         },
         "createdBy": {
           "format": "date-time",
-          "type": "string"
-        },
-        "invitationId": {
-          "format": "uuid",
           "type": "string"
         }
       },

@@ -207,11 +207,11 @@ public class InvitationTemplateService : IInvitationTemplateService
         }
     }
 
-    public async Task<ResponseDTO> UpdateById(UpdateInvitationTemplateDTO updateInvitationTemplateDTO)
+    public async Task<ResponseDTO> UpdateById(Guid id, UpdateInvitationTemplateDTO updateInvitationTemplateDTO)
     {
         try
         {
-            var invitationTemplateToUpdate = await _unitOfWork.InvitationTemplateRepository.GetById(updateInvitationTemplateDTO.TemplateId);
+            var invitationTemplateToUpdate = await _unitOfWork.InvitationTemplateRepository.GetById(id);
             if (invitationTemplateToUpdate is null)
             {
                 return new ResponseDTO()
@@ -229,7 +229,6 @@ public class InvitationTemplateService : IInvitationTemplateService
             invitationTemplateToUpdate.TextFont = updateInvitationTemplateDTO.TextFont;
             invitationTemplateToUpdate.Description = updateInvitationTemplateDTO.Description;
             invitationTemplateToUpdate.CreatedBy = updateInvitationTemplateDTO.CreatedBy;
-            invitationTemplateToUpdate.InvitationId = updateInvitationTemplateDTO.InvitationId;
             
             _unitOfWork.InvitationTemplateRepository.Update(invitationTemplateToUpdate);
             await _unitOfWork.SaveAsync();

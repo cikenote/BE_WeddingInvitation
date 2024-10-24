@@ -42,7 +42,7 @@ namespace Wedding.API.Controllers
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<ResponseDTO>> UpdateInvitationTemplate(Guid id, UpdateInvitationTemplateDTO updateInvitationTemplateDTO)
         {
-            var responseDto = await _invitationTemplateService.UpdateById(updateInvitationTemplateDTO);
+            var responseDto = await _invitationTemplateService.UpdateById(id, updateInvitationTemplateDTO);
             return StatusCode(responseDto.StatusCode, responseDto);
         }
         
