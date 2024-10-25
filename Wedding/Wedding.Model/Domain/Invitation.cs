@@ -13,6 +13,8 @@ public class Invitation
     public Guid? TemplateId { get; set; }
     [ForeignKey("TemplateId")] 
     public virtual InvitationTemplate? InvitationTemplate { get; set; }
+    public DateTime InvationLocation { get; set; }
+    public string InvitationPhotoUrl { get; set; }
     public string CustomerMessage { get; set; }
     public string CustomerTextColor { get; set; }
     public string ShareableLink { get; set; }

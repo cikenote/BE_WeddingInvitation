@@ -1,4 +1,4 @@
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
 using System.Security.Claims;
 using AutoMapper;
@@ -16,11 +16,13 @@ public class InvitationTemplateService : IInvitationTemplateService
 {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly IUnitOfWork _unitOfWork;
-    
-    public InvitationTemplateService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager)
+    private readonly IFirebaseService _firebaseService;
+
+    public InvitationTemplateService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, IFirebaseService firebaseService)
     {
         _userManager = userManager;
         _unitOfWork = unitOfWork;
+        _firebaseService = firebaseService;
     }
     public async Task<ResponseDTO> GetAll(string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
         int pageNumber, int pageSize)
@@ -329,5 +331,87 @@ public class InvitationTemplateService : IInvitationTemplateService
                 Result = null
             };
         }
+    }
+
+    public async Task<ResponseDTO> UploadInvationTeamplateBackgroundImg(Guid TemplateId, UploadInvationTeamplateBackgroundImg uploadInvationTeamplateBackgroundImg)
+    {
+        try
+        {
+            if (uploadInvationTeamplateBackgroundImg.File == null)
+            {
+                return new ResponseDTO()
+                {
+                    IsSuccess = false,
+                    StatusCode = 400,
+                    Message = "No file uploaded."
+                };
+            }
+
+            var invationTemplate = await _unitOfWork.InvitationTemplateRepository.GetAsync(x => x.TemplateId == TemplateId);
+            if (invationTemplate == null)
+            {
+                return new ResponseDTO()
+                {
+                    IsSuccess = false,
+                    StatusCode = 404,
+                    Message = "Invation template not found."
+                };
+            }
+
+            var filePath = $"InvationTemplate/{invationTemplate.TemplateId}/Background";
+            var responseDto = await _firebaseService.UploadImage(uploadInvationTeamplateBackgroundImg.File, filePath);
+
+            if (!responseDto.IsSuccess)
+            {
+                return new ResponseDTO()
+                {
+                    IsSuccess = false,
+                    StatusCode = 500,
+                    Message = "File upload failed."
+                };
+            }
+
+            invationTemplate.BackgroundImageUrl = responseDto.Result != null ? new[] { responseDto.Result.ToString() } : Array.Empty<string>();
+            _unitOfWork.InvitationTemplateRepository.Update(invationTemplate);
+            await _unitOfWork.SaveAsync();
+
+            return new ResponseDTO()
+            {
+                IsSuccess = true,
+                StatusCode = 200,
+                Result = responseDto.Result,
+                Message = "Upload file successfully"
+            };
+        }
+        catch (Exception e)
+        {
+            return new ResponseDTO()
+            {
+                IsSuccess = false,
+                StatusCode = 500,
+                Result = null,
+                Message = e.Message
+            };
+        }
+    }
+
+    public async Task<MemoryStream> DisplayInvationTeamplateBackgroundImg(Guid TemplateId)
+    {
+        try
+        {
+            var invationTemplate = await _unitOfWork.InvitationTemplateRepository.GetAsync(x => x.TemplateId == TemplateId);
+
+            if (invationTemplate != null && invationTemplate.BackgroundImageUrl.IsNullOrEmpty())
+            {
+                return null;
+            }
+
+            var stream = await _firebaseService.GetImage(invationTemplate.BackgroundImageUrl[0]);
+            return stream;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }   
     }
 }

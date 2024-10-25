@@ -16,12 +16,15 @@ public class InvitationService : IInvitationService
 {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IFirebaseService _firebaseService;
     
-    public InvitationService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager)
+    public InvitationService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, IFirebaseService firebaseService)
     {
         _userManager = userManager;
         _unitOfWork = unitOfWork;
+        _firebaseService = firebaseService;
     }
+
     public async Task<ResponseDTO> GetAll(string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
         int pageNumber, int pageSize)
     {
@@ -206,7 +209,9 @@ public class InvitationService : IInvitationService
                     Result = null
                 };
             }
-            
+
+            invitationToUpdate.InvationLocation = updateInvitationDTO.InvationLocation;
+            invitationToUpdate.InvitationPhotoUrl = updateInvitationDTO.InvitationPhotoUrl;
             invitationToUpdate.CustomerMessage = updateInvitationDTO.CustomerMessage;
             invitationToUpdate.CustomerTextColor = updateInvitationDTO.CustomerTextColor;
             invitationToUpdate.CreatedTime = updateInvitationDTO.CreatedTime;
@@ -282,6 +287,8 @@ public class InvitationService : IInvitationService
                 InvitationId = Guid.NewGuid(),
                 TemplateId = createInvitationDTO.TemplateId,
                 WeddingId = createInvitationDTO.WeddingId,
+                InvationLocation = createInvitationDTO.InvationLocation,
+                InvitationPhotoUrl = createInvitationDTO.InvitationPhotoUrl,
                 CustomerMessage = createInvitationDTO.CustomerMessage,
                 CustomerTextColor = createInvitationDTO.CustomerTextColor,
                 ShareableLink = createInvitationDTO.ShareableLink,
@@ -309,5 +316,87 @@ public class InvitationService : IInvitationService
                 Result = null
             };
         }
+    }
+    
+    public async Task<ResponseDTO> UploadInvationBackgroundImg(Guid InvationId, UploadInvationBackgroundImg uploadInvationBackgroundImg)
+    {
+        try
+        {
+            if (uploadInvationBackgroundImg.File == null)
+            {
+                return new ResponseDTO()
+                {
+                    IsSuccess = false,
+                    StatusCode = 400,
+                    Message = "No file uploaded."
+                };
+            }
+
+            var invation = await _unitOfWork.InvitationRepository.GetAsync(x => x.InvitationId == InvationId);
+            if (invation == null)
+            {
+                return new ResponseDTO()
+                {
+                    IsSuccess = false,
+                    StatusCode = 404,
+                    Message = "Invation not found."
+                };
+            }
+
+            var filePath = $"Invation/{invation.InvitationId}/Background";
+            var responseDto = await _firebaseService.UploadImage(uploadInvationBackgroundImg.File, filePath);
+
+            if (!responseDto.IsSuccess)
+            {
+                return new ResponseDTO()
+                {
+                    IsSuccess = false,
+                    StatusCode = 500,
+                    Message = "File upload failed."
+                };
+            }
+
+            invation.InvitationPhotoUrl = responseDto.Result.ToString();
+            _unitOfWork.InvitationRepository.Update(invation);
+            await _unitOfWork.SaveAsync();
+
+            return new ResponseDTO()
+            {
+                IsSuccess = true,
+                StatusCode = 200,
+                Result = responseDto.Result,
+                Message = "Upload file successfully"
+            };
+        }
+        catch (Exception e)
+        {
+            return new ResponseDTO()
+            {
+                IsSuccess = false,
+                StatusCode = 500,
+                Result = null,
+                Message = e.Message
+            };
+        }
+    }
+
+    public async Task<MemoryStream> DisplayInvationBackgroundImg(Guid InvationId)
+    {
+        try
+        {
+            var invation = await _unitOfWork.InvitationRepository.GetAsync(x => x.InvitationId == InvationId);
+
+            if (invation != null && invation.InvitationPhotoUrl.IsNullOrEmpty())
+            {
+                return null;
+            }
+
+            var stream = await _firebaseService.GetImage(invation.InvitationPhotoUrl);
+            return stream;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }   
     }
 }

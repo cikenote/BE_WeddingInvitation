@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Wedding.Utility")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+087ef0f2b4989dae93b5ff729a767980304f291c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe86d51917f6431dd53a0839a9a26dcedd2269fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("Wedding.Utility")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Wedding.Utility")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

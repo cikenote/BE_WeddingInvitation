@@ -16,11 +16,13 @@ public class WeddingService : IWeddingService
 {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IFirebaseService _firebaseService;
     
-    public WeddingService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager)
+    public WeddingService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, IFirebaseService firebaseService)
     {
         _userManager = userManager;
         _unitOfWork = unitOfWork;
+        _firebaseService = firebaseService;
     }
     public async Task<ResponseDTO> GetAll(ClaimsPrincipal User, string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
         int pageNumber, int pageSize)
@@ -323,4 +325,86 @@ public class WeddingService : IWeddingService
             };
         }
     }
+    
+    public async Task<ResponseDTO> UploadWeddingBackgroundImg(Guid WeddingId, UploadWeddingBackgroundImg uploadCourseVersionBackgroundImg)
+{
+    try
+    {
+        if (uploadCourseVersionBackgroundImg.File == null)
+        {
+            return new ResponseDTO()
+            {
+                IsSuccess = false,
+                StatusCode = 400,
+                Message = "No file uploaded."
+            };
+        }
+
+        var wedding = await _unitOfWork.WeddingRepository.GetAsync(x => x.WeddingId == WeddingId);
+        if (wedding == null)
+        {
+            return new ResponseDTO()
+            {
+                IsSuccess = false,
+                StatusCode = 404,
+                Message = "Wedding not found."
+            };
+        }
+
+        var filePath = $"Wedding/{wedding.WeddingId}/Background";
+        var responseDto = await _firebaseService.UploadImage(uploadCourseVersionBackgroundImg.File, filePath);
+
+        if (!responseDto.IsSuccess)
+        {
+            return new ResponseDTO()
+            {
+                IsSuccess = false,
+                StatusCode = 500,
+                Message = "File upload failed."
+            };
+        }
+
+        wedding.WeddingPhotoUrl = responseDto.Result.ToString();
+        _unitOfWork.WeddingRepository.Update(wedding);
+        await _unitOfWork.SaveAsync();
+
+        return new ResponseDTO()
+        {
+            IsSuccess = true,
+            StatusCode = 200,
+            Result = responseDto.Result,
+            Message = "Upload file successfully"
+        };
+    }
+    catch (Exception e)
+    {
+        return new ResponseDTO()
+        {
+            IsSuccess = false,
+            StatusCode = 500,
+            Result = null,
+            Message = e.Message
+        };
+    }
+}
+
+public async Task<MemoryStream> DisplayWeddingBackgroundImg(Guid WeddingId)
+{
+    try
+    {
+        var wedding = await _unitOfWork.WeddingRepository.GetAsync(x => x.WeddingId == WeddingId);
+
+        if (wedding != null && wedding.WeddingPhotoUrl.IsNullOrEmpty())
+        {
+            return null;
+        }
+
+        var stream = await _firebaseService.GetImage(wedding.WeddingPhotoUrl);
+        return stream;
+    }
+    catch (Exception e)
+    {
+        return null;
+    }   
+}
 }

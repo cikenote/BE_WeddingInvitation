@@ -16,12 +16,15 @@ public class EventPhotoService : IEventPhotoService
 {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IFirebaseService _firebaseService;
 
-    public EventPhotoService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager)
+    public EventPhotoService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, IFirebaseService firebaseService)
     {
-        _userManager = userManager;
         _unitOfWork = unitOfWork;
+        _userManager = userManager;
+        _firebaseService = firebaseService;
     }
+
     public async Task<ResponseDTO> GetAll(string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
         int pageNumber, int pageSize)
     {
@@ -295,4 +298,86 @@ public class EventPhotoService : IEventPhotoService
             };
         }
     }
+    
+    public async Task<ResponseDTO> UploadEventPhotoBackgroundImg(Guid EventPhotoId, UploadEventPhotoBackgroundImg uploadEventPhotoBackgroundImg)
+    {
+    try
+    {
+        if (uploadEventPhotoBackgroundImg.File == null)
+        {
+            return new ResponseDTO()
+            {
+                IsSuccess = false,
+                StatusCode = 400,
+                Message = "No file uploaded."
+            };
+        }
+
+        var eventPhoto = await _unitOfWork.EventPhotoRepository.GetAsync(x => x.EventPhotoId == EventPhotoId);
+        if (eventPhoto == null)
+        {
+            return new ResponseDTO()
+            {
+                IsSuccess = false,
+                StatusCode = 404,
+                Message = "Event photo not found."
+            };
+        }
+
+        var filePath = $"EventPhoto/{eventPhoto.EventPhotoId}/Background";
+        var responseDto = await _firebaseService.UploadImage(uploadEventPhotoBackgroundImg.File, filePath);
+
+        if (!responseDto.IsSuccess)
+        {
+            return new ResponseDTO()
+            {
+                IsSuccess = false,
+                StatusCode = 500,
+                Message = "File upload failed."
+            };
+        }
+
+        eventPhoto.PhotoUrl = responseDto.Result.ToString();
+        _unitOfWork.EventPhotoRepository.Update(eventPhoto);
+        await _unitOfWork.SaveAsync();
+
+        return new ResponseDTO()
+        {
+            IsSuccess = true,
+            StatusCode = 200,
+            Result = responseDto.Result,
+            Message = "Upload file successfully"
+        };
+    }
+    catch (Exception e)
+    {
+        return new ResponseDTO()
+        {
+            IsSuccess = false,
+            StatusCode = 500,
+            Result = null,
+            Message = e.Message
+        };
+    }
+}
+
+public async Task<MemoryStream> DisplayEventPhotoBackgroundImg(Guid EventPhotoId)
+{
+    try
+    {
+        var eventPhoto = await _unitOfWork.EventPhotoRepository.GetAsync(x => x.EventPhotoId == EventPhotoId);
+
+        if (eventPhoto != null && eventPhoto.PhotoUrl.IsNullOrEmpty())
+        {
+            return null;
+        }
+
+        var stream = await _firebaseService.GetImage(eventPhoto.PhotoUrl);
+        return stream;
+    }
+    catch (Exception e)
+    {
+        return null;
+    }   
+}
 }

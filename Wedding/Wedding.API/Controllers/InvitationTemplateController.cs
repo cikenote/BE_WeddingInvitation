@@ -59,5 +59,26 @@ namespace Wedding.API.Controllers
             var responseDto = await _invitationTemplateService.CreateById(createInvitationTemplateDTO);
             return StatusCode(responseDto.StatusCode, responseDto);
         }
+
+        [HttpPost]
+        [Route("background/{template-id:guid}")]
+        public async Task<ActionResult<ResponseDTO>> UploadInvationTeamplateBackground([FromRoute] Guid TemplateId, UploadInvationTeamplateBackgroundImg uploadInvationTemplateBackgroundImg)
+        {
+            var responseDto = await _invitationTemplateService.UploadInvationTeamplateBackgroundImg(TemplateId, uploadInvationTemplateBackgroundImg);
+            return StatusCode(responseDto.StatusCode, responseDto);
+        }
+
+        [HttpGet]
+        [Route("background/{template-id:guid}")]
+        public async Task<ActionResult> DisplayInvationTeamplateBackground([FromRoute] Guid TemplateId)
+        {
+            var responseDto = await _invitationTemplateService.DisplayInvationTeamplateBackgroundImg(TemplateId);
+            if (responseDto is null)
+            {
+                return null;
+            }
+
+            return File(responseDto, "image/png");
+        }
     }
 }

@@ -56,7 +56,7 @@ namespace Wedding.API.Controllers
         }
 
         [HttpGet]
-        [Route("{orderHeaderId:guid}")]
+        [Route("{order-header-id:guid}")]
         [Authorize]
         public async Task<ActionResult<ResponseDTO>> GetOrder([FromRoute] Guid orderHeaderId)
         {
@@ -65,7 +65,7 @@ namespace Wedding.API.Controllers
         }
 
         [HttpGet]
-        [Route("status/{orderHeaderId:guid}")]
+        [Route("status/{order-header-id:guid}")]
         [Authorize(Roles = StaticUserRoles.AdminCustomer)]
         public async Task<ActionResult<ResponseDTO>> GetOrderStatus([FromRoute] Guid orderHeaderId)
         {
@@ -98,7 +98,7 @@ namespace Wedding.API.Controllers
         }
 
         [HttpPut]
-        [Route("confirm/{orderHeaderId:guid}")]
+        [Route("confirm/{order-header-id:guid}")]
         [Authorize(Roles = StaticUserRoles.Admin)]
         public async Task<ActionResult<ResponseDTO>> ConfirmOrder([FromRoute] Guid orderHeaderId)
         {

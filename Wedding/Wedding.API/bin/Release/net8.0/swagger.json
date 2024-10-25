@@ -1644,6 +1644,75 @@
         }
       }
     },
+    "/api/event/background/{event-id}": {
+      "post": {
+        "tags": [
+          "Event"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "EventId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "event-id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "File",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseDTO"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "EventId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "event-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/event-photo": {
       "get": {
         "tags": [
@@ -1823,6 +1892,75 @@
             "schema": {
               "$ref": "#/definitions/ResponseDTO"
             }
+          }
+        }
+      }
+    },
+    "/api/event-photo/background/{event-photo-id}": {
+      "post": {
+        "tags": [
+          "EventPhoto"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "EventPhotoId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "event-photo-id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "File",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseDTO"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "EventPhoto"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "EventPhotoId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "event-photo-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -2376,6 +2514,75 @@
         }
       }
     },
+    "/api/invitation/background/{invation-id}": {
+      "post": {
+        "tags": [
+          "Invitation"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "InvationId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "invation-id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "File",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseDTO"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Invitation"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "InvationId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "invation-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/invitation-template": {
       "get": {
         "tags": [
@@ -2559,6 +2766,75 @@
         }
       }
     },
+    "/api/invitation-template/background/{template-id}": {
+      "post": {
+        "tags": [
+          "InvitationTemplate"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "TemplateId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "template-id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "File",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseDTO"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "InvitationTemplate"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "TemplateId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "template-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/order": {
       "post": {
         "tags": [
@@ -2639,7 +2915,7 @@
         }
       }
     },
-    "/api/order/{orderHeaderId}": {
+    "/api/order/{order-header-id}": {
       "get": {
         "tags": [
           "Order"
@@ -2656,6 +2932,12 @@
             "required": true,
             "type": "string",
             "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "order-header-id",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2668,7 +2950,7 @@
         }
       }
     },
-    "/api/order/status/{orderHeaderId}": {
+    "/api/order/status/{order-header-id}": {
       "get": {
         "tags": [
           "Order"
@@ -2685,6 +2967,12 @@
             "required": true,
             "type": "string",
             "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "order-header-id",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2765,7 +3053,7 @@
         }
       }
     },
-    "/api/order/confirm/{orderHeaderId}": {
+    "/api/order/confirm/{order-header-id}": {
       "put": {
         "tags": [
           "Order"
@@ -2782,6 +3070,12 @@
             "required": true,
             "type": "string",
             "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "order-header-id",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3552,6 +3846,75 @@
           }
         }
       }
+    },
+    "/api/wedding/background/{wedding-id}": {
+      "post": {
+        "tags": [
+          "Wedding"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "WeddingId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "wedding-id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "File",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseDTO"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Wedding"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "WeddingId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "wedding-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -3869,6 +4232,13 @@
         },
         "templateId": {
           "format": "uuid",
+          "type": "string"
+        },
+        "invationLocation": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "invitationPhotoUrl": {
           "type": "string"
         },
         "customerMessage": {
@@ -4503,6 +4873,13 @@
           "type": "string"
         },
         "templateId": {
+          "type": "string"
+        },
+        "invationLocation": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "invitationPhotoUrl": {
           "type": "string"
         },
         "customerMessage": {
