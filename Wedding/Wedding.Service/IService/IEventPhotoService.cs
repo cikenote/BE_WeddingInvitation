@@ -8,7 +8,6 @@ public interface IEventPhotoService
 {
     Task<ResponseDTO> GetAll
     (
-        ClaimsPrincipal User,
         string? filterOn,
         string? filterQuery,
         string? sortBy,
@@ -18,7 +17,7 @@ public interface IEventPhotoService
     );
 
     Task<ResponseDTO> GetById(Guid id);
-    Task<ResponseDTO> UpdateById(UpdateEventPhotoDTO updateEventPhotoDTO);
+    Task<ResponseDTO> UpdateById(Guid id, UpdateEventPhotoDTO updateEventPhotoDTO);
     Task<ResponseDTO> DeleteById(Guid id);
     Task<ResponseDTO> CreateById(CreateEventPhotoDTO createEventPhotoDTO);
 }

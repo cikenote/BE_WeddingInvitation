@@ -9,7 +9,7 @@ namespace Wedding.API.Controllers
 {
     [Route("api/event-photo")]
     [ApiController]
-    [Authorize(Roles = StaticUserRoles.Customer)]
+    [Authorize(Roles = StaticUserRoles.Admin + "," + StaticUserRoles.Customer)]
     public class EventPhotoController : ControllerBase
     {
         private readonly IEventPhotoService _EventPhotoService;
@@ -28,7 +28,7 @@ namespace Wedding.API.Controllers
             [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 10)
         {
-            var responseDto = await _EventPhotoService.GetAll(User, filterOn, filterQuery, sortBy, isAscending, pageNumber, pageSize);
+            var responseDto = await _EventPhotoService.GetAll(filterOn, filterQuery, sortBy, isAscending, pageNumber, pageSize);
             return StatusCode(responseDto.StatusCode, responseDto);
         }
 
@@ -42,7 +42,7 @@ namespace Wedding.API.Controllers
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<ResponseDTO>> UpdateEventPhoto(Guid id, UpdateEventPhotoDTO updateEventPhotoDTO)
         {
-            var responseDto = await _EventPhotoService.UpdateById(updateEventPhotoDTO);
+            var responseDto = await _EventPhotoService.UpdateById(id, updateEventPhotoDTO);
             return StatusCode(responseDto.StatusCode, responseDto);
         }
 

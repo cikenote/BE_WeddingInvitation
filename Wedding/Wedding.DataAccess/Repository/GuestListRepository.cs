@@ -26,7 +26,7 @@ public class GuestListRepository : Repository<GuestList>, IGuestListRepository
 
     public async Task<GuestList?> GetById(Guid id)
     {
-        return await _context.GuestLists.FirstOrDefaultAsync(x => x.GuestId == id);
+        return await _context.GuestLists.FirstOrDefaultAsync(x => x.GuestListId == id);
 
     }
 

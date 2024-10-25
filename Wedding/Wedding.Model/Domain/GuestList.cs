@@ -7,10 +7,14 @@ namespace Wedding.Model.Domain;
 public class GuestList
 {
     [Key]
+    public Guid GuestListId { get; set; }
     public Guid GuestId { get; set; }
-    [ForeignKey("GuestId"),  DeleteBehavior(DeleteBehavior.NoAction)] public virtual ICollection<Guest> Guests { get; set; }
+    [DeleteBehavior(DeleteBehavior.NoAction)]
+    [ForeignKey("GuestId")]
+    public virtual Guest Guest { get; set; }
     public Guid EventId { get; set; }
-    [ForeignKey("EventId")] public Event Event { get; set; }
+    [ForeignKey("EventId")]
+    public Event Event { get; set; }
     public string GuestName { get; set; }
     public string AttendStatus { get; set; }
     public DateTime CheckinTime { get; set; }

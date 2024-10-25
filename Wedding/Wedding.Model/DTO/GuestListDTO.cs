@@ -6,7 +6,7 @@ namespace Wedding.Model.DTO;
 
 public class GuestListDTO
 {
-    public Guid GuestId { get; set; }
+    public Guid GuestListId { get; set; }
     public Guid EventId { get; set; }
     public string GuestName { get; set; }
     public string AttendStatus { get; set; }

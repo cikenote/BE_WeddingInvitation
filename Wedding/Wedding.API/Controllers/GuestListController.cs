@@ -9,7 +9,7 @@ namespace Wedding.API.Controllers
 {
     [Route("api/guest-list")]
     [ApiController]
-    [Authorize(Roles = StaticUserRoles.Customer)]
+    [Authorize(Roles = StaticUserRoles.Admin + "," + StaticUserRoles.Customer)]
     public class GuestListController : ControllerBase
     {
         private readonly IGuestListService _GuestListService;
@@ -28,7 +28,7 @@ namespace Wedding.API.Controllers
             [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 10)
         {
-            var responseDto = await _GuestListService.GetAll(User, filterOn, filterQuery, sortBy, isAscending, pageNumber, pageSize);
+            var responseDto = await _GuestListService.GetAll(filterOn, filterQuery, sortBy, isAscending, pageNumber, pageSize);
             return StatusCode(responseDto.StatusCode, responseDto);
         }
 
@@ -42,7 +42,7 @@ namespace Wedding.API.Controllers
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<ResponseDTO>> UpdateGuestList(Guid id, UpdateGuestListDTO updateGuestListDTO)
         {
-            var responseDto = await _GuestListService.UpdateById(updateGuestListDTO);
+            var responseDto = await _GuestListService.UpdateById(id, updateGuestListDTO);
             return StatusCode(responseDto.StatusCode, responseDto);
         }
 

@@ -22,7 +22,7 @@ public class GuestService : IGuestService
         _userManager = userManager;
         _unitOfWork = unitOfWork;
     }
-    public async Task<ResponseDTO> GetAll(ClaimsPrincipal User, string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
+    public async Task<ResponseDTO> GetAll(string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
         int pageNumber, int pageSize)
     {
         #region MyRegion
@@ -38,21 +38,21 @@ public class GuestService : IGuestService
                 {
                     case "name":
                         {
-                            Guests = _unitOfWork.GuestRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                            Guests = _unitOfWork.GuestRepository.GetAllAsync()
                                 .GetAwaiter().GetResult().Where(x =>
                                     x.Name.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
                             break;
                         }
                     case "attend":
                         {
-                            Guests = _unitOfWork.GuestRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                            Guests = _unitOfWork.GuestRepository.GetAllAsync()
                                 .GetAwaiter().GetResult().Where(x =>
                                     x.Attend.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
                             break;
                         }
                     case "gift":
                         {
-                            Guests = _unitOfWork.GuestRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                            Guests = _unitOfWork.GuestRepository.GetAllAsync()
                                 .GetAwaiter().GetResult().Where(x =>
                                     x.Gift.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
                             break;
@@ -60,7 +60,7 @@ public class GuestService : IGuestService
                     default:
                         {
                             Guests = _unitOfWork.GuestRepository
-                                .GetAllAsync(includeProperties: "ApplicationUser")
+                                .GetAllAsync()
                                 .GetAwaiter().GetResult().ToList();
                             break;
                         }
@@ -68,7 +68,7 @@ public class GuestService : IGuestService
             }
             else
             {
-                Guests = _unitOfWork.GuestRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                Guests = _unitOfWork.GuestRepository.GetAllAsync()
                     .GetAwaiter().GetResult().ToList();
             }
 
@@ -208,11 +208,11 @@ public class GuestService : IGuestService
         }
     }
 
-    public async Task<ResponseDTO> UpdateById(UpdateGuestDTO updateGuestDTO)
+    public async Task<ResponseDTO> UpdateById(Guid id, UpdateGuestDTO updateGuestDTO)
     {
         try
         {
-            var GuestToUpdate = await _unitOfWork.GuestRepository.GetById(updateGuestDTO.GuestId);
+            var GuestToUpdate = await _unitOfWork.GuestRepository.GetById(id);
             if (GuestToUpdate is null)
             {
                 return new ResponseDTO()
@@ -296,7 +296,9 @@ public class GuestService : IGuestService
         {
             var Guest = new Guest
             {
-                EventId = Guid.NewGuid(),
+                GuestId = Guid.NewGuid(),
+                GuestListId = createGuestDTO.GuestListId,
+                EventId = createGuestDTO.EventId,
                 Name = createGuestDTO.Name,
                 Attend = createGuestDTO.Attend,
                 Gift = createGuestDTO.Gift,

@@ -9,7 +9,7 @@ namespace Wedding.API.Controllers
 {
     [Route("api/event")]
     [ApiController]
-    [Authorize(Roles = StaticUserRoles.Customer)]
+    [Authorize(Roles = StaticUserRoles.Admin + "," + StaticUserRoles.Customer)]
     public class EventController : ControllerBase
     {
         private readonly IEventService _EventService;
@@ -28,7 +28,7 @@ namespace Wedding.API.Controllers
             [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 10)
         {
-            var responseDto = await _EventService.GetAll(User, filterOn, filterQuery, sortBy, isAscending, pageNumber, pageSize);
+            var responseDto = await _EventService.GetAll(filterOn, filterQuery, sortBy, isAscending, pageNumber, pageSize);
             return StatusCode(responseDto.StatusCode, responseDto);
         }
 
@@ -42,7 +42,7 @@ namespace Wedding.API.Controllers
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<ResponseDTO>> UpdateEvent(Guid id, UpdateEventDTO updateEventDTO)
         {
-            var responseDto = await _EventService.UpdateById(updateEventDTO);
+            var responseDto = await _EventService.UpdateById(id, updateEventDTO);
             return StatusCode(responseDto.StatusCode, responseDto);
         }
 

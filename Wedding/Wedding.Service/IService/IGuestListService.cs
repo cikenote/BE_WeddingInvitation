@@ -7,9 +7,7 @@ namespace Wedding.Service.IService;
 public interface IGuestListService
 {
     Task<ResponseDTO> GetAll
-    (
-        ClaimsPrincipal User,
-        string? filterOn,
+    (string? filterOn,
         string? filterQuery,
         string? sortBy,
         bool? isAscending,
@@ -18,7 +16,7 @@ public interface IGuestListService
     );
 
     Task<ResponseDTO> GetById(Guid id);
-    Task<ResponseDTO> UpdateById(UpdateGuestListDTO updateGuestListDTO);
+    Task<ResponseDTO> UpdateById(Guid id, UpdateGuestListDTO updateGuestListDTO);
     Task<ResponseDTO> DeleteById(Guid id);
     Task<ResponseDTO> CreateById(CreateGuestListDTO createGuestListDTO);
 }

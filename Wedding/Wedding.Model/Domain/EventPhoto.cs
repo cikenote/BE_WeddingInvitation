@@ -7,7 +7,7 @@ public  class EventPhoto
 {
     [Key]
     public Guid EventPhotoId { get; set; }
-    public Guid EventId { get; set; }
+    public Guid? EventId { get; set; }
     [ForeignKey("EventId")] public virtual Event Event { get; set; }
     public string PhotoUrl { get; set; }
     public string PhotoType { get; set; }

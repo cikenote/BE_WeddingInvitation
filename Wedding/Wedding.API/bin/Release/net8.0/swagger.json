@@ -3757,12 +3757,6 @@
           "format": "uuid",
           "type": "string"
         },
-        "brideName": {
-          "type": "string"
-        },
-        "groomName": {
-          "type": "string"
-        },
         "eventDate": {
           "format": "date-time",
           "type": "string"
@@ -3811,6 +3805,10 @@
           "format": "uuid",
           "type": "string"
         },
+        "guestListId": {
+          "format": "uuid",
+          "type": "string"
+        },
         "eventId": {
           "format": "uuid",
           "type": "string"
@@ -3830,6 +3828,10 @@
     "CreateGuestListDTO": {
       "type": "object",
       "properties": {
+        "guestListId": {
+          "format": "uuid",
+          "type": "string"
+        },
         "guestId": {
           "format": "uuid",
           "type": "string"
@@ -4426,20 +4428,6 @@
     "UpdateEventDTO": {
       "type": "object",
       "properties": {
-        "eventId": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "weddingId": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "brideName": {
-          "type": "string"
-        },
-        "groomName": {
-          "type": "string"
-        },
         "eventDate": {
           "format": "date-time",
           "type": "string"
@@ -4460,14 +4448,6 @@
     "UpdateEventPhotoDTO": {
       "type": "object",
       "properties": {
-        "eventPhotoId": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "eventId": {
-          "format": "uuid",
-          "type": "string"
-        },
         "photoUrl": {
           "type": "string"
         },
@@ -4484,14 +4464,6 @@
     "UpdateGuestDTO": {
       "type": "object",
       "properties": {
-        "guestId": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "eventId": {
-          "format": "uuid",
-          "type": "string"
-        },
         "name": {
           "type": "string"
         },
@@ -4507,14 +4479,6 @@
     "UpdateGuestListDTO": {
       "type": "object",
       "properties": {
-        "guestId": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "eventId": {
-          "format": "uuid",
-          "type": "string"
-        },
         "guestName": {
           "type": "string"
         },

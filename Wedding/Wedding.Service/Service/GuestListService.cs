@@ -23,7 +23,7 @@ public class GuestListService : IGuestListService
         _userManager = userManager;
         _unitOfWork = unitOfWork;
     }
-    public async Task<ResponseDTO> GetAll(ClaimsPrincipal User, string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
+    public async Task<ResponseDTO> GetAll(string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
         int pageNumber, int pageSize)
     {
         #region MyRegion
@@ -40,14 +40,14 @@ public class GuestListService : IGuestListService
 
                     case "guestname":
                         {
-                            GuestLists = _unitOfWork.GuestListRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                            GuestLists = _unitOfWork.GuestListRepository.GetAllAsync()
                                 .GetAwaiter().GetResult().Where(x =>
                                     x.GuestName.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
                             break;
                         }
                     case "guestgift":
                         {
-                            GuestLists = _unitOfWork.GuestListRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                            GuestLists = _unitOfWork.GuestListRepository.GetAllAsync()
                                 .GetAwaiter().GetResult().Where(x =>
                                     x.GuestGift.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
                             break;
@@ -55,7 +55,7 @@ public class GuestListService : IGuestListService
                     default:
                         {
                             GuestLists = _unitOfWork.GuestListRepository
-                                .GetAllAsync(includeProperties: "ApplicationUser")
+                                .GetAllAsync()
                                 .GetAwaiter().GetResult().ToList();
                             break;
                         }
@@ -63,7 +63,7 @@ public class GuestListService : IGuestListService
             }
             else
             {
-                GuestLists = _unitOfWork.GuestListRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                GuestLists = _unitOfWork.GuestListRepository.GetAllAsync()
                     .GetAwaiter().GetResult().ToList();
             }
 
@@ -119,7 +119,8 @@ public class GuestListService : IGuestListService
             {
                 var GuestListDTO = new GuestListDTO
                 {
-                    GuestId = GuestList.GuestId,
+                    
+                    GuestListId = GuestList.GuestListId,
                     EventId = GuestList.EventId,
                     GuestName = GuestList.GuestName,
                     AttendStatus = GuestList.AttendStatus,
@@ -169,7 +170,7 @@ public class GuestListService : IGuestListService
 
                 GuestListDTO GuestListDto = new GuestListDTO()
                 {
-                    GuestId = GuestList.GuestId,
+                    GuestListId = GuestList.GuestListId,
                     EventId = GuestList.EventId,
                     GuestName = GuestList.GuestName,
                     AttendStatus = GuestList.AttendStatus,
@@ -198,11 +199,11 @@ public class GuestListService : IGuestListService
         }
     }
 
-    public async Task<ResponseDTO> UpdateById(UpdateGuestListDTO updateGuestListDTO)
+    public async Task<ResponseDTO> UpdateById(Guid id, UpdateGuestListDTO updateGuestListDTO)
     {
         try
         {
-            var GuestListToUpdate = await _unitOfWork.GuestListRepository.GetById(updateGuestListDTO.GuestId);
+            var GuestListToUpdate = await _unitOfWork.GuestListRepository.GetById(id);
             if (GuestListToUpdate is null)
             {
                 return new ResponseDTO()
@@ -287,7 +288,8 @@ public class GuestListService : IGuestListService
         {
             var GuestList = new GuestList
             {
-                GuestId = Guid.NewGuid(),
+                GuestListId = Guid.NewGuid(),
+                GuestId = createGuestListDTO.GuestId,
                 EventId = createGuestListDTO.EventId,
                 GuestName = createGuestListDTO.GuestName,
                 AttendStatus = createGuestListDTO.AttendStatus,

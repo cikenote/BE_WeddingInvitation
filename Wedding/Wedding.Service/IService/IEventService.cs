@@ -8,7 +8,6 @@ public interface IEventService
 {
     Task<ResponseDTO> GetAll
     (
-        ClaimsPrincipal User,
         string? filterOn,
         string? filterQuery,
         string? sortBy,
@@ -18,7 +17,7 @@ public interface IEventService
     );
 
     Task<ResponseDTO> GetById(Guid id);
-    Task<ResponseDTO> UpdateById(UpdateEventDTO updateEventDTO);
+    Task<ResponseDTO> UpdateById(Guid id, UpdateEventDTO updateEventDTO);
     Task<ResponseDTO> DeleteById(Guid id);
     Task<ResponseDTO> CreateById(CreateEventDTO createEventDTO);
 }

@@ -22,7 +22,7 @@ public class EventService : IEventService
         _userManager = userManager;
         _unitOfWork = unitOfWork;
     }
-    public async Task<ResponseDTO> GetAll(ClaimsPrincipal User, string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
+    public async Task<ResponseDTO> GetAll(string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
         int pageNumber, int pageSize)
     {
         #region MyRegion
@@ -38,14 +38,14 @@ public class EventService : IEventService
                 {
                     case "bridgename":
                         {
-                            Events = _unitOfWork.EventRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                            Events = _unitOfWork.EventRepository.GetAllAsync()
                                 .GetAwaiter().GetResult().Where(x =>
                                     x.BrideName.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
                             break;
                         }
                     case "groomname":
                         {
-                            Events = _unitOfWork.EventRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                            Events = _unitOfWork.EventRepository.GetAllAsync()
                                 .GetAwaiter().GetResult().Where(x =>
                                     x.GroomName.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
                             break;
@@ -53,7 +53,7 @@ public class EventService : IEventService
 
                     case "eventlocation":
                         {
-                            Events = _unitOfWork.EventRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                            Events = _unitOfWork.EventRepository.GetAllAsync()
                                 .GetAwaiter().GetResult().Where(x =>
                                     x.EventLocation.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
                             break;
@@ -61,7 +61,7 @@ public class EventService : IEventService
                     default:
                         {
                             Events = _unitOfWork.EventRepository
-                                .GetAllAsync(includeProperties: "ApplicationUser")
+                                .GetAllAsync()
                                 .GetAwaiter().GetResult().ToList();
                             break;
                         }
@@ -69,7 +69,7 @@ public class EventService : IEventService
             }
             else
             {
-                Events = _unitOfWork.EventRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                Events = _unitOfWork.EventRepository.GetAllAsync()
                     .GetAwaiter().GetResult().ToList();
             }
 
@@ -215,11 +215,11 @@ public class EventService : IEventService
         }
     }
 
-    public async Task<ResponseDTO> UpdateById(UpdateEventDTO updateEventDTO)
+    public async Task<ResponseDTO> UpdateById(Guid id, UpdateEventDTO updateEventDTO)
     {
         try
         {
-            var EventToUpdate = await _unitOfWork.EventRepository.GetById(updateEventDTO.EventId);
+            var EventToUpdate = await _unitOfWork.EventRepository.GetById(id);
             if (EventToUpdate is null)
             {
                 return new ResponseDTO()
@@ -304,10 +304,15 @@ public class EventService : IEventService
         {
             var wedding = await _unitOfWork.WeddingRepository.GetById(createEventDTO.WeddingId);
 
-            if (wedding != null)
+            if (wedding == null)
             {
-                createEventDTO.BrideName = wedding.BrideName;
-                createEventDTO.GroomName = wedding.GroomName;
+                return new ResponseDTO
+                {
+                    Message = "Wedding not found",
+                    IsSuccess = false,
+                    StatusCode = 404,
+                    Result = null
+                };
             }
 
             var Event = new Event
@@ -318,6 +323,8 @@ public class EventService : IEventService
                 EventLocation = createEventDTO.EventLocation,
                 EventPhotoUrl = createEventDTO.EventPhotoUrl,
                 CreatedDate = createEventDTO.CreatedDate,
+                BrideName = wedding.BrideName,  
+                GroomName = wedding.GroomName,
             };
 
             await _unitOfWork.EventRepository.AddAsync(Event);

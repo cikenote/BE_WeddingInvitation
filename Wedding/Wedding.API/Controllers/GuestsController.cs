@@ -9,7 +9,7 @@ namespace Wedding.API.Controllers
 {
     [Route("api/guests")]
     [ApiController]
-    [Authorize(Roles = StaticUserRoles.Customer)]
+    [Authorize(Roles = StaticUserRoles.Admin + "," + StaticUserRoles.Customer)]
     public class GuestsController : ControllerBase
     {
         private readonly IGuestService _GuestService;
@@ -28,7 +28,7 @@ namespace Wedding.API.Controllers
             [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 10)
         {
-            var responseDto = await _GuestService.GetAll(User, filterOn, filterQuery, sortBy, isAscending, pageNumber, pageSize);
+            var responseDto = await _GuestService.GetAll(filterOn, filterQuery, sortBy, isAscending, pageNumber, pageSize);
             return StatusCode(responseDto.StatusCode, responseDto);
         }
 
@@ -42,7 +42,7 @@ namespace Wedding.API.Controllers
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<ResponseDTO>> UpdateGuest(Guid id, UpdateGuestDTO updateGuestDTO)
         {
-            var responseDto = await _GuestService.UpdateById(updateGuestDTO);
+            var responseDto = await _GuestService.UpdateById(id, updateGuestDTO);
             return StatusCode(responseDto.StatusCode, responseDto);
         }
 
@@ -54,7 +54,7 @@ namespace Wedding.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ResponseDTO>> CreateEmailTemplate(CreateGuestDTO createGuestDTO)
+        public async Task<ActionResult<ResponseDTO>> CreateGuest(CreateGuestDTO createGuestDTO)
         {
             var responseDto = await _GuestService.CreateById(createGuestDTO);
             return StatusCode(responseDto.StatusCode, responseDto);

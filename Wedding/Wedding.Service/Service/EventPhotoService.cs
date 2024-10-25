@@ -22,7 +22,7 @@ public class EventPhotoService : IEventPhotoService
         _userManager = userManager;
         _unitOfWork = unitOfWork;
     }
-    public async Task<ResponseDTO> GetAll(ClaimsPrincipal User, string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
+    public async Task<ResponseDTO> GetAll(string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
         int pageNumber, int pageSize)
     {
         #region MyRegion
@@ -38,7 +38,7 @@ public class EventPhotoService : IEventPhotoService
                 {
                     case "phototype":
                         {
-                            EventPhotos = _unitOfWork.EventPhotoRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                            EventPhotos = _unitOfWork.EventPhotoRepository.GetAllAsync()
                                 .GetAwaiter().GetResult().Where(x =>
                                     x.PhotoType.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
                             break;
@@ -46,7 +46,7 @@ public class EventPhotoService : IEventPhotoService
                     default:
                         {
                             EventPhotos = _unitOfWork.EventPhotoRepository
-                                .GetAllAsync(includeProperties: "ApplicationUser")
+                                .GetAllAsync()
                                 .GetAwaiter().GetResult().ToList();
                             break;
                         }
@@ -54,7 +54,7 @@ public class EventPhotoService : IEventPhotoService
             }
             else
             {
-                EventPhotos = _unitOfWork.EventPhotoRepository.GetAllAsync(includeProperties: "ApplicationUser")
+                EventPhotos = _unitOfWork.EventPhotoRepository.GetAllAsync()
                     .GetAwaiter().GetResult().ToList();
             }
 
@@ -178,11 +178,11 @@ public class EventPhotoService : IEventPhotoService
         }
     }
 
-    public async Task<ResponseDTO> UpdateById(UpdateEventPhotoDTO updateEventPhotoDTO)
+    public async Task<ResponseDTO> UpdateById(Guid id, UpdateEventPhotoDTO updateEventPhotoDTO)
     {
         try
         {
-            var EventPhotoToUpdate = await _unitOfWork.EventPhotoRepository.GetById(updateEventPhotoDTO.EventPhotoId);
+            var EventPhotoToUpdate = await _unitOfWork.EventPhotoRepository.GetById(id);
             if (EventPhotoToUpdate is null)
             {
                 return new ResponseDTO()
@@ -267,6 +267,7 @@ public class EventPhotoService : IEventPhotoService
             var EventPhoto = new EventPhoto
             {
                 EventPhotoId = Guid.NewGuid(),
+                EventId = createEventPhotoDTO.EventId,
                 PhotoUrl = createEventPhotoDTO.PhotoUrl,
                 PhotoType = createEventPhotoDTO.PhotoType,
                 UploadedDate = createEventPhotoDTO.UploadedDate,

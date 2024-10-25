@@ -8,7 +8,6 @@ public interface IGuestService
 {
     Task<ResponseDTO> GetAll
     (
-        ClaimsPrincipal User,
         string? filterOn,
         string? filterQuery,
         string? sortBy,
@@ -18,7 +17,7 @@ public interface IGuestService
     );
 
     Task<ResponseDTO> GetById(Guid id);
-    Task<ResponseDTO> UpdateById(UpdateGuestDTO updateGuestDTO);
+    Task<ResponseDTO> UpdateById(Guid id, UpdateGuestDTO updateGuestDTO);
     Task<ResponseDTO> DeleteById(Guid id);
     Task<ResponseDTO> CreateById(CreateGuestDTO createGuestDTO);
 }
