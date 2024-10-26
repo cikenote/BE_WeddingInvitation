@@ -623,12 +623,29 @@ namespace Wedding.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "InvitationHtmls",
+                columns: table => new
+                {
+                    HtmlId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    InvitationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    HtmlContent = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateddTime = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_InvitationHtmls", x => x.HtmlId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Invitations",
                 columns: table => new
                 {
                     InvitationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     WeddingId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     TemplateId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    InvationLocation = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    InvitationPhotoUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CustomerMessage = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CustomerTextColor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ShareableLink = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -679,37 +696,37 @@ namespace Wedding.DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Address", "AvatarUrl", "BirthDate", "ConcurrencyStamp", "Country", "CreateTime", "Email", "EmailConfirmed", "FullName", "Gender", "LastLoginTime", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "SendClearEmail", "TaxNumber", "TwoFactorEnabled", "UpdateTime", "UserName" },
-                values: new object[] { "TranThaiSon493", 0, "123 Admin St", "https://example.com/avatar.png", new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "9d801674-e955-4b81-a37f-33cd32a08d29", "Country", null, "admin@gmail.com", true, "Admin User", "Male", null, true, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAIAAYagAAAAECLR2l1cREFTRAkcnfEzPWQEoBzYNEekPAwhEMJSIc1j4OKhH+CvHgR6vCyPa5uaOg==", "1234567890", true, "20b69c44-ca65-4929-a534-9f1c8bbb9f90", false, "123456789", false, new DateTime(2003, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@gmail.com" });
+                values: new object[] { "TranThaiSon493", 0, "123 Admin St", "https://example.com/avatar.png", new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "13379885-a86e-4392-a542-e2c0edb1ce67", "Country", null, "admin@gmail.com", true, "Admin User", "Male", null, true, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAIAAYagAAAAEEmaEE64qI4WLGbJjD7RAWPJzuFIoqObr9s5hZIF2rof2J50vA7hhiGP60ZCqm9ioQ==", "1234567890", true, "6237418f-865d-4fb2-a1c0-f27a6a739755", false, "123456789", false, new DateTime(2003, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@gmail.com" });
 
             migrationBuilder.InsertData(
                 table: "Companies",
                 columns: new[] { "Id", "Address", "City", "Country", "Description", "Email", "FoundedDate", "LogoUrl", "Name", "Phone", "PostalCode", "State", "Website" },
-                values: new object[] { new Guid("7b63dddf-5e95-4814-96c3-0f7b76c585a5"), "123 Main St", "Hometown", "Country", "ABC Corp is a leading company in XYZ industry.", "contact@abccorp.com", new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "http://www.abccorp.com/logo.png", "ABC Corp", "123-456-7890", "12345", "State", "http://www.abccorp.com" });
+                values: new object[] { new Guid("11446ee0-9973-4b9f-89c2-07d58c4d98c3"), "123 Main St", "Hometown", "Country", "ABC Corp is a leading company in XYZ industry.", "contact@abccorp.com", new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "http://www.abccorp.com/logo.png", "ABC Corp", "123-456-7890", "12345", "State", "http://www.abccorp.com" });
 
             migrationBuilder.InsertData(
                 table: "EmailTemplates",
                 columns: new[] { "Id", "BodyContent", "CallToAction", "Category", "CreatedBy", "CreatedTime", "FooterContent", "Language", "PersonalizationTags", "PreHeaderText", "RecipientType", "SenderEmail", "SenderName", "Status", "SubjectLine", "TemplateName", "UpdatedBy", "UpdatedTime" },
                 values: new object[,]
                 {
-                    { new Guid("0a9566d8-b9cd-4db6-a0b8-4f8747f5283e"), "Dear {FirstName} {LastName},<br><br>\r\n\r\n                    This email confirms that your payout request has been processed successfully.\r\n                    <br>\r\n                    <strong>Payout Details:</strong>\r\n                    <ul>\r\n                    <li>Amount: {PayoutAmount}</li>\r\n                    <li>Transaction Date: {TransactionDate}</li> \r\n                    </ul>\r\n                    <br>\r\n                    You can view your payout history in your customer dashboard. \r\n                    <br> \r\n                    Thank you for being a valued Wedding customer!\r\n                    <br>", "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>", "Payout", null, null, "<p>Contact us at cursusservicetts@gmail.com</p>", "English", "{FirstName}, {LastName}, {PayoutAmount}, {TransactionDate}", "Payout Successful!", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Your Wedding Payout is Complete!", "NotifyCustomerPaymentReceived", null, null },
-                    { new Guid("71f227c2-b042-459e-b707-0bb75bf4b46d"), "Dear [UserFullName],<br><br>Your account will be deleted after 14 days.", "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>", "Remind Account", null, null, "<p>Contact us at cursusservicetts@gmail.com</p>", "English", "{FirstName}, {LastName}", "Hello!", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Remind Delete Account!", "RemindDeleteAccount", null, null },
-                    { new Guid("78d493b3-7728-4b53-9bc8-fed9e4f11558"), "<p>Thank you for registering your Wedding account. Click here to go back the page</p>", "<a href=\"{{Login}}\">Login now</a>", "Verify", null, null, "<p>Contact us at cursusservicetts@gmail.com</p>", "English", "{FirstName}, {LinkLogin}", "User Account Verified!", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Wedding Verify Email", "SendVerifyEmail", null, null },
-                    { new Guid("9198b596-7693-49db-8ff6-ccecfa7b07fa"), "<p>Hello {FirstName},</p><p>Click <a href=\"{ResetLink}\">here</a> to reset your password.</p>", "<a href=\"{{ResetLink}}\">Reset Password</a>", "Security", null, null, "<p>Contact us at cursusservicetts@gmail.com</p>", "English", "{FirstName}, {ResetLink}", "Reset your password to regain access.", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Reset Your Password", "ChangePassword", null, null },
-                    { new Guid("a8fbf134-320b-4af0-a363-b6d01bcd89ae"), "Dear [UserFullName],<br><br>Welcome to Wedding! We are excited to have you join our learning community.", "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>", "Welcome", null, null, "<p>Contact us at cursusservicetts@gmail.com</p>", "English", "{FirstName}, {LastName}", "Thank you for signing up!", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Welcome to Wedding!", "WelcomeEmail", null, null },
-                    { new Guid("a9ac3838-f17d-47e2-8c8a-8eb6e59daf41"), "Hi [UserFullName],<br><br>We received a request to reset your password. Click the link below to reset your password.", "https://weddinginvations.web.app/sign-in/verify-email?userId=user.Id&token=Uri.EscapeDataString(token)", "Security", null, null, "If you did not request a password reset, please ignore this email.", "English", "[UserFullName], [ResetPasswordLink]", "Reset your password to regain access", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Reset Your Password", "ForgotPasswordEmail", null, null },
-                    { new Guid("cb652e59-e107-4201-890a-c4de9c8d5919"), "Dear [UserFullName],<br><br>Your account has been deleted.", "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>", "Delete Account", null, null, "<p>Contact us at cursusservicetts@gmail.com</p>", "English", "{FirstName}, {LastName}", "Hello!", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Delete Account!", "DeleteAccount", null, null },
-                    { new Guid("f5d71678-d034-454e-8414-51114819623b"), "Dear [UserFullName],<br><br>You have completed our course program, you can take new courses to increase your knowledge and skills.", "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>", "Course completed", null, null, "<p>Contact us at cursusservicetts@gmail.com</p>", "English", "{FirstName}, {LastName}", "Hello!", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Congratulations on completing the course!", "CustomerCompleteCourse", null, null }
+                    { new Guid("0a70b6bc-0cc7-4c24-b1f8-ebfab8f78b50"), "<p>Hello {FirstName},</p><p>Click <a href=\"{ResetLink}\">here</a> to reset your password.</p>", "<a href=\"{{ResetLink}}\">Reset Password</a>", "Security", null, null, "<p>Contact us at cursusservicetts@gmail.com</p>", "English", "{FirstName}, {ResetLink}", "Reset your password to regain access.", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Reset Your Password", "ChangePassword", null, null },
+                    { new Guid("0e041112-2fad-4740-b5cc-0af671080ca9"), "Dear [UserFullName],<br><br>Welcome to Wedding! We are excited to have you join our learning community.", "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>", "Welcome", null, null, "<p>Contact us at cursusservicetts@gmail.com</p>", "English", "{FirstName}, {LastName}", "Thank you for signing up!", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Welcome to Wedding!", "WelcomeEmail", null, null },
+                    { new Guid("6c5e0b6c-eeda-43ec-855b-413ef9a255da"), "Hi [UserFullName],<br><br>We received a request to reset your password. Click the link below to reset your password.", "https://weddinginvations.web.app/sign-in/verify-email?userId=user.Id&token=Uri.EscapeDataString(token)", "Security", null, null, "If you did not request a password reset, please ignore this email.", "English", "[UserFullName], [ResetPasswordLink]", "Reset your password to regain access", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Reset Your Password", "ForgotPasswordEmail", null, null },
+                    { new Guid("86205d0f-7fd5-4d15-b308-d33fa608236c"), "Dear [UserFullName],<br><br>Your account has been deleted.", "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>", "Delete Account", null, null, "<p>Contact us at cursusservicetts@gmail.com</p>", "English", "{FirstName}, {LastName}", "Hello!", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Delete Account!", "DeleteAccount", null, null },
+                    { new Guid("a730c7cf-5984-42d4-811e-052f6442c251"), "Dear {FirstName} {LastName},<br><br>\r\n\r\n                    This email confirms that your payout request has been processed successfully.\r\n                    <br>\r\n                    <strong>Payout Details:</strong>\r\n                    <ul>\r\n                    <li>Amount: {PayoutAmount}</li>\r\n                    <li>Transaction Date: {TransactionDate}</li> \r\n                    </ul>\r\n                    <br>\r\n                    You can view your payout history in your customer dashboard. \r\n                    <br> \r\n                    Thank you for being a valued Wedding customer!\r\n                    <br>", "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>", "Payout", null, null, "<p>Contact us at cursusservicetts@gmail.com</p>", "English", "{FirstName}, {LastName}, {PayoutAmount}, {TransactionDate}", "Payout Successful!", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Your Wedding Payout is Complete!", "NotifyCustomerPaymentReceived", null, null },
+                    { new Guid("a7ff95f1-7ccd-475b-8b5d-bc3b64c920dd"), "Dear [UserFullName],<br><br>Your account will be deleted after 14 days.", "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>", "Remind Account", null, null, "<p>Contact us at cursusservicetts@gmail.com</p>", "English", "{FirstName}, {LastName}", "Hello!", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Remind Delete Account!", "RemindDeleteAccount", null, null },
+                    { new Guid("d806117e-7ab3-42db-a423-c48371c12949"), "Dear [UserFullName],<br><br>You have completed our course program, you can take new courses to increase your knowledge and skills.", "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>", "Course completed", null, null, "<p>Contact us at cursusservicetts@gmail.com</p>", "English", "{FirstName}, {LastName}", "Hello!", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Congratulations on completing the course!", "CustomerCompleteCourse", null, null },
+                    { new Guid("fcce72fd-9eb1-4213-90d2-7d0c9fba68c9"), "<p>Thank you for registering your Wedding account. Click here to go back the page</p>", "<a href=\"{{Login}}\">Login now</a>", "Verify", null, null, "<p>Contact us at cursusservicetts@gmail.com</p>", "English", "{FirstName}, {LinkLogin}", "User Account Verified!", "Customer", "cursusservicetts@gmail.com", "Wedding Team", 1, "Wedding Verify Email", "SendVerifyEmail", null, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "Privacies",
                 columns: new[] { "Id", "Content", "IsActive", "LastUpdated", "Title" },
-                values: new object[] { new Guid("b91b7ead-dedd-41c4-9e73-edacdb8176da"), "These are the privacy for our service.", true, new DateTime(2024, 10, 25, 4, 10, 1, 273, DateTimeKind.Utc).AddTicks(4052), "Privacy" });
+                values: new object[] { new Guid("c980a3d3-4678-43dc-926a-5b2938394db9"), "These are the privacy for our service.", true, new DateTime(2024, 10, 26, 11, 43, 47, 410, DateTimeKind.Utc).AddTicks(1979), "Privacy" });
 
             migrationBuilder.InsertData(
                 table: "TermOfUses",
                 columns: new[] { "Id", "Content", "IsActive", "LastUpdated", "Title" },
-                values: new object[] { new Guid("1be7f5a2-e43b-4864-9fdf-1a690519e75d"), "These are the terms of use for our service.", true, new DateTime(2024, 10, 25, 4, 10, 1, 273, DateTimeKind.Utc).AddTicks(4161), "Terms of Use" });
+                values: new object[] { new Guid("342b1497-5a23-4274-9c5c-8e5cbedb1471"), "These are the terms of use for our service.", true, new DateTime(2024, 10, 26, 11, 43, 47, 410, DateTimeKind.Utc).AddTicks(2009), "Terms of Use" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -821,6 +838,11 @@ namespace Wedding.DataAccess.Migrations
                 column: "GuestListId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_InvitationHtmls_InvitationId",
+                table: "InvitationHtmls",
+                column: "InvitationId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Invitations_TemplateId",
                 table: "Invitations",
                 column: "TemplateId",
@@ -880,6 +902,13 @@ namespace Wedding.DataAccess.Migrations
                 column: "GuestId",
                 principalTable: "Guests",
                 principalColumn: "GuestId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_InvitationHtmls_Invitations_InvitationId",
+                table: "InvitationHtmls",
+                column: "InvitationId",
+                principalTable: "Invitations",
+                principalColumn: "InvitationId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Invitations_InvitationTemplates_TemplateId",
@@ -955,6 +984,9 @@ namespace Wedding.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "EventPhotos");
+
+            migrationBuilder.DropTable(
+                name: "InvitationHtmls");
 
             migrationBuilder.DropTable(
                 name: "OrderDetails");

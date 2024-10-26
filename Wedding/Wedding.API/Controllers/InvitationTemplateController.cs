@@ -1,4 +1,4 @@
-using Wedding.DataAccess.IRepository;
+﻿using Wedding.DataAccess.IRepository;
 using Wedding.Model.DTO;
 using Wedding.Service.IService;
 using Wedding.Utility.Constants;
@@ -62,7 +62,7 @@ namespace Wedding.API.Controllers
 
         [HttpPost]
         [Route("background/{template-id:guid}")]
-        public async Task<ActionResult<ResponseDTO>> UploadInvationTeamplateBackground([FromRoute] Guid TemplateId, UploadInvationTeamplateBackgroundImg uploadInvationTemplateBackgroundImg)
+        public async Task<ActionResult<ResponseDTO>> UploadInvationTeamplateBackground([FromRoute(Name = "template-id")] Guid TemplateId, UploadInvationTeamplateBackgroundImg uploadInvationTemplateBackgroundImg)
         {
             var responseDto = await _invitationTemplateService.UploadInvationTeamplateBackgroundImg(TemplateId, uploadInvationTemplateBackgroundImg);
             return StatusCode(responseDto.StatusCode, responseDto);
@@ -70,15 +70,10 @@ namespace Wedding.API.Controllers
 
         [HttpGet]
         [Route("background/{template-id:guid}")]
-        public async Task<ActionResult> DisplayInvationTeamplateBackground([FromRoute] Guid TemplateId)
+        public async Task<ActionResult<ResponseDTO>> GetInvationTeamplateBackgrounds([FromRoute(Name = "template-id")] Guid TemplateId)
         {
-            var responseDto = await _invitationTemplateService.DisplayInvationTeamplateBackgroundImg(TemplateId);
-            if (responseDto is null)
-            {
-                return null;
-            }
-
-            return File(responseDto, "image/png");
+            var responseDto = await _invitationTemplateService.GetInvationTeamplateBackgrounds(TemplateId);
+            return StatusCode(responseDto.StatusCode, responseDto);
         }
     }
 }

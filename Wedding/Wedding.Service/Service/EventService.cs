@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Wedding.DataAccess.IRepository;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
+using Wedding.Utility.Constants;
 
 namespace Wedding.Service.Service;
 
@@ -352,7 +353,7 @@ public class EventService : IEventService
         }
     }
     
-    public async Task<ResponseDTO> UploadEventBackgroundImg(Guid EventId, UploadEventBackgroundImg uploadEventBackgroundImg)
+    public async Task<ResponseDTO> UploadEventBackground(Guid EventId, UploadEventBackgroundImg uploadEventBackgroundImg)
     {
     try
     {
@@ -377,20 +378,18 @@ public class EventService : IEventService
             };
         }
 
-        var filePath = $"Event/{Event.EventId}/Background";
-        var responseDto = await _firebaseService.UploadImage(uploadEventBackgroundImg.File, filePath);
-
-        if (!responseDto.IsSuccess)
+        var responseDtoList = new List<ResponseDTO>();
+        foreach (var image in uploadEventBackgroundImg.File)
         {
-            return new ResponseDTO()
-            {
-                IsSuccess = false,
-                StatusCode = 500,
-                Message = "File upload failed."
-            };
+            var filePath = $"{StaticFirebaseFolders.Event}/{Event.EventId}/Background";
+            var responseDto = await _firebaseService.UploadImage(image, filePath);
+            responseDtoList.Add(responseDto);
         }
 
-        Event.EventPhotoUrl = responseDto.Result.ToString();
+        Event.EventPhotoUrl = responseDtoList.Any(x => x.Result != null)
+            ? responseDtoList.Select(x => x.Result.ToString()).ToArray()
+            : Array.Empty<string>();
+
         _unitOfWork.EventRepository.Update(Event);
         await _unitOfWork.SaveAsync();
 
@@ -398,7 +397,7 @@ public class EventService : IEventService
         {
             IsSuccess = true,
             StatusCode = 200,
-            Result = responseDto.Result,
+            Result = responseDtoList,
             Message = "Upload file successfully"
         };
     }
@@ -414,7 +413,7 @@ public class EventService : IEventService
     }
 }
 
-public async Task<MemoryStream> DisplayEventBackgroundImg(Guid EventId)
+public async Task<ResponseDTO> GetEventBackground(Guid EventId)
 {
     try
     {
@@ -422,15 +421,32 @@ public async Task<MemoryStream> DisplayEventBackgroundImg(Guid EventId)
 
         if (Event != null && Event.EventPhotoUrl.IsNullOrEmpty())
         {
-            return null;
+            return new ResponseDTO()
+            {
+                IsSuccess = false,
+                StatusCode = 404,
+                Result = null,
+                Message = "No background image found"
+            };
         }
 
-        var stream = await _firebaseService.GetImage(Event.EventPhotoUrl);
-        return stream;
+        return new ResponseDTO()
+        {
+            IsSuccess = true,
+            StatusCode = 200,
+            Result = Event.EventPhotos,
+            Message = "Get background images successfully"
+        };
     }
     catch (Exception e)
     {
-        return null;
+        return new ResponseDTO()
+        {
+            IsSuccess = false,
+            StatusCode = 500,
+            Result = null,
+            Message = "Internal server error"
+        };
     }   
 }
 }

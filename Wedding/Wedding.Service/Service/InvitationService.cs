@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Wedding.DataAccess.IRepository;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
+using Wedding.Utility.Constants;
 
 namespace Wedding.Service.Service;
 
@@ -318,7 +319,7 @@ public class InvitationService : IInvitationService
         }
     }
     
-    public async Task<ResponseDTO> UploadInvationBackgroundImg(Guid InvationId, UploadInvationBackgroundImg uploadInvationBackgroundImg)
+    public async Task<ResponseDTO> UploadInvationBackground(Guid InvationId, UploadInvationBackgroundImg uploadInvationBackgroundImg)
     {
         try
         {
@@ -343,20 +344,18 @@ public class InvitationService : IInvitationService
                 };
             }
 
-            var filePath = $"Invation/{invation.InvitationId}/Background";
-            var responseDto = await _firebaseService.UploadImage(uploadInvationBackgroundImg.File, filePath);
-
-            if (!responseDto.IsSuccess)
+            var responseDtoList = new List<ResponseDTO>();
+            foreach (var image in uploadInvationBackgroundImg.File)
             {
-                return new ResponseDTO()
-                {
-                    IsSuccess = false,
-                    StatusCode = 500,
-                    Message = "File upload failed."
-                };
+                var filePath = $"{StaticFirebaseFolders.Invitation}/{invation.InvitationId}/Background";
+                var responseDto = await _firebaseService.UploadImage(image, filePath);
+                responseDtoList.Add(responseDto);
             }
 
-            invation.InvitationPhotoUrl = responseDto.Result.ToString();
+            invation.InvitationPhotoUrl = responseDtoList.Any(x => x.Result != null)
+                ? responseDtoList.Select(x => x.Result.ToString()).ToArray()
+                : Array.Empty<string>();
+            
             _unitOfWork.InvitationRepository.Update(invation);
             await _unitOfWork.SaveAsync();
 
@@ -364,7 +363,7 @@ public class InvitationService : IInvitationService
             {
                 IsSuccess = true,
                 StatusCode = 200,
-                Result = responseDto.Result,
+                Result = responseDtoList,
                 Message = "Upload file successfully"
             };
         }
@@ -380,7 +379,7 @@ public class InvitationService : IInvitationService
         }
     }
 
-    public async Task<MemoryStream> DisplayInvationBackgroundImg(Guid InvationId)
+    public async Task<ResponseDTO> GetInvationBackground(Guid InvationId)
     {
         try
         {
@@ -388,15 +387,32 @@ public class InvitationService : IInvitationService
 
             if (invation != null && invation.InvitationPhotoUrl.IsNullOrEmpty())
             {
-                return null;
+                return new ResponseDTO()
+                {
+                    IsSuccess = false,
+                    StatusCode = 404,
+                    Result = null,
+                    Message = "No background image found"
+                };
             }
 
-            var stream = await _firebaseService.GetImage(invation.InvitationPhotoUrl);
-            return stream;
+            return new ResponseDTO()
+            {
+                IsSuccess = true,
+                StatusCode = 200,
+                Result = invation.InvitationPhotoUrl,
+                Message = "Get background images successfully"
+            };
         }
         catch (Exception e)
         {
-            return null;
+            return new ResponseDTO()
+            {
+                IsSuccess = false,
+                StatusCode = 500,
+                Result = null,
+                Message = "Internal server error"
+            };
         }   
     }
 }

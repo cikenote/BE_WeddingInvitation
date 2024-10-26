@@ -62,22 +62,18 @@ namespace Wedding.API.Controllers
         
         [HttpPost]
         [Route("background/{wedding-id:guid}")]
-        public async Task<ActionResult<ResponseDTO>> UploadWeddingBackground([FromRoute] Guid WeddingId, UploadWeddingBackgroundImg uploadWeddingBackgroundImg)
+        public async Task<ActionResult<ResponseDTO>> UploadWeddingBackground([FromRoute(Name = "wedding-id")] Guid WeddingId, UploadWeddingBackgroundImg uploadWeddingBackgroundImg)
         {
-            var responseDto = await _weddingService.UploadWeddingBackgroundImg(WeddingId, uploadWeddingBackgroundImg);
+            var responseDto = await _weddingService.UploadWeddingBackground(WeddingId, uploadWeddingBackgroundImg);
             return StatusCode(responseDto.StatusCode, responseDto);
         }
 
         [HttpGet]
         [Route("background/{wedding-id:guid}")]
-        public async Task<ActionResult> DisplayInvationTeamplateBackground([FromRoute] Guid WeddingId)
+        public async Task<ActionResult> GetInvationTeamplateBackground([FromRoute(Name = "wedding-id")] Guid WeddingId)
         {
-            var responseDto = await _weddingService.DisplayWeddingBackgroundImg(WeddingId);
-            if (responseDto is null)
-            {
-                return null;
-            }
-            return File(responseDto, "image/png");
+            var responseDto = await _weddingService.GetWeddingBackground(WeddingId);
+            return StatusCode(responseDto.StatusCode, responseDto);
         }
     }
 }

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Wedding.DataAccess.IRepository;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
+using Wedding.Utility.Constants;
 
 namespace Wedding.Service.Service;
 
@@ -326,7 +327,7 @@ public class WeddingService : IWeddingService
         }
     }
     
-    public async Task<ResponseDTO> UploadWeddingBackgroundImg(Guid WeddingId, UploadWeddingBackgroundImg uploadCourseVersionBackgroundImg)
+    public async Task<ResponseDTO> UploadWeddingBackground(Guid WeddingId, UploadWeddingBackgroundImg uploadCourseVersionBackgroundImg)
 {
     try
     {
@@ -351,20 +352,18 @@ public class WeddingService : IWeddingService
             };
         }
 
-        var filePath = $"Wedding/{wedding.WeddingId}/Background";
-        var responseDto = await _firebaseService.UploadImage(uploadCourseVersionBackgroundImg.File, filePath);
-
-        if (!responseDto.IsSuccess)
+        var responseDtoList = new List<ResponseDTO>();
+        foreach (var image in uploadCourseVersionBackgroundImg.File)
         {
-            return new ResponseDTO()
-            {
-                IsSuccess = false,
-                StatusCode = 500,
-                Message = "File upload failed."
-            };
+            var filePath = $"{StaticFirebaseFolders.InvitationTemplate}/{wedding.WeddingId}/Background";
+            var responseDto = await _firebaseService.UploadImage(image, filePath);
+            responseDtoList.Add(responseDto);
         }
 
-        wedding.WeddingPhotoUrl = responseDto.Result.ToString();
+        wedding.WeddingPhotoUrl = responseDtoList.Any(x => x.Result != null)
+            ? responseDtoList.Select(x => x.Result.ToString()).ToArray()
+            : Array.Empty<string>();
+
         _unitOfWork.WeddingRepository.Update(wedding);
         await _unitOfWork.SaveAsync();
 
@@ -372,7 +371,7 @@ public class WeddingService : IWeddingService
         {
             IsSuccess = true,
             StatusCode = 200,
-            Result = responseDto.Result,
+            Result = responseDtoList,
             Message = "Upload file successfully"
         };
     }
@@ -388,7 +387,7 @@ public class WeddingService : IWeddingService
     }
 }
 
-public async Task<MemoryStream> DisplayWeddingBackgroundImg(Guid WeddingId)
+public async Task<ResponseDTO> GetWeddingBackground(Guid WeddingId)
 {
     try
     {
@@ -396,15 +395,32 @@ public async Task<MemoryStream> DisplayWeddingBackgroundImg(Guid WeddingId)
 
         if (wedding != null && wedding.WeddingPhotoUrl.IsNullOrEmpty())
         {
-            return null;
-        }
+                return new ResponseDTO()
+                {
+                    IsSuccess = false,
+                    StatusCode = 404,
+                    Result = null,
+                    Message = "No background image found"
+                };
+            }
 
-        var stream = await _firebaseService.GetImage(wedding.WeddingPhotoUrl);
-        return stream;
-    }
+            return new ResponseDTO()
+            {
+                IsSuccess = true,
+                StatusCode = 200,
+                Result = wedding.WeddingPhotoUrl,
+                Message = "Get background images successfully"
+            };
+        }
     catch (Exception e)
     {
-        return null;
-    }   
+            return new ResponseDTO()
+            {
+                IsSuccess = false,
+                StatusCode = 500,
+                Result = null,
+                Message = "Internal server error"
+            };
+        }   
 }
 }

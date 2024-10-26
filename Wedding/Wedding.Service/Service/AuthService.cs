@@ -239,7 +239,7 @@ public class AuthService : IAuthService
             return new ResponseDTO()
             {
                 Message = "Upload user avatar successfully!",
-                Result = null,
+                Result = responseDto.Result,
                 IsSuccess = true,
                 StatusCode = 200
             };
@@ -261,7 +261,7 @@ public class AuthService : IAuthService
     /// </summary>
     /// <param name="User">An user who sent request</param>
     /// <returns></returns>
-    public async Task<MemoryStream> GetUserAvatar(ClaimsPrincipal User)
+    public async Task<ResponseDTO> GetUserAvatar(ClaimsPrincipal User)
     {
         try
         {
@@ -269,13 +269,25 @@ public class AuthService : IAuthService
 
             var user = await _userManager.FindByIdAsync(userId);
 
-            var stream = await _firebaseService.GetImage(user.AvatarUrl);
+            var avatar = user.AvatarUrl.ToString();
 
-            return stream;
+            return new ResponseDTO()
+            {
+                Message = "Get user avatar successfully!",
+                Result = avatar,
+                IsSuccess = true,
+                StatusCode = 200
+            };
         }
         catch (Exception e)
         {
-            return null;
+            return new ResponseDTO()
+            {
+                Message = e.Message,
+                Result = null,
+                IsSuccess = false,
+                StatusCode = 500
+            };
         }
     }
 

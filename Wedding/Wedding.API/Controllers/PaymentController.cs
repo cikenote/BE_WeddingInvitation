@@ -5,6 +5,7 @@ using Wedding.Utility.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace Wedding.API.Controllers
 {
@@ -15,16 +16,19 @@ namespace Wedding.API.Controllers
         private readonly IPaymentService _paymentService;
         private readonly ITransactionService _transactionService;
         private readonly IBalanceService _balanceService;
+        private readonly IVnPayService _vnPayService;
 
         public PaymentController
         (
             IPaymentService paymentService,
             ITransactionService transactionService,
-            IBalanceService balanceService)
+            IBalanceService balanceService,
+            IVnPayService vnPayService)
         {
             _paymentService = paymentService;
             _transactionService = transactionService;
             _balanceService = balanceService;
+            _vnPayService = vnPayService;
         }
 
         [HttpGet]
@@ -115,6 +119,36 @@ namespace Wedding.API.Controllers
         )
         {
             var responseDto = await _paymentService.AddStripeCard(addStripeCardDto);
+            return StatusCode(responseDto.StatusCode, responseDto);
+        }
+
+        [HttpPost]
+        [Route("vnpay/create-payment")]
+        public IActionResult CreatePaymentUrl(PaymentInformationModel model)
+        {
+            var url = _vnPayService.CreatePaymentUrl(model, HttpContext);
+
+            var responseDto = new ResponseDTO
+            {
+                StatusCode = StatusCodes.Status200OK,
+                Result = new { PaymentUrl = url },
+                Message = "Payment URL created successfully"
+            };
+
+            return StatusCode(responseDto.StatusCode, responseDto);
+        }
+
+        [HttpGet]
+        public IActionResult PaymentCallback()
+        {
+            var response = _vnPayService.PaymentExecute(Request.Query);
+
+            var responseDto = new ResponseDTO
+            {
+                StatusCode = StatusCodes.Status200OK,
+                Result = response,
+                Message = "Get created payment infomation successfully"
+            };
             return StatusCode(responseDto.StatusCode, responseDto);
         }
     }

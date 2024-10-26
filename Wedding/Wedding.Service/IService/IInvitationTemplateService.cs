@@ -21,5 +21,5 @@ public interface IInvitationTemplateService
     Task<ResponseDTO> DeleteById(Guid id);
     Task<ResponseDTO> CreateById(CreateInvitationTemplateDTO createInvitationTemplateDTO);
     Task<ResponseDTO> UploadInvationTeamplateBackgroundImg(Guid courseVersionId, UploadInvationTeamplateBackgroundImg uploadCourseVersionBackgroundImg);
-    Task<MemoryStream> DisplayInvationTeamplateBackgroundImg( Guid TemplateId);
+    Task<ResponseDTO> GetInvationTeamplateBackgrounds( Guid TemplateId);
 }

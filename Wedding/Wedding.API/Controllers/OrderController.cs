@@ -1,4 +1,4 @@
-﻿using Wedding.Model.DTO;
+﻿    using Wedding.Model.DTO;
 using Wedding.Service.IService;
 using Wedding.Utility.Constants;
 using Microsoft.AspNetCore.Authorization;
@@ -56,7 +56,7 @@ namespace Wedding.API.Controllers
         }
 
         [HttpGet]
-        [Route("{order-header-id:guid}")]
+        [Route("{orderHeaderId:guid}")]
         [Authorize]
         public async Task<ActionResult<ResponseDTO>> GetOrder([FromRoute] Guid orderHeaderId)
         {
@@ -65,7 +65,7 @@ namespace Wedding.API.Controllers
         }
 
         [HttpGet]
-        [Route("status/{order-header-id:guid}")]
+        [Route("status/{orderHeaderId:guid}")]
         [Authorize(Roles = StaticUserRoles.AdminCustomer)]
         public async Task<ActionResult<ResponseDTO>> GetOrderStatus([FromRoute] Guid orderHeaderId)
         {
@@ -98,7 +98,7 @@ namespace Wedding.API.Controllers
         }
 
         [HttpPut]
-        [Route("confirm/{order-header-id:guid}")]
+        [Route("confirm/{orderHeaderId:guid}")]
         [Authorize(Roles = StaticUserRoles.Admin)]
         public async Task<ActionResult<ResponseDTO>> ConfirmOrder([FromRoute] Guid orderHeaderId)
         {

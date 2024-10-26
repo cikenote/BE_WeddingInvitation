@@ -9,5 +9,5 @@ public class UploadWeddingBackgroundImg
     [Required]
     [MaxFileSize(10)]
     [AllowedExtensions(new string[] { ".img", ".png", ".jpg" })]
-    public IFormFile File { get; set; }
+    public List<IFormFile> File { get; set; }
 }

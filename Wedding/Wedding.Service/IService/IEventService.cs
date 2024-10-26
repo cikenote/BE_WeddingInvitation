@@ -20,6 +20,6 @@ public interface IEventService
     Task<ResponseDTO> UpdateById(Guid id, UpdateEventDTO updateEventDTO);
     Task<ResponseDTO> DeleteById(Guid id);
     Task<ResponseDTO> CreateById(CreateEventDTO createEventDTO);
-    Task<ResponseDTO> UploadEventBackgroundImg(Guid EventId, UploadEventBackgroundImg uploadEventBackgroundImg);
-    Task<MemoryStream> DisplayEventBackgroundImg( Guid EventId);
+    Task<ResponseDTO> UploadEventBackground(Guid EventId, UploadEventBackgroundImg uploadEventBackgroundImg);
+    Task<ResponseDTO> GetEventBackground( Guid EventId);
 }

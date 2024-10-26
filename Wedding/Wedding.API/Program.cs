@@ -1,4 +1,4 @@
-using Wedding.API.Extentions;
+﻿using Wedding.API.Extentions;
 using Wedding.DataAccess.Context;
 using Wedding.Service.Hubs;
 using Wedding.Service.IService;
@@ -13,10 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
-});;
+builder.Services.AddControllers();
 
 builder.Services.AddHttpContextAccessor();
 
@@ -72,9 +69,10 @@ builder.Services.AddCors(options =>
     var originFirebase = builder.Configuration["AllowOrigin:FrontEndFirebase"];
     var originVercel = builder.Configuration["AllowOrigin:FrontEndVercel"];
     var originK8S = builder.Configuration["AllowOrigin:FrontEndK8S"];
+    var BaseUrl = builder.Configuration["AllowOrigin:BaseUrl"];
     options.AddPolicy("AllowSpecificOrigin",
         builder => builder
-            .WithOrigins(originDefault, originFirebase, originVercel, originK8S)
+            .WithOrigins(originDefault, originFirebase, originVercel, originK8S, BaseUrl)
         .AllowAnyHeader()
         .AllowAnyMethod()
             .AllowCredentials());

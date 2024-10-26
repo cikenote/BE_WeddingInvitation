@@ -21,6 +21,6 @@ public interface IWeddingService
     Task<ResponseDTO> UpdateById(Guid id, UpdateWeddingDTO updateWeddingDTO);
     Task<ResponseDTO> DeleteById(Guid id);
     Task<ResponseDTO> CreateById(CreateWeddingDTO createWeddingDTO);
-    Task<ResponseDTO> UploadWeddingBackgroundImg(Guid WeddingId, UploadWeddingBackgroundImg uploadCourseVersionBackgroundImg);
-    Task<MemoryStream> DisplayWeddingBackgroundImg( Guid WeddingId);
+    Task<ResponseDTO> UploadWeddingBackground(Guid WeddingId, UploadWeddingBackgroundImg uploadCourseVersionBackgroundImg);
+    Task<ResponseDTO> GetWeddingBackground( Guid WeddingId);
 }

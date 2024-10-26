@@ -20,6 +20,6 @@ public interface IInvitationService
     Task<ResponseDTO> UpdateById(Guid id, UpdateInvitationDTO updateInvitationDTO);
     Task<ResponseDTO> DeleteById(Guid id);
     Task<ResponseDTO> CreateById(CreateInvitationDTO createInvitationDTO);
-    Task<ResponseDTO> UploadInvationBackgroundImg(Guid InvationId, UploadInvationBackgroundImg uploadInvationBackgroundImg);
-    Task<MemoryStream> DisplayInvationBackgroundImg( Guid InvationId);
+    Task<ResponseDTO> UploadInvationBackground(Guid InvationId, UploadInvationBackgroundImg uploadInvationBackgroundImg);
+    Task<ResponseDTO> GetInvationBackground( Guid InvationId);
 }
