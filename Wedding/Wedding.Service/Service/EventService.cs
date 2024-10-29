@@ -377,18 +377,11 @@ public class EventService : IEventService
                 Message = "Event not found."
             };
         }
+        
+        var filePath = $"{StaticFirebaseFolders.Event}/{Event.EventId}/Background";
+        var responseDto = await _firebaseService.UploadImage(uploadEventBackgroundImg.File, filePath);
 
-        var responseDtoList = new List<ResponseDTO>();
-        foreach (var image in uploadEventBackgroundImg.File)
-        {
-            var filePath = $"{StaticFirebaseFolders.Event}/{Event.EventId}/Background";
-            var responseDto = await _firebaseService.UploadImage(image, filePath);
-            responseDtoList.Add(responseDto);
-        }
-
-        Event.EventPhotoUrl = responseDtoList.Any(x => x.Result != null)
-            ? responseDtoList.Select(x => x.Result.ToString()).ToArray()
-            : Array.Empty<string>();
+        Event.EventPhotoUrl = responseDto.Result.ToString();
 
         _unitOfWork.EventRepository.Update(Event);
         await _unitOfWork.SaveAsync();
@@ -397,7 +390,7 @@ public class EventService : IEventService
         {
             IsSuccess = true,
             StatusCode = 200,
-            Result = responseDtoList,
+            Result = responseDto,
             Message = "Upload file successfully"
         };
     }

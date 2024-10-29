@@ -8,7 +8,7 @@ public interface IAuthService
 {
     Task<ResponseDTO> SignUpCustomer(RegisterCustomerDTO registerCustomerDTO);
     Task<ResponseDTO> UploadUserAvatar(IFormFile file, ClaimsPrincipal user);
-    Task<ResponseDTO> GetUserAvatar(ClaimsPrincipal user);
+    Task<MemoryStream> GetUserAvatar(ClaimsPrincipal user);
     Task<ResponseDTO> SignIn(SignDTO signDto);
     Task<ResponseDTO> ForgotPassword(ForgotPasswordDTO forgotPasswordDto);
     Task<ResponseDTO> Refresh(string token);

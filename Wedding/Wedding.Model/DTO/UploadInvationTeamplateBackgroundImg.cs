@@ -9,5 +9,5 @@ public class UploadInvationTeamplateBackgroundImg
     [Required]
     [MaxFileSize(10)]
     [AllowedExtensions(new string[] { ".img", ".png", ".jpg" })]
-    public List<IFormFile> File { get; set; }
+    public IFormFile File { get; set; }
 }

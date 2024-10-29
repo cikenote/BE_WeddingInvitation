@@ -13,7 +13,7 @@ public class Event
     public string GroomName { get; set; }
     public DateTime EventDate { get; set; }
     public string EventLocation { get; set; }
-    public string[] EventPhotoUrl { get; set; }
+    public string EventPhotoUrl { get; set; }
     public DateTime CreatedDate { get; set; }
     public virtual ICollection<EventPhoto> EventPhotos { get; set; }
 }

@@ -45,6 +45,5 @@ namespace Wedding.DataAccess.Context
         public DbSet<EventPhoto> EventPhotos { get; set; }
         public DbSet<Guest> Guests { get; set; }
         public DbSet<GuestList> GuestLists { get; set; }
-        public DbSet<InvitationHtml> InvitationHtmls { get; set; }
     }
 }

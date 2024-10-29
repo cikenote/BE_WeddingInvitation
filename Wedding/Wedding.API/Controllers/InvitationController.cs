@@ -62,7 +62,7 @@ namespace Wedding.API.Controllers
         
         [HttpPost]
         [Route("background/{invation-id:guid}")]
-        public async Task<ActionResult<ResponseDTO>> UploadInvationBackground([FromRoute(Name = "invation-id")] Guid InvationId, UploadInvationBackgroundImg uploadInvationBackgroundImg)
+        public async Task<ActionResult<ResponseDTO>> UploadInvationBackground([FromRoute] Guid InvationId, UploadInvationBackgroundImg uploadInvationBackgroundImg)
         {
             var responseDto = await _invitationService.UploadInvationBackground(InvationId, uploadInvationBackgroundImg);
             return StatusCode(responseDto.StatusCode, responseDto);
@@ -70,7 +70,7 @@ namespace Wedding.API.Controllers
 
         [HttpGet]
         [Route("background/{invation-id:guid}")]
-        public async Task<ActionResult<ResponseDTO>> GetInvationTeamplateBackground([FromRoute(Name = "invation-id")] Guid InvationId)
+        public async Task<ActionResult> GetInvationBackground([FromRoute] Guid InvationId)
         {
             var responseDto = await _invitationService.GetInvationBackground(InvationId);
             return StatusCode(responseDto.StatusCode, responseDto);

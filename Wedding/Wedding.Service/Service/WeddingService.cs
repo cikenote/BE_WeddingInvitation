@@ -18,14 +18,17 @@ public class WeddingService : IWeddingService
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IFirebaseService _firebaseService;
-    
-    public WeddingService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, IFirebaseService firebaseService)
+
+    public WeddingService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager,
+        IFirebaseService firebaseService)
     {
         _userManager = userManager;
         _unitOfWork = unitOfWork;
         _firebaseService = firebaseService;
     }
-    public async Task<ResponseDTO> GetAll(ClaimsPrincipal User, string? filterOn, string? filterQuery, string? sortBy, bool? isAscending,
+
+    public async Task<ResponseDTO> GetAll(ClaimsPrincipal User, string? filterOn, string? filterQuery, string? sortBy,
+        bool? isAscending,
         int pageNumber, int pageSize)
     {
         #region MyRegion
@@ -33,7 +36,7 @@ public class WeddingService : IWeddingService
         try
         {
             List<Model.Domain.Wedding> weddings = new List<Model.Domain.Wedding>();
-            
+
             // Filter Query
             if (!string.IsNullOrEmpty(filterOn) && !string.IsNullOrEmpty(filterQuery))
             {
@@ -42,15 +45,17 @@ public class WeddingService : IWeddingService
                     case "name":
                     {
                         weddings = _unitOfWork.WeddingRepository.GetAllAsync(includeProperties: "ApplicationUser")
-                            .GetAwaiter().GetResult().Where(x => 
-                                x.ApplicationUser.FullName.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                            .GetAwaiter().GetResult().Where(x =>
+                                x.ApplicationUser.FullName.Contains(filterQuery,
+                                    StringComparison.CurrentCultureIgnoreCase)).ToList();
                         break;
                     }
                     case "weddinglocation":
                     {
                         weddings = _unitOfWork.WeddingRepository.GetAllAsync(includeProperties: "ApplicationUser")
-                            .GetAwaiter().GetResult().Where(x => 
-                                x.WeddingLocation.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                            .GetAwaiter().GetResult().Where(x =>
+                                x.WeddingLocation.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase))
+                            .ToList();
                         break;
                     }
                     default:
@@ -67,7 +72,7 @@ public class WeddingService : IWeddingService
                 weddings = _unitOfWork.WeddingRepository.GetAllAsync(includeProperties: "ApplicationUser")
                     .GetAwaiter().GetResult().ToList();
             }
-            
+
             // Sort Query
             if (!string.IsNullOrEmpty(sortBy))
             {
@@ -75,14 +80,14 @@ public class WeddingService : IWeddingService
                 {
                     case "name":
                     {
-                        weddings = isAscending ==true
+                        weddings = isAscending == true
                             ? weddings.OrderBy(x => x.ApplicationUser.FullName).ToList()
                             : weddings.OrderByDescending(x => x.ApplicationUser.FullName).ToList();
                         break;
                     }
                     case "weddinglocation":
                     {
-                        weddings = isAscending ==true
+                        weddings = isAscending == true
                             ? weddings.OrderBy(x => x.WeddingLocation).ToList()
                             : weddings.OrderByDescending(x => x.WeddingLocation).ToList();
                         break;
@@ -93,14 +98,14 @@ public class WeddingService : IWeddingService
                     }
                 }
             }
-            
+
             // Pagination
             if (pageNumber > 0 && pageSize > 0)
             {
                 var skipResult = (pageNumber - 1) * pageSize;
                 weddings = weddings.Skip(skipResult).Take(pageSize).ToList();
             }
-            
+
             #endregion Query Parameters
 
             if (weddings == null || !weddings.Any())
@@ -113,7 +118,7 @@ public class WeddingService : IWeddingService
                     Result = null
                 };
             }
-            
+
             var weddingDtoList = new List<WeddingDTO>();
 
             foreach (var wedding in weddings)
@@ -218,17 +223,17 @@ public class WeddingService : IWeddingService
                     Result = null
                 };
             }
-            
+
             weddingToUpdate.BrideName = updateWeddingDTO.BrideName;
             weddingToUpdate.GroomName = updateWeddingDTO.GroomName;
             weddingToUpdate.WeddingDate = updateWeddingDTO.WeddingDate;
             weddingToUpdate.WeddingLocation = updateWeddingDTO.WeddingLocation;
             weddingToUpdate.WeddingPhotoUrl = updateWeddingDTO.WeddingPhotoUrl;
             weddingToUpdate.CreatedDate = updateWeddingDTO.CreatedDate;
-            
+
             _unitOfWork.WeddingRepository.Update(weddingToUpdate);
             await _unitOfWork.SaveAsync();
-            
+
             return new ResponseDTO()
             {
                 Message = "Wedding updated successfully",
@@ -326,75 +331,69 @@ public class WeddingService : IWeddingService
             };
         }
     }
-    
-    public async Task<ResponseDTO> UploadWeddingBackground(Guid WeddingId, UploadWeddingBackgroundImg uploadCourseVersionBackgroundImg)
-{
-    try
+
+    public async Task<ResponseDTO> UploadWeddingBackground(Guid WeddingId,
+        UploadWeddingBackgroundImg uploadCourseVersionBackgroundImg)
     {
-        if (uploadCourseVersionBackgroundImg.File == null)
+        try
         {
-            return new ResponseDTO()
+            if (uploadCourseVersionBackgroundImg.File == null)
             {
-                IsSuccess = false,
-                StatusCode = 400,
-                Message = "No file uploaded."
-            };
-        }
+                return new ResponseDTO()
+                {
+                    IsSuccess = false,
+                    StatusCode = 400,
+                    Message = "No file uploaded."
+                };
+            }
 
-        var wedding = await _unitOfWork.WeddingRepository.GetAsync(x => x.WeddingId == WeddingId);
-        if (wedding == null)
-        {
-            return new ResponseDTO()
+            var wedding = await _unitOfWork.WeddingRepository.GetAsync(x => x.WeddingId == WeddingId);
+            if (wedding == null)
             {
-                IsSuccess = false,
-                StatusCode = 404,
-                Message = "Wedding not found."
-            };
-        }
-
-        var responseDtoList = new List<ResponseDTO>();
-        foreach (var image in uploadCourseVersionBackgroundImg.File)
-        {
+                return new ResponseDTO()
+                {
+                    IsSuccess = false,
+                    StatusCode = 404,
+                    Message = "Wedding not found."
+                };
+            }
+            
             var filePath = $"{StaticFirebaseFolders.InvitationTemplate}/{wedding.WeddingId}/Background";
-            var responseDto = await _firebaseService.UploadImage(image, filePath);
-            responseDtoList.Add(responseDto);
+            var responseDto = await _firebaseService.UploadImage(uploadCourseVersionBackgroundImg.File, filePath);
+
+            wedding.WeddingPhotoUrl = responseDto.Result.ToString();
+
+            _unitOfWork.WeddingRepository.Update(wedding);
+            await _unitOfWork.SaveAsync();
+
+            return new ResponseDTO()
+            {
+                IsSuccess = true,
+                StatusCode = 200,
+                Result = responseDto,
+                Message = "Upload file successfully"
+            };
         }
-
-        wedding.WeddingPhotoUrl = responseDtoList.Any(x => x.Result != null)
-            ? responseDtoList.Select(x => x.Result.ToString()).ToArray()
-            : Array.Empty<string>();
-
-        _unitOfWork.WeddingRepository.Update(wedding);
-        await _unitOfWork.SaveAsync();
-
-        return new ResponseDTO()
+        catch (Exception e)
         {
-            IsSuccess = true,
-            StatusCode = 200,
-            Result = responseDtoList,
-            Message = "Upload file successfully"
-        };
+            return new ResponseDTO()
+            {
+                IsSuccess = false,
+                StatusCode = 500,
+                Result = null,
+                Message = e.Message
+            };
+        }
     }
-    catch (Exception e)
-    {
-        return new ResponseDTO()
-        {
-            IsSuccess = false,
-            StatusCode = 500,
-            Result = null,
-            Message = e.Message
-        };
-    }
-}
 
-public async Task<ResponseDTO> GetWeddingBackground(Guid WeddingId)
-{
-    try
+    public async Task<ResponseDTO> GetWeddingBackground(Guid WeddingId)
     {
-        var wedding = await _unitOfWork.WeddingRepository.GetAsync(x => x.WeddingId == WeddingId);
-
-        if (wedding != null && wedding.WeddingPhotoUrl.IsNullOrEmpty())
+        try
         {
+            var wedding = await _unitOfWork.WeddingRepository.GetAsync(x => x.WeddingId == WeddingId);
+
+            if (wedding != null && wedding.WeddingPhotoUrl.IsNullOrEmpty())
+            {
                 return new ResponseDTO()
                 {
                     IsSuccess = false,
@@ -412,8 +411,8 @@ public async Task<ResponseDTO> GetWeddingBackground(Guid WeddingId)
                 Message = "Get background images successfully"
             };
         }
-    catch (Exception e)
-    {
+        catch (Exception e)
+        {
             return new ResponseDTO()
             {
                 IsSuccess = false,
@@ -421,6 +420,6 @@ public async Task<ResponseDTO> GetWeddingBackground(Guid WeddingId)
                 Result = null,
                 Message = "Internal server error"
             };
-        }   
-}
+        }
+    }
 }

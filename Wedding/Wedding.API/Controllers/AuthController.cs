@@ -83,10 +83,15 @@ namespace Wedding.API.Controllers
         [HttpGet]
         [Route("user/avatar")]
         [Authorize]
-        public async Task<ActionResult<ResponseDTO>> GetUserAvatar()
+        public async Task<IActionResult> GetUserAvatar()
         {
-            var response = await _authService.GetUserAvatar(User);
-            return StatusCode(response.StatusCode, response);
+            var stream = await _authService.GetUserAvatar(User);
+            if (stream is null)
+            {
+                return NotFound("User avatar does not exist!");
+            }
+
+            return File(stream, "image/png");
         }
 
         /// <summary>

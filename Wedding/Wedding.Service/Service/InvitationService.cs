@@ -343,18 +343,12 @@ public class InvitationService : IInvitationService
                     Message = "Invation not found."
                 };
             }
+            
+            var filePath = $"{StaticFirebaseFolders.Invitation}/{invation.InvitationId}/Background";
+            var responseDto = await _firebaseService.UploadImage(uploadInvationBackgroundImg.File, filePath);
+    
 
-            var responseDtoList = new List<ResponseDTO>();
-            foreach (var image in uploadInvationBackgroundImg.File)
-            {
-                var filePath = $"{StaticFirebaseFolders.Invitation}/{invation.InvitationId}/Background";
-                var responseDto = await _firebaseService.UploadImage(image, filePath);
-                responseDtoList.Add(responseDto);
-            }
-
-            invation.InvitationPhotoUrl = responseDtoList.Any(x => x.Result != null)
-                ? responseDtoList.Select(x => x.Result.ToString()).ToArray()
-                : Array.Empty<string>();
+            invation.InvitationPhotoUrl = responseDto.Result.ToString();
             
             _unitOfWork.InvitationRepository.Update(invation);
             await _unitOfWork.SaveAsync();
@@ -363,7 +357,7 @@ public class InvitationService : IInvitationService
             {
                 IsSuccess = true,
                 StatusCode = 200,
-                Result = responseDtoList,
+                Result = responseDto,
                 Message = "Upload file successfully"
             };
         }

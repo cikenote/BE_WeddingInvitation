@@ -360,18 +360,11 @@ public class InvitationTemplateService : IInvitationTemplateService
                     Message = "Invation template not found."
                 };
             }
-
-            var responseDtoList = new List<ResponseDTO>();
-            foreach (var image in uploadInvationTeamplateBackgroundImg.File)
-            {
-                var filePath = $"{StaticFirebaseFolders.InvitationTemplate}/{invationTemplate.TemplateId}/Background";
-                var responseDto = await _firebaseService.UploadImage(image, filePath);
-                responseDtoList.Add(responseDto);
-            }
-
-            invationTemplate.BackgroundImageUrl = responseDtoList.Any(x => x.Result != null)
-                ? responseDtoList.Select(x => x.Result.ToString()).ToArray()
-                : Array.Empty<string>();
+            
+            var filePath = $"{StaticFirebaseFolders.InvitationTemplate}/{invationTemplate.TemplateId}/Background";
+            var responseDto = await _firebaseService.UploadImage(uploadInvationTeamplateBackgroundImg.File, filePath);
+    
+            invationTemplate.BackgroundImageUrl = responseDto.Result.ToString();
 
             _unitOfWork.InvitationTemplateRepository.Update(invationTemplate);
             await _unitOfWork.SaveAsync();
@@ -380,7 +373,7 @@ public class InvitationTemplateService : IInvitationTemplateService
             {
                 IsSuccess = true,
                 StatusCode = 200,
-                Result = responseDtoList,
+                Result = responseDto,
                 Message = "Upload file successfully"
             };
         }

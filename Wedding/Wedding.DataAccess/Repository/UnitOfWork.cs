@@ -32,7 +32,6 @@ namespace Wedding.DataAccess.Repository
         public IEventPhotoRepository EventPhotoRepository { get; }
         public IGuestRepository GuestRepository { get; }
         public IGuestListRepository GuestListRepository { get; }
-        public IInvitationHtmlRepository InvitationHtmlRepository { get; }
 
         public async Task<int> SaveAync()
         {
@@ -65,7 +64,6 @@ namespace Wedding.DataAccess.Repository
             EventPhotoRepository = new EventPhotoRepository(_context);
             GuestRepository = new GuestRepository(_context);
             GuestListRepository = new GuestListRepository(_context);
-            InvitationHtmlRepository = new InvitationHtmlRepository(_context);
         }
 
         public async Task<int> SaveAsync()

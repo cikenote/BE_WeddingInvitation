@@ -6,7 +6,7 @@ public class InvitationTemplateDTO
 {
     public Guid TemplateId { get; set; }
     public string TemplateName { get; set; }
-    public string[] BackgroundImageUrl { get; set; }
+    public string BackgroundImageUrl { get; set; }
     public string[] TextColor { get; set; }
     public string[] TextFont { get; set; }
     public string Description { get; set; }

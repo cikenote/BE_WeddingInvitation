@@ -62,7 +62,7 @@ namespace Wedding.API.Controllers
         
         [HttpPost]
         [Route("background/{event-photo-id:guid}")]
-        public async Task<ActionResult<ResponseDTO>> UploadInvationTeamplateBackground([FromRoute(Name = "event-photo-id")] Guid EventPhotoId, UploadEventPhotoBackgroundImg uploadEventPhotoBackgroundImg)
+        public async Task<ActionResult<ResponseDTO>> UploadInvationTeamplateBackground([FromRoute] Guid EventPhotoId, UploadEventPhotoBackgroundImg uploadEventPhotoBackgroundImg)
         {
             var responseDto = await _EventPhotoService.UploadEventPhotoBackground(EventPhotoId, uploadEventPhotoBackgroundImg);
             return StatusCode(responseDto.StatusCode, responseDto);
@@ -70,7 +70,7 @@ namespace Wedding.API.Controllers
 
         [HttpGet]
         [Route("background/{event-photo-id:guid}")]
-        public async Task<ActionResult<ResponseDTO>> DisplayEventPhotoBackground([FromRoute(Name = "event-photo-id")] Guid EventPhotoId)
+        public async Task<ActionResult> DisplayEventPhotoBackground([FromRoute] Guid EventPhotoId)
         {
             var responseDto = await _EventPhotoService.GetEventPhotoBackground(EventPhotoId);
             return StatusCode(responseDto.StatusCode, responseDto);

@@ -10,6 +10,6 @@ public class EventDTO
     public string GroomName { get; set; }
     public DateTime EventDate { get; set; }
     public string EventLocation { get; set; }
-    public string[] EventPhotoUrl { get; set; }
+    public string EventPhotoUrl { get; set; }
     public DateTime CreatedDate { get; set; }
 }

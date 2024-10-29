@@ -8,6 +8,6 @@ public class UpdateWeddingDTO
     public string GroomName { get; set; }
     public DateTime WeddingDate { get; set; }
     public string WeddingLocation { get; set; }
-    public string[] WeddingPhotoUrl { get; set; }
+    public string WeddingPhotoUrl { get; set; }
     public DateTime CreatedDate { get; set; }
 }
