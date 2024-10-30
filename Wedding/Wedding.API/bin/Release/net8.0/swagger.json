@@ -256,17 +256,9 @@
         "tags": [
           "Auth"
         ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/ResponseDTO"
-            }
+            "description": "OK"
           }
         }
       }
@@ -1652,7 +1644,7 @@
         }
       }
     },
-    "/api/event/background/{event-id}": {
+    "/api/event/background/{EventId}": {
       "post": {
         "tags": [
           "Event"
@@ -1668,7 +1660,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "event-id",
+            "name": "EventId",
             "required": true,
             "type": "string",
             "format": "uuid"
@@ -1697,15 +1689,10 @@
         "tags": [
           "Event"
         ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
             "in": "path",
-            "name": "event-id",
+            "name": "EventId",
             "required": true,
             "type": "string",
             "format": "uuid"
@@ -1713,10 +1700,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/ResponseDTO"
-            }
+            "description": "OK"
           }
         }
       }
@@ -1904,7 +1888,7 @@
         }
       }
     },
-    "/api/event-photo/background/{event-photo-id}": {
+    "/api/event-photo/background/{EventPhotoId}": {
       "post": {
         "tags": [
           "EventPhoto"
@@ -1920,7 +1904,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "event-photo-id",
+            "name": "EventPhotoId",
             "required": true,
             "type": "string",
             "format": "uuid"
@@ -1949,15 +1933,10 @@
         "tags": [
           "EventPhoto"
         ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
             "in": "path",
-            "name": "event-photo-id",
+            "name": "EventPhotoId",
             "required": true,
             "type": "string",
             "format": "uuid"
@@ -1965,10 +1944,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/ResponseDTO"
-            }
+            "description": "OK"
           }
         }
       }
@@ -2522,7 +2498,7 @@
         }
       }
     },
-    "/api/invitation/background/{invation-id}": {
+    "/api/invitation/background/{InvationId}": {
       "post": {
         "tags": [
           "Invitation"
@@ -2538,7 +2514,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "invation-id",
+            "name": "InvationId",
             "required": true,
             "type": "string",
             "format": "uuid"
@@ -2567,15 +2543,10 @@
         "tags": [
           "Invitation"
         ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
             "in": "path",
-            "name": "invation-id",
+            "name": "InvationId",
             "required": true,
             "type": "string",
             "format": "uuid"
@@ -2583,10 +2554,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/ResponseDTO"
-            }
+            "description": "OK"
           }
         }
       }
@@ -2957,7 +2925,7 @@
         }
       }
     },
-    "/api/invitation-template/background/{template-id}": {
+    "/api/invitation-template/background/{TemplateId}": {
       "post": {
         "tags": [
           "InvitationTemplate"
@@ -2973,7 +2941,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "template-id",
+            "name": "TemplateId",
             "required": true,
             "type": "string",
             "format": "uuid"
@@ -3002,15 +2970,10 @@
         "tags": [
           "InvitationTemplate"
         ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
             "in": "path",
-            "name": "template-id",
+            "name": "TemplateId",
             "required": true,
             "type": "string",
             "format": "uuid"
@@ -3018,10 +2981,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/ResponseDTO"
-            }
+            "description": "OK"
           }
         }
       }
@@ -3106,7 +3066,7 @@
         }
       }
     },
-    "/api/order/{orderHeaderId}": {
+    "/api/order/{order-header-id}": {
       "get": {
         "tags": [
           "Order"
@@ -3123,6 +3083,12 @@
             "required": true,
             "type": "string",
             "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "order-header-id",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3135,7 +3101,7 @@
         }
       }
     },
-    "/api/order/status/{orderHeaderId}": {
+    "/api/order/status/{order-header-id}": {
       "get": {
         "tags": [
           "Order"
@@ -3152,6 +3118,12 @@
             "required": true,
             "type": "string",
             "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "order-header-id",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3232,7 +3204,7 @@
         }
       }
     },
-    "/api/order/confirm/{orderHeaderId}": {
+    "/api/order/confirm/{order-header-id}": {
       "put": {
         "tags": [
           "Order"
@@ -3249,6 +3221,12 @@
             "required": true,
             "type": "string",
             "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "order-header-id",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -4058,7 +4036,7 @@
         }
       }
     },
-    "/api/wedding/background/{wedding-id}": {
+    "/api/wedding/background/{WeddingId}": {
       "post": {
         "tags": [
           "Wedding"
@@ -4074,7 +4052,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "wedding-id",
+            "name": "WeddingId",
             "required": true,
             "type": "string",
             "format": "uuid"
@@ -4106,7 +4084,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "wedding-id",
+            "name": "WeddingId",
             "required": true,
             "type": "string",
             "format": "uuid"

@@ -358,10 +358,22 @@ public class WeddingService : IWeddingService
                 };
             }
             
-            var filePath = $"{StaticFirebaseFolders.InvitationTemplate}/{wedding.WeddingId}/Background";
-            var responseDto = await _firebaseService.UploadImage(uploadCourseVersionBackgroundImg.File, filePath);
+            var responseList = new List<string>();
+            foreach (var image in uploadCourseVersionBackgroundImg.File)
+            {
+                var filePath = $"{StaticFirebaseFolders.EventPhoto}/{wedding.WeddingPhotoUrl}/Background";
+                var responseDto = await _firebaseService.UploadImage(image, filePath);
+                if (responseDto.IsSuccess)
+                {
+                    responseList.Add(responseDto.Result.ToString());
+                }
+                else
+                {
+                    responseList.Add($"Failed to upload {image.FileName}: {responseDto.Message}");
+                }
+            }
 
-            wedding.WeddingPhotoUrl = responseDto.Result.ToString();
+            wedding.WeddingPhotoUrl = responseList.ToArray();;
 
             _unitOfWork.WeddingRepository.Update(wedding);
             await _unitOfWork.SaveAsync();
@@ -370,7 +382,7 @@ public class WeddingService : IWeddingService
             {
                 IsSuccess = true,
                 StatusCode = 200,
-                Result = responseDto,
+                Result = responseList,
                 Message = "Upload file successfully"
             };
         }

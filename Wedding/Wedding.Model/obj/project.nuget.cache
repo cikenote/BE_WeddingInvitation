@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZC3VizMqSkg=",
+  "dgSpecHash": "rHM8prOejvY=",
   "success": true,
-  "projectFilePath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Wedding.Model.csproj",
+  "projectFilePath": "D:\\FPT\\Semester 7\\SWD392\\Project\\Wedding\\Wedding.Model\\Wedding.Model.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Son\\.nuget\\packages\\microsoft.applicationinsights\\2.22.0\\microsoft.applicationinsights.2.22.0.nupkg.sha512",
     "C:\\Users\\Son\\.nuget\\packages\\microsoft.applicationinsights.aspnetcore\\2.22.0\\microsoft.applicationinsights.aspnetcore.2.22.0.nupkg.sha512",

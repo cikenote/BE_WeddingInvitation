@@ -27,6 +27,7 @@ public interface IUnitOfWork
     IEventPhotoRepository EventPhotoRepository { get; }
     IGuestRepository GuestRepository { get; }
     IGuestListRepository GuestListRepository { get; }
+    IInvitationHtmlRepository InvitationHtmlRepository { get; }
 
     Task<int> SaveAsync();
 }

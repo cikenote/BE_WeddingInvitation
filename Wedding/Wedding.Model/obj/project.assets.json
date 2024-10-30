@@ -2430,11 +2430,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Wedding.Model.csproj",
+      "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\Project\\Wedding\\Wedding.Model\\Wedding.Model.csproj",
       "projectName": "Wedding.Model",
-      "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Wedding.Model.csproj",
+      "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Project\\Wedding\\Wedding.Model\\Wedding.Model.csproj",
       "packagesPath": "C:\\Users\\Son\\.nuget\\packages\\",
-      "outputPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\obj\\",
+      "outputPath": "D:\\FPT\\Semester 7\\SWD392\\Project\\Wedding\\Wedding.Model\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Son\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2452,8 +2452,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {
-              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj"
+            "D:\\FPT\\Semester 7\\SWD392\\Project\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {
+              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Project\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj"
             }
           }
         }

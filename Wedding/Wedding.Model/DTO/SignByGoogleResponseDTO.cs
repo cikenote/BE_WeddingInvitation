@@ -2,9 +2,10 @@
 
 namespace Wedding.Model.DTO
 {
-    public class SignResponseDTO
+    public class SignByGoogleResponseDTO
     {
         public string AccessToken { get; set; }
         public string RefreshToken { get; set; }
+        public Boolean IsProfileComplete { get; set; }
     }
 }

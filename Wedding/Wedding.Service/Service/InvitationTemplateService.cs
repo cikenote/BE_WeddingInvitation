@@ -361,10 +361,22 @@ public class InvitationTemplateService : IInvitationTemplateService
                 };
             }
             
-            var filePath = $"{StaticFirebaseFolders.InvitationTemplate}/{invationTemplate.TemplateId}/Background";
-            var responseDto = await _firebaseService.UploadImage(uploadInvationTeamplateBackgroundImg.File, filePath);
-    
-            invationTemplate.BackgroundImageUrl = responseDto.Result.ToString();
+            var responseList = new List<string>();
+            foreach (var image in uploadInvationTeamplateBackgroundImg.File)
+            {
+                var filePath = $"{StaticFirebaseFolders.EventPhoto}/{invationTemplate.BackgroundImageUrl}/Background";
+                var responseDto = await _firebaseService.UploadImage(image, filePath);
+                if (responseDto.IsSuccess)
+                {
+                    responseList.Add(responseDto.Result.ToString());
+                }
+                else
+                {
+                    responseList.Add($"Failed to upload {image.FileName}: {responseDto.Message}");
+                }
+            }
+
+            invationTemplate.BackgroundImageUrl = responseList.ToArray();;
 
             _unitOfWork.InvitationTemplateRepository.Update(invationTemplate);
             await _unitOfWork.SaveAsync();
@@ -373,7 +385,7 @@ public class InvitationTemplateService : IInvitationTemplateService
             {
                 IsSuccess = true,
                 StatusCode = 200,
-                Result = responseDto,
+                Result = responseList,
                 Message = "Upload file successfully"
             };
         }

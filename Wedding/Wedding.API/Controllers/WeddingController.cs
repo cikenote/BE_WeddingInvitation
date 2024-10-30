@@ -61,7 +61,7 @@ namespace Wedding.API.Controllers
         }
         
         [HttpPost]
-        [Route("background/{wedding-id:guid}")]
+        [Route("background/{WeddingId:guid}")]
         public async Task<ActionResult<ResponseDTO>> UploadWeddingBackground([FromRoute] Guid WeddingId, UploadWeddingBackgroundImg uploadWeddingBackgroundImg)
         {
             var responseDto = await _weddingService.UploadWeddingBackground(WeddingId, uploadWeddingBackgroundImg);
@@ -69,7 +69,7 @@ namespace Wedding.API.Controllers
         }
 
         [HttpGet]
-        [Route("background/{wedding-id:guid}")]
+        [Route("background/{WeddingId:guid}")]
         public async Task<ActionResult> GetWeddingBackground([FromRoute] Guid WeddingId)
         {
             var responseDto = await _weddingService.GetWeddingBackground(WeddingId);

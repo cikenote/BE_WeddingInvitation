@@ -9,7 +9,7 @@ namespace Wedding.API.Controllers
 {
     [Route("api/invitation-template")]
     [ApiController]
-    [Authorize(Roles = StaticUserRoles.Admin + "," + StaticUserRoles.Customer)]
+    // [Authorize(Roles = StaticUserRoles.Admin + "," + StaticUserRoles.Customer)]
     public class InvitationTemplateController : ControllerBase
     {
         private readonly IInvitationTemplateService _invitationTemplateService;
@@ -61,7 +61,7 @@ namespace Wedding.API.Controllers
         }
 
         [HttpPost]
-        [Route("background/{template-id:guid}")]
+        [Route("background/{TemplateId:guid}")]
         public async Task<ActionResult<ResponseDTO>> UploadInvationTeamplateBackground([FromRoute] Guid TemplateId, UploadInvationTeamplateBackgroundImg uploadInvationTemplateBackgroundImg)
         {
             var responseDto = await _invitationTemplateService.UploadInvationTeamplateBackgroundImg(TemplateId, uploadInvationTemplateBackgroundImg);
@@ -69,7 +69,7 @@ namespace Wedding.API.Controllers
         }
 
         [HttpGet]
-        [Route("background/{template-id:guid}")]
+        [Route("background/{TemplateId:guid}")]
         public async Task<ActionResult> GetInvationTeamplateBackgrounds([FromRoute] Guid TemplateId)
         {
             var responseDto = await _invitationTemplateService.GetInvationTeamplateBackgrounds(TemplateId);

@@ -61,7 +61,7 @@ namespace Wedding.API.Controllers
         }
         
         [HttpPost]
-        [Route("background/{event-id:guid}")]
+        [Route("background/{EventId:guid}")]
         public async Task<ActionResult<ResponseDTO>> UploadInvationTeamplateBackground([FromRoute] Guid EventId, UploadEventBackgroundImg uploadEventBackgroundImg)
         {
             var responseDto = await _EventService.UploadEventBackground(EventId, uploadEventBackgroundImg);
@@ -69,7 +69,7 @@ namespace Wedding.API.Controllers
         }
 
         [HttpGet]
-        [Route("background/{event-id:guid}")]
+        [Route("background/{EventId:guid}")]
         public async Task<ActionResult> DisplayEventPhotoBackground([FromRoute] Guid EventId)
         {
             var responseDto = await _EventService.GetEventBackground(EventId);

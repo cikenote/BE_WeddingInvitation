@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Wedding.DataAccess.IRepository;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 using Wedding.Utility.Constants;
 
 namespace Wedding.Service.Service;
@@ -19,7 +20,8 @@ public class EventPhotoService : IEventPhotoService
     private readonly IUnitOfWork _unitOfWork;
     private readonly IFirebaseService _firebaseService;
 
-    public EventPhotoService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, IFirebaseService firebaseService)
+    public EventPhotoService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager,
+        IFirebaseService firebaseService)
     {
         _unitOfWork = unitOfWork;
         _userManager = userManager;
@@ -41,19 +43,19 @@ public class EventPhotoService : IEventPhotoService
                 switch (filterOn.Trim().ToLower())
                 {
                     case "phototype":
-                        {
-                            EventPhotos = _unitOfWork.EventPhotoRepository.GetAllAsync()
-                                .GetAwaiter().GetResult().Where(x =>
-                                    x.PhotoType.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
-                            break;
-                        }
+                    {
+                        EventPhotos = _unitOfWork.EventPhotoRepository.GetAllAsync()
+                            .GetAwaiter().GetResult().Where(x =>
+                                x.PhotoType.Contains(filterQuery, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                        break;
+                    }
                     default:
-                        {
-                            EventPhotos = _unitOfWork.EventPhotoRepository
-                                .GetAllAsync()
-                                .GetAwaiter().GetResult().ToList();
-                            break;
-                        }
+                    {
+                        EventPhotos = _unitOfWork.EventPhotoRepository
+                            .GetAllAsync()
+                            .GetAwaiter().GetResult().ToList();
+                        break;
+                    }
                 }
             }
             else
@@ -68,16 +70,16 @@ public class EventPhotoService : IEventPhotoService
                 switch (sortBy.Trim().ToLower())
                 {
                     case "phototype":
-                        {
-                            EventPhotos = isAscending == true
-                                ? EventPhotos.OrderBy(x => x.PhotoType).ToList()
-                                : EventPhotos.OrderByDescending(x => x.PhotoType).ToList();
-                            break;
-                        }
+                    {
+                        EventPhotos = isAscending == true
+                            ? EventPhotos.OrderBy(x => x.PhotoType).ToList()
+                            : EventPhotos.OrderByDescending(x => x.PhotoType).ToList();
+                        break;
+                    }
                     default:
-                        {
-                            break;
-                        }
+                    {
+                        break;
+                    }
                 }
             }
 
@@ -299,94 +301,107 @@ public class EventPhotoService : IEventPhotoService
             };
         }
     }
-    
-    public async Task<ResponseDTO> UploadEventPhotoBackground(Guid EventPhotoId, UploadEventPhotoBackgroundImg uploadEventPhotoBackgroundImg)
+
+    public async Task<ResponseDTO> UploadEventPhotoBackground(Guid EventPhotoId,
+        UploadEventPhotoBackgroundImg uploadEventPhotoBackgroundImg)
     {
-    try
-    {
-        if (uploadEventPhotoBackgroundImg.File == null)
+        try
         {
+            if (uploadEventPhotoBackgroundImg.File == null)
+            {
+                return new ResponseDTO()
+                {
+                    IsSuccess = false,
+                    StatusCode = 400,
+                    Message = "No file uploaded."
+                };
+            }
+
+            var eventPhoto = await _unitOfWork.EventPhotoRepository.GetAsync(x => x.EventPhotoId == EventPhotoId);
+            if (eventPhoto == null)
+            {
+                return new ResponseDTO()
+                {
+                    IsSuccess = false,
+                    StatusCode = 404,
+                    Message = "Event photo not found."
+                };
+            }
+            
+            var responseList = new List<string>();
+            foreach (var image in uploadEventPhotoBackgroundImg.File)
+            {
+                var filePath = $"{StaticFirebaseFolders.EventPhoto}/{eventPhoto.EventPhotoId}/Background";
+                var responseDto = await _firebaseService.UploadImage(image, filePath);
+                if (responseDto.IsSuccess)
+                {
+                    responseList.Add(responseDto.Result.ToString());
+                }
+                else
+                {
+                    responseList.Add($"Failed to upload {image.FileName}: {responseDto.Message}");
+                }
+            }
+
+            eventPhoto.PhotoUrl = responseList.ToArray();;
+
+            _unitOfWork.EventPhotoRepository.Update(eventPhoto);
+            await _unitOfWork.SaveAsync();
+
             return new ResponseDTO()
             {
-                IsSuccess = false,
-                StatusCode = 400,
-                Message = "No file uploaded."
+                IsSuccess = true,
+                StatusCode = 200,
+                Result = responseList,
+                Message = "Upload file successfully"
             };
         }
-
-        var eventPhoto = await _unitOfWork.EventPhotoRepository.GetAsync(x => x.EventPhotoId == EventPhotoId);
-        if (eventPhoto == null)
+        catch (Exception e)
         {
             return new ResponseDTO()
             {
                 IsSuccess = false,
-                StatusCode = 404,
-                Message = "Event photo not found."
-            };
-        }
-        
-        var filePath = $"{StaticFirebaseFolders.InvitationTemplate}/{eventPhoto.EventPhotoId}/Background";
-        var responseDto = await _firebaseService.UploadImage(uploadEventPhotoBackgroundImg.File, filePath);
-
-        eventPhoto.PhotoUrl = responseDto.Result.ToString();
-        
-        _unitOfWork.EventPhotoRepository.Update(eventPhoto);
-        await _unitOfWork.SaveAsync();
-
-        return new ResponseDTO()
-        {
-            IsSuccess = true,
-            StatusCode = 200,
-            Result = responseDto,
-            Message = "Upload file successfully"
-        };
-    }
-    catch (Exception e)
-    {
-        return new ResponseDTO()
-        {
-            IsSuccess = false,
-            StatusCode = 500,
-            Result = null,
-            Message = e.Message
-        };
-    }
-}
-
-public async Task<ResponseDTO> GetEventPhotoBackground(Guid EventPhotoId)
-{
-    try
-    {
-        var eventPhoto = await _unitOfWork.EventPhotoRepository.GetAsync(x => x.EventPhotoId == EventPhotoId);
-
-        if (eventPhoto != null && eventPhoto.PhotoUrl.IsNullOrEmpty())
-        {
-            return new ResponseDTO()
-            {
-                IsSuccess = false,
-                StatusCode = 404,
+                StatusCode = 500,
                 Result = null,
-                Message = "No background image found"
+                Message = e.Message
             };
         }
-
-        return new ResponseDTO()
-        {
-            IsSuccess = true,
-            StatusCode = 200,
-            Result = eventPhoto.PhotoUrl,
-            Message = "Get background images successfully"
-        };
     }
-    catch (Exception e)
+
+    public async Task<ResponseDTO> GetEventPhotoBackground(Guid EventPhotoId)
     {
-        return new ResponseDTO()
+        try
         {
-            IsSuccess = false,
-            StatusCode = 500,
-            Result = null,
-            Message = "Internal server error"
-        };
-    }   
-}
+            var eventPhoto = await _unitOfWork.EventPhotoRepository.GetAsync(x => x.EventPhotoId == EventPhotoId);
+
+            if (eventPhoto != null && eventPhoto.PhotoUrl.IsNullOrEmpty())
+            {
+                return new ResponseDTO()
+                {
+                    IsSuccess = false,
+                    StatusCode = 404,
+                    Result = null,
+                    Message = "No background image found"
+                };
+            }
+
+            return new ResponseDTO()
+            {
+                IsSuccess = true,
+                StatusCode = 200,
+                Result = eventPhoto.PhotoUrl,
+                Message = "Get background images successfully"
+            };
+        }
+        catch (Exception e)
+        {
+            return new ResponseDTO()
+            {
+                IsSuccess = false,
+                StatusCode = 500,
+                Result = null,
+                Message = "Internal server error"
+            };
+        }
+    }
 }

@@ -70,6 +70,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IGuestService, GuestService>();
         // Registering IGuestListService its implementation GuestListService
         services.AddScoped<IGuestListService, GuestListService>();
+        // Registering IVnPayService its implementation VnPayService
+        services.AddScoped<IVnPayService, VnPayService>();
 
         // Register the Identity services with default configuration
         services.AddIdentity<ApplicationUser, IdentityRole>()

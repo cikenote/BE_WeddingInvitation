@@ -12,7 +12,7 @@ using Wedding.DataAccess.Context;
 namespace Wedding.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241029170630_Initial")]
+    [Migration("20241030111032_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -315,7 +315,7 @@ namespace Wedding.DataAccess.Migrations
                             Address = "123 Admin St",
                             AvatarUrl = "https://example.com/avatar.png",
                             BirthDate = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "459f4589-6bc1-4e42-af15-a8caadf0f3ed",
+                            ConcurrencyStamp = "aab60f6c-6cd2-4540-81c1-f7f3aee341e7",
                             Country = "Country",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
@@ -324,10 +324,10 @@ namespace Wedding.DataAccess.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEK0tGyQnhx8kY6Z4RuBCp1iyr+pvtt88HDvHccpiqpYirvubaId6YzppSsQ1mHR/lg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELitBjCGR6ZJvD548yisrGa1X/Xp2fcBcWd3V7fGA4jFbGk1H4p6GcBy2qw3Ea0N1Q==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "3899210f-2024-426a-8b75-d0b28fe68dcb",
+                            SecurityStamp = "c10472ca-2d66-4e50-8f6f-2823f1d6b186",
                             SendClearEmail = false,
                             TaxNumber = "123456789",
                             TwoFactorEnabled = false,
@@ -553,7 +553,7 @@ namespace Wedding.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a87c9c81-856b-4f0b-9ac7-c67bbdaed680"),
+                            Id = new Guid("81a76a7b-bff7-45c6-8495-887f744dfa30"),
                             Address = "123 Main St",
                             City = "Hometown",
                             Country = "Country",
@@ -673,7 +673,7 @@ namespace Wedding.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("64485e75-55d0-40aa-ad0a-584d79c4c5db"),
+                            Id = new Guid("d79a1288-3188-468c-b595-a9a206f6181f"),
                             BodyContent = "Dear [UserFullName],<br><br>Welcome to Wedding! We are excited to have you join our learning community.",
                             CallToAction = "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>",
                             Category = "Welcome",
@@ -690,7 +690,7 @@ namespace Wedding.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("eaf7daa8-79ab-4bdf-a768-2107c90ff56d"),
+                            Id = new Guid("5ea756ce-7554-4e89-9f90-60c036671426"),
                             BodyContent = "Hi [UserFullName],<br><br>We received a request to reset your password. Click the link below to reset your password.",
                             CallToAction = "https://weddinginvations.web.app/sign-in/verify-email?userId=user.Id&token=Uri.EscapeDataString(token)",
                             Category = "Security",
@@ -707,7 +707,7 @@ namespace Wedding.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("fb6cd4f5-b24b-47fe-a13c-e0f37af162f9"),
+                            Id = new Guid("2366124b-a3e2-493a-8411-140fbb528d50"),
                             BodyContent = "<p>Thank you for registering your Wedding account. Click here to go back the page</p>",
                             CallToAction = "<a href=\"{{Login}}\">Login now</a>",
                             Category = "Verify",
@@ -724,7 +724,7 @@ namespace Wedding.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("95501ffd-3b93-496c-a605-2f22b2e463e6"),
+                            Id = new Guid("21b64e11-aa33-4232-a7a6-6bf8bd7fee30"),
                             BodyContent = "<p>Hello {FirstName},</p><p>Click <a href=\"{ResetLink}\">here</a> to reset your password.</p>",
                             CallToAction = "<a href=\"{{ResetLink}}\">Reset Password</a>",
                             Category = "Security",
@@ -741,7 +741,7 @@ namespace Wedding.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("30e66f74-27bd-4dd0-b380-6c497b3e3a03"),
+                            Id = new Guid("3295d97c-35ec-4c6d-b531-e22a6675f4c1"),
                             BodyContent = "Dear [UserFullName],<br><br>Your account will be deleted after 14 days.",
                             CallToAction = "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>",
                             Category = "Remind Account",
@@ -758,7 +758,7 @@ namespace Wedding.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("55ddbbb1-6a7c-4c11-922c-eecd3ecbaa48"),
+                            Id = new Guid("9e614fcb-7d9a-469e-a437-655022d596f4"),
                             BodyContent = "Dear [UserFullName],<br><br>You have completed our course program, you can take new courses to increase your knowledge and skills.",
                             CallToAction = "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>",
                             Category = "Course completed",
@@ -775,7 +775,7 @@ namespace Wedding.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1463cc81-245f-4cc5-bfa4-a2af32ee51d8"),
+                            Id = new Guid("d01a70db-099a-41b6-a33e-b923d70aa8d9"),
                             BodyContent = "Dear [UserFullName],<br><br>Your account has been deleted.",
                             CallToAction = "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>",
                             Category = "Delete Account",
@@ -792,7 +792,7 @@ namespace Wedding.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("112677d9-9c4c-4234-b920-1039b19a88b9"),
+                            Id = new Guid("b7f68b99-036d-4e3b-b5ce-7825dc7e20b1"),
                             BodyContent = "Dear {FirstName} {LastName},<br><br>\r\n\r\n                    This email confirms that your payout request has been processed successfully.\r\n                    <br>\r\n                    <strong>Payout Details:</strong>\r\n                    <ul>\r\n                    <li>Amount: {PayoutAmount}</li>\r\n                    <li>Transaction Date: {TransactionDate}</li> \r\n                    </ul>\r\n                    <br>\r\n                    You can view your payout history in your customer dashboard. \r\n                    <br> \r\n                    Thank you for being a valued Wedding customer!\r\n                    <br>",
                             CallToAction = "<a href=\"https://weddinginvations.web.app/user/sign-in\">Login</a>",
                             Category = "Payout",
@@ -988,6 +988,32 @@ namespace Wedding.DataAccess.Migrations
                     b.ToTable("Invitations");
                 });
 
+            modelBuilder.Entity("Wedding.Model.Domain.InvitationHtml", b =>
+                {
+                    b.Property<Guid>("HtmlId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("HtmlContent")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("InvitationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdateddTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("HtmlId");
+
+                    b.HasIndex("InvitationId");
+
+                    b.ToTable("InvitationHtmls");
+                });
+
             modelBuilder.Entity("Wedding.Model.Domain.InvitationTemplate", b =>
                 {
                     b.Property<Guid>("TemplateId")
@@ -1144,10 +1170,10 @@ namespace Wedding.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1e4dc07f-2265-40ca-8109-ba6e336b9884"),
+                            Id = new Guid("0c99a1e4-2102-478a-871a-044586f9750e"),
                             Content = "These are the privacy for our service.",
                             IsActive = true,
-                            LastUpdated = new DateTime(2024, 10, 29, 17, 6, 29, 397, DateTimeKind.Utc).AddTicks(4763),
+                            LastUpdated = new DateTime(2024, 10, 30, 11, 10, 31, 925, DateTimeKind.Utc).AddTicks(5270),
                             Title = "Privacy"
                         });
                 });
@@ -1179,10 +1205,10 @@ namespace Wedding.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("afb964e2-5945-4d04-99bd-1b8170a6b43f"),
+                            Id = new Guid("4a5bc13b-2182-4002-82e5-30e62794aec6"),
                             Content = "These are the terms of use for our service.",
                             IsActive = true,
-                            LastUpdated = new DateTime(2024, 10, 29, 17, 6, 29, 397, DateTimeKind.Utc).AddTicks(4795),
+                            LastUpdated = new DateTime(2024, 10, 30, 11, 10, 31, 925, DateTimeKind.Utc).AddTicks(5303),
                             Title = "Terms of Use"
                         });
                 });
@@ -1464,6 +1490,15 @@ namespace Wedding.DataAccess.Migrations
                     b.Navigation("InvitationTemplate");
 
                     b.Navigation("Wedding");
+                });
+
+            modelBuilder.Entity("Wedding.Model.Domain.InvitationHtml", b =>
+                {
+                    b.HasOne("Wedding.Model.Domain.Invitation", "Invitation")
+                        .WithMany()
+                        .HasForeignKey("InvitationId");
+
+                    b.Navigation("Invitation");
                 });
 
             modelBuilder.Entity("Wedding.Model.Domain.InvitationTemplate", b =>

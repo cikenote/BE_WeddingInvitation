@@ -15,6 +15,7 @@ using FirebaseAdmin.Auth;
 using Newtonsoft.Json.Linq;
 using System.Reflection.PortableExecutable;
 using System.Web;
+using Newtonsoft.Json;
 
 //using Stripe;
 
@@ -341,7 +342,7 @@ public class AuthService : IAuthService
 
             return new ResponseDTO()
             {
-                Result = new SignResponseDTO()
+                Result = new SignByGoogleResponseDTO()
                 {
                     AccessToken = accessToken,
                     RefreshToken = refreshToken,
@@ -1015,110 +1016,159 @@ public class AuthService : IAuthService
     }
 
     /// <summary>
-    /// This method for sign in by google
-    /// </summary>
-    /// <param name="signInByGoogleDto"></param>
-    /// <returns></returns>
-    public async Task<ResponseDTO> SignInByGoogle(SignInByGoogleDTO signInByGoogleDto)
+/// Sign in a User by Google.
+/// </summary>
+/// <param name="signInByGoogleDto"></param>
+/// <returns></returns>
+public async Task<ResponseDTO> SignInByGoogle(SignInByGoogleDTO signInByGoogleDTO)
+{
+    // Gọi API của Google để lấy thông tin từ Access Token
+    var httpClient = new HttpClient();
+    var response =
+        await httpClient.GetStringAsync(
+            $"https://www.googleapis.com/oauth2/v3/tokeninfo?access_token={signInByGoogleDTO.Token}");
+
+    // Parse response từ Google
+    var googleUser = JsonConvert.DeserializeObject<GoogleUserInfo>(response);
+    if (googleUser == null || googleUser.email == null)
     {
-        try
+        return new ResponseDTO()
         {
-            //lấy thông tin từ google
-            FirebaseToken googleTokenS =
-                await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(signInByGoogleDto.Token);
-            string userId = googleTokenS.Uid;
-            string email = googleTokenS.Claims["email"].ToString();
-            string name = googleTokenS.Claims["name"].ToString();
-            string avatarUrl = googleTokenS.Claims["picture"].ToString();
+            Message = "Invalid Google Access Token",
+            IsSuccess = false,
+            StatusCode = 401
+        };
+    }
 
-            //tìm kiem người dùng trong database
-            var user = await _userManager.FindByEmailAsync(email);
-            UserLoginInfo? userLoginInfo = null;
-            if (user is not null)
+    string email = googleUser.email;
+
+    // Tìm kiếm người dùng trong database
+    var user = await _userManager.FindByEmailAsync(email);
+    UserLoginInfo? userLoginInfo = null;
+    if (user is not null)
+    {
+        userLoginInfo = (await _userManager.GetLoginsAsync(user))
+            .FirstOrDefault(x => x.LoginProvider == StaticLoginProvider.Google);
+    }
+
+    if (user?.LockoutEnd is not null)
+    {
+        return new ResponseDTO()
+        {
+            Message = "User has been locked",
+            IsSuccess = false,
+            StatusCode = 403,
+            Result = null
+        };
+    }
+
+    if (user is not null && userLoginInfo is null)
+    {
+        return new ResponseDTO()
+        {
+            Result = new SignByGoogleResponseDTO()
             {
-                userLoginInfo = _userManager.GetLoginsAsync(user).GetAwaiter().GetResult()
-                    .FirstOrDefault(x => x.LoginProvider == StaticLoginProvider.Google);
-            }
+                RefreshToken = "",
+                AccessToken = "",
+            },
+            Message = "The email is using by another user",
+            IsSuccess = false,
+            StatusCode = 400
+        };
+    }
 
-            if (user.LockoutEnd is not null)
-            {
-                return new ResponseDTO()
-                {
-                    Message = "User has been locked",
-                    IsSuccess = false,
-                    StatusCode = 403,
-                    Result = null
-                };
-            }
+    // Nếu user chưa tồn tại, tạo user mới và thêm role "Member"
+    if (user is null)
+    {
+        user = new ApplicationUser
+        {
+            Email = email,
+            FullName = "",
+            UserName = email,
+            AvatarUrl = "",
+            EmailConfirmed = true,
+            UpdateTime = null
+        };
 
-            if (user is not null && userLoginInfo is null)
-            {
-                return new ResponseDTO()
-                {
-                    Result = new SignResponseDTO()
-                    {
-                        RefreshToken = null,
-                        AccessToken = null,
-                    },
-                    Message = "The email is using by another user",
-                    IsSuccess = false,
-                    StatusCode = 400
-                };
-            }
-
-            if (userLoginInfo is null && user is null)
-            {
-                //tạo một user mới khi chưa có trong database
-                user = new ApplicationUser
-                {
-                    Email = email,
-                    FullName = name,
-                    UserName = email,
-                    AvatarUrl = avatarUrl,
-                    EmailConfirmed = true,
-                    UpdateTime = null
-                };
-
-                await _userManager.CreateAsync(user);
-                await _userManager.AddLoginAsync(user,
-                    new UserLoginInfo(StaticLoginProvider.Google, userId, "GOOGLE"));
-            }
-
-            var accessToken = await _tokenService.GenerateJwtAccessTokenAsync(user);
-            var refreshToken = await _tokenService.GenerateJwtRefreshTokenAsync(user);
-            await _tokenService.StoreRefreshToken(user.Id, refreshToken);
-
-            user.LastLoginTime = DateTime.UtcNow;
-            user.SendClearEmail = false;
-            await _userManager.UpdateAsync(user);
-
+        // Tạo user mới trong database
+        var createUserResult = await _userManager.CreateAsync(user);
+        if (!createUserResult.Succeeded)
+        {
             return new ResponseDTO()
             {
-                Result = new SignResponseDTO()
-                {
-                    AccessToken = accessToken,
-                    RefreshToken = refreshToken,
-                },
-                Message = "Sign in successfully",
-                IsSuccess = true,
-                StatusCode = 200
+                Message = "Error creating user",
+                IsSuccess = false,
+                StatusCode = 400
             };
         }
-        catch (FirebaseAuthException e)
+
+        // Thêm thông tin đăng nhập Google vào tài khoản
+        await _userManager.AddLoginAsync(user, new UserLoginInfo(StaticLoginProvider.Google, googleUser.sub, "GOOGLE"));
+
+        // Kiểm tra và tạo role "Member" nếu chưa có
+        var isRoleExist = await _roleManager.RoleExistsAsync(StaticUserRoles.Customer);
+        if (!isRoleExist)
+        {
+            await _roleManager.CreateAsync(new IdentityRole(StaticUserRoles.Customer));
+        }
+
+        // Thêm role "Member" cho người dùng mới
+        var isRoleAdded = await _userManager.AddToRoleAsync(user, StaticUserRoles.Customer);
+        if (!isRoleAdded.Succeeded)
         {
             return new ResponseDTO()
             {
-                Result = new SignResponseDTO()
-                {
-                    AccessToken = null,
-                    RefreshToken = null,
-                },
-                Message = "Something went wrong",
+                Message = "Error adding role",
                 IsSuccess = false,
                 StatusCode = 500
             };
         }
     }
+
+    // Cập nhật thông tin người dùng
+    await _userManager.UpdateAsync(user);
+
+    // Kiểm tra thông tin bắt buộc đã được cập nhật chưa
+    bool isProfileComplete =
+        !string.IsNullOrEmpty(user.FullName) &&
+        !string.IsNullOrEmpty(user.AvatarUrl);
+
+    // Tạo Access Token và Refresh Token cho user
+    var accessToken = await _tokenService.GenerateJwtAccessTokenAsync(user!);
+    var refreshToken = await _tokenService.GenerateJwtRefreshTokenAsync(user!);
+    await _tokenService.StoreRefreshToken(user!.Id, refreshToken);
+
+    // Nếu hồ sơ chưa hoàn chỉnh, trả về cảnh báo
+    if (!isProfileComplete)
+    {
+        return new ResponseDTO()
+        {
+            Result = new SignByGoogleResponseDTO()
+            {
+                AccessToken = accessToken,
+                RefreshToken = refreshToken,
+                IsProfileComplete = false // Thông báo nếu cần cập nhật thông tin
+            },
+            Message = "Your profile is incomplete. Please update your profile information.",
+            IsSuccess = true, // Vẫn trả về thành công để cấp quyền truy cập
+            StatusCode = 200
+        };
+    }
+
+    // Nếu thông tin đầy đủ
+    return new ResponseDTO()
+    {
+        Result = new SignByGoogleResponseDTO()
+        {
+            AccessToken = accessToken,
+            RefreshToken = refreshToken,
+            IsProfileComplete = true
+        },
+        Message = "Sign in successfully",
+        IsSuccess = true,
+        StatusCode = 200
+    };
+}
 
     /// <summary>
     /// 

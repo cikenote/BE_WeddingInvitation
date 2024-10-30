@@ -9928,11 +9928,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\Wedding.Service.csproj",
+      "projectUniqueName": "D:\\FPT\\Semester 7\\SWD392\\Project\\Wedding\\Wedding.Service\\Wedding.Service.csproj",
       "projectName": "Wedding.Service",
-      "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\Wedding.Service.csproj",
+      "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Project\\Wedding\\Wedding.Service\\Wedding.Service.csproj",
       "packagesPath": "C:\\Users\\Son\\.nuget\\packages\\",
-      "outputPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Service\\obj\\",
+      "outputPath": "D:\\FPT\\Semester 7\\SWD392\\Project\\Wedding\\Wedding.Service\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Son\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9950,14 +9950,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj": {
-              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj"
+            "D:\\FPT\\Semester 7\\SWD392\\Project\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj": {
+              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Project\\Wedding\\Wedding.DataAccess\\Wedding.DataAccess.csproj"
             },
-            "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Wedding.Model.csproj": {
-              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Model\\Wedding.Model.csproj"
+            "D:\\FPT\\Semester 7\\SWD392\\Project\\Wedding\\Wedding.Model\\Wedding.Model.csproj": {
+              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Project\\Wedding\\Wedding.Model\\Wedding.Model.csproj"
             },
-            "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {
-              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\NewProjectBackend\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj"
+            "D:\\FPT\\Semester 7\\SWD392\\Project\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj": {
+              "projectPath": "D:\\FPT\\Semester 7\\SWD392\\Project\\Wedding\\Wedding.Utility\\Wedding.Utility.csproj"
             }
           }
         }
