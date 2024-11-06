@@ -147,12 +147,12 @@ public class StripeService : IStripeService
 
     public async Task<ResponseDTO> AddCard(AddStripeCardDTO addStripeCardDto)
     {
-        var options = new ExternalAccountCreateOptions
+        var options = new AccountExternalAccountCreateOptions
         {
             ExternalAccount = addStripeCardDto.CardToken,
         };
 
-        var service = new ExternalAccountService();
+        var service = new AccountExternalAccountService();
         var externalAccount = await service.CreateAsync(addStripeCardDto.ConnectedAccountId, options);
 
         return new ResponseDTO()

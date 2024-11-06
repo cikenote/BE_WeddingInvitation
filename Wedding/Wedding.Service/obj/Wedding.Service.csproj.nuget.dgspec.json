@@ -56,21 +56,21 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[8.0.10, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[8.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[8.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[8.0.10, )"
             }
           },
           "imports": [
@@ -145,7 +145,7 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[8.0.10, )"
             }
           },
           "imports": [
@@ -226,7 +226,7 @@
             },
             "ClosedXML": {
               "target": "Package",
-              "version": "[0.102.3, )"
+              "version": "[0.104.1, )"
             },
             "Dapper": {
               "target": "Package",
@@ -234,7 +234,7 @@
             },
             "FirebaseAdmin": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.0.1, )"
             },
             "Google.Cloud.Storage.V1": {
               "target": "Package",
@@ -242,23 +242,23 @@
             },
             "Hangfire": {
               "target": "Package",
-              "version": "[1.8.14, )"
+              "version": "[1.8.15, )"
             },
             "Hangfire.AspNetCore": {
               "target": "Package",
-              "version": "[1.8.14, )"
+              "version": "[1.8.15, )"
             },
             "Hangfire.Core": {
               "target": "Package",
-              "version": "[1.8.14, )"
+              "version": "[1.8.15, )"
             },
             "Hangfire.NetCore": {
               "target": "Package",
-              "version": "[1.8.14, )"
+              "version": "[1.8.15, )"
             },
             "Hangfire.SqlServer": {
               "target": "Package",
-              "version": "[1.8.14, )"
+              "version": "[1.8.15, )"
             },
             "Microsoft.ApplicationInsights.AspNetCore": {
               "target": "Package",
@@ -270,15 +270,15 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[8.0.10, )"
             },
             "Microsoft.Extensions.Caching.StackExchangeRedis": {
               "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[8.0.10, )"
             },
             "Microsoft.Extensions.Http": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.1, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -286,15 +286,15 @@
             },
             "NuGet.Packaging": {
               "target": "Package",
-              "version": "[6.11.0, )"
+              "version": "[6.11.1, )"
             },
             "RestSharp": {
               "target": "Package",
-              "version": "[112.0.0, )"
+              "version": "[112.1.0, )"
             },
             "Stripe.net": {
               "target": "Package",
-              "version": "[45.11.0, )"
+              "version": "[47.0.0, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",

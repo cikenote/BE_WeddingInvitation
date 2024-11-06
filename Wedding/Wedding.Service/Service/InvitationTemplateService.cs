@@ -364,7 +364,7 @@ public class InvitationTemplateService : IInvitationTemplateService
             var responseList = new List<string>();
             foreach (var image in uploadInvationTeamplateBackgroundImg.File)
             {
-                var filePath = $"{StaticFirebaseFolders.EventPhoto}/{invationTemplate.BackgroundImageUrl}/Background";
+                var filePath = $"{StaticFirebaseFolders.EventPhoto}/{invationTemplate.TemplateId}/Background";
                 var responseDto = await _firebaseService.UploadImage(image, filePath);
                 if (responseDto.IsSuccess)
                 {

@@ -361,7 +361,7 @@ public class WeddingService : IWeddingService
             var responseList = new List<string>();
             foreach (var image in uploadCourseVersionBackgroundImg.File)
             {
-                var filePath = $"{StaticFirebaseFolders.EventPhoto}/{wedding.WeddingPhotoUrl}/Background";
+                var filePath = $"{StaticFirebaseFolders.EventPhoto}/{wedding.WeddingId}/Background";
                 var responseDto = await _firebaseService.UploadImage(image, filePath);
                 if (responseDto.IsSuccess)
                 {

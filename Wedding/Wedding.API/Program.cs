@@ -69,11 +69,12 @@ builder.Services.AddCors(options =>
     var originFirebase = builder.Configuration["AllowOrigin:FrontEndFirebase"];
     var originVercel = builder.Configuration["AllowOrigin:FrontEndVercel"];
     var originK8S = builder.Configuration["AllowOrigin:FrontEndK8S"];
+    var baseUrl = builder.Configuration["AllowOrigin:BaseUrl"];
     options.AddPolicy("AllowSpecificOrigin",
         builder => builder
-            .WithOrigins(originDefault, originFirebase, originVercel, originK8S)
-        .AllowAnyHeader()
-        .AllowAnyMethod()
+            .WithOrigins(originDefault, originFirebase, originVercel, originK8S, baseUrl)
+            .AllowAnyHeader()
+            .AllowAnyMethod()
             .AllowCredentials());
 });
 
@@ -92,11 +93,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-else
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseCors("AllowSpecificOrigin");
 

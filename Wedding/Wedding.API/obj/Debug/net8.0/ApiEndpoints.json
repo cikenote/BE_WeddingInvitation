@@ -1465,7 +1465,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.EventPhotoController",
     "Method": "UploadInvationTeamplateBackground",
-    "RelativePath": "api/event-photo/background/{event-photo-id}",
+    "RelativePath": "api/event-photo/background/{EventPhotoId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -1473,17 +1473,12 @@
       {
         "Name": "EventPhotoId",
         "Type": "System.Guid",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "File",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
         "IsRequired": false
-      },
-      {
-        "Name": "event-photo-id",
-        "Type": "",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": [
@@ -1501,7 +1496,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.EventPhotoController",
     "Method": "DisplayEventPhotoBackground",
-    "RelativePath": "api/event-photo/background/{event-photo-id}",
+    "RelativePath": "api/event-photo/background/{EventPhotoId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1509,11 +1504,6 @@
       {
         "Name": "EventPhotoId",
         "Type": "System.Guid",
-        "IsRequired": false
-      },
-      {
-        "Name": "event-photo-id",
-        "Type": "",
         "IsRequired": true
       }
     ],
@@ -1605,7 +1595,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.EventController",
     "Method": "UploadInvationTeamplateBackground",
-    "RelativePath": "api/event/background/{event-id}",
+    "RelativePath": "api/event/background/{EventId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -1613,17 +1603,12 @@
       {
         "Name": "EventId",
         "Type": "System.Guid",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "File",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
         "IsRequired": false
-      },
-      {
-        "Name": "event-id",
-        "Type": "",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": [
@@ -1641,7 +1626,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.EventController",
     "Method": "DisplayEventPhotoBackground",
-    "RelativePath": "api/event/background/{event-id}",
+    "RelativePath": "api/event/background/{EventId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1649,11 +1634,6 @@
       {
         "Name": "EventId",
         "Type": "System.Guid",
-        "IsRequired": false
-      },
-      {
-        "Name": "event-id",
-        "Type": "",
         "IsRequired": true
       }
     ],
@@ -2057,6 +2037,166 @@
     ]
   },
   {
+    "ContainingType": "Wedding.API.Controllers.InvitationHtmlController",
+    "Method": "GetAllInvitationHtml",
+    "RelativePath": "api/invitation-html",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filterOn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "filterQuery",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "isAscending",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Wedding.Model.DTO.ResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Wedding.API.Controllers.InvitationHtmlController",
+    "Method": "CreateInvitation",
+    "RelativePath": "api/invitation-html",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createInvitationHtmlDTO",
+        "Type": "Wedding.Model.DTO.CreateInvitationHtmlDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Wedding.Model.DTO.ResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Wedding.API.Controllers.InvitationHtmlController",
+    "Method": "GetInvitationHtmlById",
+    "RelativePath": "api/invitation-html/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Wedding.Model.DTO.ResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Wedding.API.Controllers.InvitationHtmlController",
+    "Method": "UpdateInvitationHtml",
+    "RelativePath": "api/invitation-html/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateInvitationHtmlDTO",
+        "Type": "Wedding.Model.DTO.UpdateInvitationHtmlDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Wedding.Model.DTO.ResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Wedding.API.Controllers.InvitationHtmlController",
+    "Method": "DeleteInvitationHtml",
+    "RelativePath": "api/invitation-html/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Wedding.Model.DTO.ResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Wedding.API.Controllers.InvitationTemplateController",
     "Method": "GetAllActivityLogs",
     "RelativePath": "api/invitation-template",
@@ -2219,7 +2359,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.InvitationTemplateController",
     "Method": "UploadInvationTeamplateBackground",
-    "RelativePath": "api/invitation-template/background/{template-id}",
+    "RelativePath": "api/invitation-template/background/{TemplateId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -2227,17 +2367,12 @@
       {
         "Name": "TemplateId",
         "Type": "System.Guid",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "File",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
         "IsRequired": false
-      },
-      {
-        "Name": "template-id",
-        "Type": "",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": [
@@ -2254,8 +2389,8 @@
   },
   {
     "ContainingType": "Wedding.API.Controllers.InvitationTemplateController",
-    "Method": "DisplayInvationTeamplateBackground",
-    "RelativePath": "api/invitation-template/background/{template-id}",
+    "Method": "GetInvationTeamplateBackgrounds",
+    "RelativePath": "api/invitation-template/background/{TemplateId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2263,11 +2398,6 @@
       {
         "Name": "TemplateId",
         "Type": "System.Guid",
-        "IsRequired": false
-      },
-      {
-        "Name": "template-id",
-        "Type": "",
         "IsRequired": true
       }
     ],
@@ -2359,7 +2489,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.InvitationController",
     "Method": "UploadInvationBackground",
-    "RelativePath": "api/invitation/background/{invation-id}",
+    "RelativePath": "api/invitation/background/{InvationId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -2367,17 +2497,12 @@
       {
         "Name": "InvationId",
         "Type": "System.Guid",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "File",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
         "IsRequired": false
-      },
-      {
-        "Name": "invation-id",
-        "Type": "",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": [
@@ -2394,8 +2519,8 @@
   },
   {
     "ContainingType": "Wedding.API.Controllers.InvitationController",
-    "Method": "DisplayInvationTeamplateBackground",
-    "RelativePath": "api/invitation/background/{invation-id}",
+    "Method": "GetInvationBackground",
+    "RelativePath": "api/invitation/background/{InvationId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2403,11 +2528,6 @@
       {
         "Name": "InvationId",
         "Type": "System.Guid",
-        "IsRequired": false
-      },
-      {
-        "Name": "invation-id",
-        "Type": "",
         "IsRequired": true
       }
     ],
@@ -2636,6 +2756,16 @@
   },
   {
     "ContainingType": "Wedding.API.Controllers.PaymentController",
+    "Method": "PaymentCallback",
+    "RelativePath": "api/payment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Wedding.API.Controllers.PaymentController",
     "Method": "GetCustomerBalance",
     "RelativePath": "api/payment/customer/balance",
     "HttpMethod": "GET",
@@ -2839,6 +2969,22 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "Wedding.API.Controllers.PaymentController",
+    "Method": "CreatePaymentUrl",
+    "RelativePath": "api/payment/vnpay/create-payment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Wedding.Model.DTO.PaymentInformationModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Wedding.API.Controllers.WebsiteController",
@@ -3297,7 +3443,7 @@
   {
     "ContainingType": "Wedding.API.Controllers.WeddingController",
     "Method": "UploadWeddingBackground",
-    "RelativePath": "api/wedding/background/{wedding-id}",
+    "RelativePath": "api/wedding/background/{WeddingId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -3305,17 +3451,12 @@
       {
         "Name": "WeddingId",
         "Type": "System.Guid",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "File",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
         "IsRequired": false
-      },
-      {
-        "Name": "wedding-id",
-        "Type": "",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": [
@@ -3332,8 +3473,8 @@
   },
   {
     "ContainingType": "Wedding.API.Controllers.WeddingController",
-    "Method": "DisplayInvationTeamplateBackground",
-    "RelativePath": "api/wedding/background/{wedding-id}",
+    "Method": "GetWeddingBackground",
+    "RelativePath": "api/wedding/background/{WeddingId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -3341,11 +3482,6 @@
       {
         "Name": "WeddingId",
         "Type": "System.Guid",
-        "IsRequired": false
-      },
-      {
-        "Name": "wedding-id",
-        "Type": "",
         "IsRequired": true
       }
     ],

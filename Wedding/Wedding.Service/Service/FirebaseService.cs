@@ -36,19 +36,28 @@ public class FirebaseService : IFirebaseService
         var fileName = $"{Guid.NewGuid()}_{file.FileName}";
 
         var filePath = $"{folder}/{fileName}";
-
-        string url;
-
+        
         await using (var stream = file.OpenReadStream())
         {
-            var result = await _storageClient.UploadObjectAsync(_bucketName, filePath, null, stream);
+            var result = await _storageClient.UploadObjectAsync(
+                _bucketName,
+                filePath,
+                file.ContentType, 
+                stream,
+                new UploadObjectOptions
+                {
+                    PredefinedAcl = PredefinedObjectAcl.PublicRead 
+                }
+            );
         }
+        
+        string publicUrl = $"https://storage.googleapis.com/{_bucketName}/{filePath}";
 
         return new ResponseDTO()
         {
             IsSuccess = true,
             StatusCode = 200,
-            Result = filePath,
+            Result = publicUrl,
             Message = "Upload image successfully!"
         };
     }

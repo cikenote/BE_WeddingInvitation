@@ -9,7 +9,7 @@ namespace Wedding.API.Controllers
 {
     [Route("api/invitation-template")]
     [ApiController]
-    // [Authorize(Roles = StaticUserRoles.Admin + "," + StaticUserRoles.Customer)]
+    [Authorize(Roles = StaticUserRoles.Admin + "," + StaticUserRoles.Customer)]
     public class InvitationTemplateController : ControllerBase
     {
         private readonly IInvitationTemplateService _invitationTemplateService;

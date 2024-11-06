@@ -347,7 +347,7 @@ public class InvitationService : IInvitationService
             var responseList = new List<string>();
             foreach (var image in uploadInvationBackgroundImg.File)
             {
-                var filePath = $"{StaticFirebaseFolders.EventPhoto}/{invation.InvitationPhotoUrl}/Background";
+                var filePath = $"{StaticFirebaseFolders.EventPhoto}/{invation.InvitationId}/Background";
                 var responseDto = await _firebaseService.UploadImage(image, filePath);
                 if (responseDto.IsSuccess)
                 {
