@@ -70,9 +70,10 @@ builder.Services.AddCors(options =>
     var originVercel = builder.Configuration["AllowOrigin:FrontEndVercel"];
     var originK8S = builder.Configuration["AllowOrigin:FrontEndK8S"];
     var baseUrl = builder.Configuration["AllowOrigin:BaseUrl"];
+    var firebaseGoogleToken = builder.Configuration["AllowOrigin:FirebaseGoogleToken"];
     options.AddPolicy("AllowSpecificOrigin",
         builder => builder
-            .WithOrigins(originDefault, originFirebase, originVercel, originK8S, baseUrl)
+            .WithOrigins(originDefault, originFirebase, originVercel, originK8S, baseUrl, firebaseGoogleToken)
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials());
