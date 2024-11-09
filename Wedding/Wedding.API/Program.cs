@@ -22,7 +22,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(
-        builder.Configuration.GetConnectionString(StaticConnectionString.SQLDB_AzureConnection));
+        builder.Configuration.GetConnectionString(StaticConnectionString.SQLDB_DefaultConnection));
 });
 
 // Set time token
@@ -46,7 +46,7 @@ builder.AddRedisCache();
 
 // Register hangfire services life cycle
 // Base on Extensions.HangfireServiceExtensions
-builder.AddHangfireServices();
+// builder.AddHangfireServices();
 
 builder.Services.AddEndpointsApiExplorer();
 
@@ -100,12 +100,12 @@ app.UseSwaggerUI();
 
 app.UseCors("AllowSpecificOrigin");
 
-app.UseHangfireDashboard();
-
-app.MapHangfireDashboard("/hangfire");
-
-RecurringJob.AddOrUpdate<IAuthService>(job => job.SendClearEmail(3), "0 0 1 */3 *");
-RecurringJob.AddOrUpdate<IAuthService>(job => job.ClearUser(), "0 0 1 */4 *");
+// app.UseHangfireDashboard();
+//
+// app.MapHangfireDashboard("/hangfire");
+//
+// RecurringJob.AddOrUpdate<IAuthService>(job => job.SendClearEmail(3), "0 0 1 */3 *");
+// RecurringJob.AddOrUpdate<IAuthService>(job => job.ClearUser(), "0 0 1 */4 *");
 
 app.UseHttpsRedirection();
 
