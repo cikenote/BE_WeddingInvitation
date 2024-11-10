@@ -1294,3 +1294,4 @@ D:\FPT\Semester 7\SWD392\Project\Wedding\Wedding.API\bin\Release\net8.0\sv\Hangf
 D:\FPT\Semester 7\SWD392\Project\Wedding\Wedding.API\bin\Release\net8.0\tr-TR\Hangfire.Core.resources.dll
 D:\FPT\Semester 7\SWD392\Project\Wedding\Wedding.API\bin\Release\net8.0\zh-TW\Hangfire.Core.resources.dll
 D:\FPT\Semester 7\SWD392\Project\Wedding\Wedding.API\bin\Release\net8.0\zh\Hangfire.Core.resources.dll
+D:\FPT\Semester 7\SWD392\Project\Wedding\Wedding.API\bin\Release\net8.0\wedding-firebase-storage-d46bbc474f44.json

@@ -11,7 +11,7 @@ public static class FirebaseServiceExtensions
     public static IServiceCollection AddFirebaseServices(this IServiceCollection services)
     {
         var credentialPath = Path.Combine(Directory.GetCurrentDirectory(),
-            "wedding-firebase-storage-firebase-adminsdk-1jpbt-bc377cae49.json");
+            "wedding-firebase-storage-d46bbc474f44.json");
         FirebaseApp.Create(new AppOptions()
         {
             Credential = GoogleCredential.FromFile(credentialPath)
